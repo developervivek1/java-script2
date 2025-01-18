@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background: #5cb85c;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #4cae4c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .actions button {
+            margin-right: 5px;
+            padding: 5px 10px;
+        }
+        .actions .edit {
+            background-color: #0275d8;
+        }
+        .actions .delete {
+            background-color: #d9534f;
+        }
+        .actions button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CRUD App</h1>
+        <form id="itemForm">
+            <input type="text" id="itemInput" placeholder="Enter an item" required>
+            <button type="submit">Add</button>
+        </form>
+        <table id="itemTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Item</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const itemForm = document.getElementById('itemForm');
+        const itemInput = document.getElementById('itemInput');
+        const itemTable = document.getElementById('itemTable').querySelector('tbody');
+
+        let items = [];
+        let editingIndex = -1;
+
+        // Function to render the table
+        function renderTable() {
+            itemTable.innerHTML = '';
+            items.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${item}</td>
+                    <td class="actions">
+                        <button class="edit" onclick="editItem(${index})">Edit</button>
+                        <button class="delete" onclick="deleteItem(${index})">Delete</button>
+                    </td>
+                `;
+                itemTable.appendChild(row);
+            });
+        }
+
+        // Add or Update Item
+        itemForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const value = itemInput.value.trim();
+
+            if (value) {
+                if (editingIndex === -1) {
+                    // Add new item
+                    items.push(value);
+                } else {
+                    // Update existing item
+                    items[editingIndex] = value;
+                    editingIndex = -1;
+                }
+                itemInput.value = '';
+                renderTable();
+            }
+        });
+
+        // Edit Item
+        function editItem(index) {
+            itemInput.value = items[index];
+            editingIndex = index;
+        }
+
+        // Delete Item
+        function deleteItem(index) {
+            items.splice(index, 1);
+            renderTable();
+        }
+
+        // Initial Render
+        renderTable();
+    </script>
+</body>
+</html>

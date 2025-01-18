@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+</head>
+<body>
+    
+
+    <div class="counter-con">
+        <h1><span>Counter:</span> <span class="counter">00</span></h1>
+        <button class="increase" onclick="increase()">+</button>
+        <button class="decrease" onclick="decrease()">-</button>
+        <button type="reset" onclick="reset()">reset</button>
+    </div>
+
+    <script>
+        let count =0;
+        
+        function updateCount(){
+            const counter = document.querySelector('.counter');
+            counter.innerHTML = count;
+        }
+        function increase(){
+            count = count+1;
+            updateCount();
+        }
+        function decrease(){
+            if(count>0){
+                count = count-1
+            }
+            updateCount();
+        }
+        function reset(){
+            count = 0;
+            updateCount();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+        }
+        .time-con{
+            width: 200px;
+            height: auto;
+            padding: 1.5rem;
+            box-shadow: 1px 2px 3px 4px rgb(190, 189, 189);
+            border-radius: 10px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            .timeNow{
+                font-size: 1.5rem;
+                color: green;
+            }
+            button{
+                background-color: antiquewhite;
+                border: 0;
+                outline: 0;
+                padding: 5px 10px;
+                border-radius: 50px;
+                border: 1px solid orange;
+                cursor: pointer;
+                
+            }
+            .secNow{
+                    font-size: 3rem;
+                    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    color: rgb(214, 43, 43);
+                    font-weight: 600;
+                }
+        }
+    </style>
+    <div class="container">
+       
+        <div class="time-con">
+            <div>
+                <h2>Time is Now</h2>
+                <span class="timeNow"></span><span class="secNow"></span>
+                    <br><br>
+                <button class="stopTime">Stop Time</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const stopTime = document.querySelector('.stopTime');
+        const timeNow = document.querySelector('.timeNow');
+        const secNow = document.querySelector('.secNow');
+
+        const timeFun = function myTime(){
+            const time1 = new Date();
+            const styleSec = `:${time1.getSeconds()}`
+            const finalTime = `${time1.getHours()}:${time1.getMinutes()}`
+            timeNow.innerHTML = finalTime;
+            secNow.innerHTML = styleSec;
+            
+        }
+
+        const clFun = setInterval(timeFun,1000)
+
+        stopTime.addEventListener('click',function(){
+           const clInt = clearInterval(clFun);
+           stopTime
+        })
+
+            
+   
+
+    </script>
+
+</body>
+</html>

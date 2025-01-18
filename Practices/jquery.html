@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<style>
+    .title{
+        font-size: 100px;
+        font-weight: bolder;
+        color: green;
+        font-family: cursive;
+    }
+</style>
+<body>
+    <h1 style="border: 1px solid green;">hello world</h1>
+    <a class="anchor" target="_blank">go to link</a>
+    <button>click</button>
+    <button class="btn">click</button>
+    <button class="showText">show text</button>
+    <button class="hideText">hide text</button>
+
+   
+    <p></p>
+
+
+    <script>
+        
+        $("h1").addClass("title");
+        $("h1").hasClass("title");
+        $("button").text("Click Me !");
+        $("button.btn").html("<b>Im bold</b>");
+        $("a.anchor").attr("href", "https://filejet.com/", "target","_bl");
+        $("button").click(function(){
+            $("h1").css("color","green")
+        })
+        $("button.btn").click(function(){
+            $("h1").css("color","purple")
+        })
+        $("h1").before("<button>before element</button>");
+        $("h1").after("<button>after element</button>");
+        $("h1").prepend("<button>button prepend text</button>");
+        $("h1").append("<button>button append text</button>");
+        $("button.hideText").click(function(){
+            $("h1").hide();
+        })  
+        $("button.showText").click(function(){
+            $("h1").show();
+        })  
+        $("button.btn").click(function(){
+            $("h1").toggle();
+        })  
+
+        // $("p").on("mouseover", function(event){
+        //     $("p").add
+        // })
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+</head>
+<body>
+    <style>
+        .tabs-btn{
+            background-color: rgb(73, 73, 73);
+            border: 0;
+            outline: 0;
+            padding: 10px 20px;
+            color: white;
+        }
+        .tabs-btn.active{
+            background-color: black;
+        }
+        .tabs-content{
+            background-color: rgb(201, 202, 203);
+            padding: 0.5rem;
+            display: none;
+        }
+        .tabs-content.active{
+            display: block;
+        }
+    </style>
+
+    <div class="tabs-conatiner">
+        <div class="tabs-btn-group">
+            <button class="tabs-btn active" data-tab="menu-1">Tabs one</button>
+            <button class="tabs-btn" data-tab="menu-2">Tabs two</button>
+            <button class="tabs-btn" data-tab="menu-3">Tabs three</button>
+        </div>
+        <div class="tabs-contents">
+            <div id="menu-1" class="tabs-content active">
+                <p>1.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita veniam ex reiciendis, blanditiis fugiat sunt pariatur sed id illum hic consectetur. Aliquam sunt voluptatem officia voluptate est sequi eos?</p>
+            </div>
+            <div id="menu-2" class="tabs-content">
+                <p>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita veniam ex reiciendis, blanditiis fugiat sunt pariatur sed id illum hic consectetur. Aliquam sunt voluptatem officia voluptate est sequi eos?</p>
+            </div>
+            <div id="menu-3" class="tabs-content">
+                <p>3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam porro earum labore eveniet necessitatibus. Facilis velit aperiam reprehenderit possimus error, accusamus assumenda nihil nobis incidunt, eligendi rerum animi sed quia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita veniam ex reiciendis, blanditiis fugiat sunt pariatur sed id illum hic consectetur. Aliquam sunt voluptatem officia voluptate est sequi eos?</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabsBtn = document.querySelectorAll('.tabs-btn');
+        const tabsContent = document.querySelectorAll('.tabs-content');
+
+        tabsBtn.forEach((tabBtn)=>{
+            tabBtn.addEventListener('click',function(){
+                tabsBtn.forEach((tabBtn)=>{
+                    tabBtn.classList.remove('avtive');
+                })
+                tabsContent.forEach((tabContent)=>{
+                    tabContent.classList.remove('active');
+                })
+                tabBtn.classList.add('active');
+                const targetTab = tabBtn.getAttribute('data-tab');
+                document.getElementById(targetTab).classList.add('active');
+            })
+        })
+    </script>
+</body>
+</html>

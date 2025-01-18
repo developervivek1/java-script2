@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple CRUD App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input {
+      padding: 5px;
+      margin-right: 5px;
+    }
+    button {
+      padding: 5px;
+      margin: 2px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin: 5px 0;
+    }
+    [contenteditable] {
+      padding: 2px;
+      border: 1px dashed #ccc;
+      border-radius: 3px;
+    }
+    [contenteditable]:focus {
+      outline: 2px solid #007bff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple CRUD App</h1>
+  <input type="text" id="itemInput" placeholder="Add an item">
+  <button onclick="addItem()">Add</button>
+  <ul id="itemList"></ul>
+
+  <script>
+    function addItem() {
+      const input = document.getElementById('itemInput');
+      const itemText = input.value.trim();
+      if (!itemText) return; // Ignore empty inputs
+      
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span>${itemText}</span>
+        <button onclick="editItem(this)">Edit</button>
+        <button onclick="deleteItem(this)">Delete</button>
+      `;
+      document.getElementById('itemList').appendChild(li);
+      input.value = '';
+    }
+
+    function editItem(button) {
+      const li = button.parentElement;
+      const span = li.querySelector('span');
+      
+      // Make content editable
+      span.contentEditable = true;
+      span.focus();
+
+      // Change button text to "Save"
+      button.textContent = 'Save';
+      button.onclick = function () {
+        saveEdit(this);
+      };
+    }
+
+    function saveEdit(button) {
+      const li = button.parentElement;
+      const span = li.querySelector('span');
+      
+      // Remove content editable
+      span.contentEditable = false;
+
+      // Change button text back to "Edit"
+      button.textContent = 'Edit';
+      button.onclick = function () {
+        editItem(this);
+      };
+    }
+
+    function deleteItem(button) {
+      const li = button.parentElement;
+      li.remove();
+    }
+  </script>
+</body>
+</html>

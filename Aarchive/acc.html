@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        .acc-item1,.acc-item2{
+            margin-bottom: 1rem;
+        }
+        .acc-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(49, 49, 49);
+            padding: 1rem;
+            color: white;
+            button{
+                background-color: transparent;
+                color: white;
+                border: 0;
+                outline: 0;
+            }
+        }
+        .acc-body{
+            background-color: rgb(208, 208, 208);
+            padding: 1rem;
+            display: none;
+            animation: anim 0.5s ease-in-out;
+        }
+        .acc-header.active + .acc-body{
+            display: block;
+        }
+        .acc-header.active span::after{
+            content: "-";
+        }
+        .acc-header span::after{
+            content: "+";
+        }
+        @keyframes anim{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+    </style>
+    
+    <div class="acc-container">
+        <div class="acc-item1">
+            <div class="acc-header active">
+                <button class="acc-header1">Header one</button>
+                <span></span>
+            </div>
+            <div class="acc-body active">
+                <p>1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae distinctio minima nobis adipisci quas, fugiat laboriosam accusantium, aut a numquam quos, repudiandae laborum eligendi libero quibusdam necessitatibus nihil itaque? Sit!</p>
+            </div>
+        </div>
+        <div class="acc-item2">
+            <div class="acc-header">
+                <button class="acc-header1">Header two</button>
+                <span></span>
+            </div>
+            <div class="acc-body">
+                <p>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae distinctio minima nobis adipisci quas, fugiat laboriosam accusantium, aut a numquam quos, repudiandae laborum eligendi libero quibusdam necessitatibus nihil itaque? Sit!</p>
+            </div>
+        </div>
+        <div class="acc-item3">
+            <div class="acc-header">
+                <button class="acc-header1">Header two</button>
+                <span></span>
+            </div>
+            <div class="acc-body">
+                <p>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae distinctio minima nobis adipisci quas, fugiat laboriosam accusantium, aut a numquam quos, repudiandae laborum eligendi libero quibusdam necessitatibus nihil itaque? Sit!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const headers = document.querySelectorAll('.acc-header');
+        const contents = document.querySelectorAll('.acc-body');
+   
+
+        headers.forEach((header,index)=>{
+            header.addEventListener('click',function(){
+                headers.forEach((header,ind)=>{
+                    if(index===ind){
+                        header.classList.add('active');
+                    }else{
+                        header.classList.remove('active')
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

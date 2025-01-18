@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container{
+            height: 100%;
+            position: relative;
+        }
+        .nav{
+            width: 300px;
+            height: 100%;
+            background-color: aquamarine;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0px;
+            animation: anim 0.3s linear;
+            display: none;
+            z-index: 99;
+            .closeBtn{
+                float: inline-end;
+            }
+            ul{
+                margin: 0;
+                list-style: none;
+                li{
+                    margin-bottom: 1rem;
+                    a{
+                        text-decoration: none;
+                        color: black;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+
+        @keyframes anim{
+            0%{
+               left: -300px;
+            }
+            100%{
+                left: 0;
+            }
+        }
+
+        .opacity{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top:0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 99;
+            opacity: 0.8;
+            display: none;
+        }
+        
+    </style>
+    <div class="container">
+        <button class="openNav">Open</button>
+        <div class="opacity"></div>
+        <div class="nav">
+            <div>
+                <button class="closeBtn">X</button>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Products</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const opacity= document.querySelector('.opacity');
+        document.querySelector('.openNav').addEventListener('click', function(){
+            document.querySelector('.nav').style.display = 'block';
+            opacity.style.display ='block';
+        })
+        document.querySelector('.closeBtn').addEventListener('click', function(){
+            document.querySelector('.nav').style.display = 'none';
+            opacity.style.display ='none';
+        })
+
+        opacity.addEventListener('click', function(){
+            document.querySelector('.nav').style.display = 'none';
+            opacity.style.display ='none';
+        })
+       
+    </script>
+</body>
+</html>
