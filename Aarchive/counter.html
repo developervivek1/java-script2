@@ -6,7 +6,19 @@
     <title>Counter App</title>
 </head>
 <body>
-    
+    <style>
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        code {
+            font-family: Consolas, "Courier New", monospace;
+        }
+    </style>
 
     <div class="counter-con">
         <h1><span>Counter:</span> <span class="counter">00</span></h1>
@@ -37,5 +49,29 @@
             updateCount();
         }
     </script>
+
+    <pre>
+        <code>
+                let count =0;
+                function updateCount(){
+                    const counter = document.querySelector('.counter');
+                    counter.innerHTML = count;
+                }
+                function increase(){
+                    count = count+1;
+                    updateCount();
+                }
+                function decrease(){
+                    if(count>0){
+                        count = count-1
+                    }
+                    updateCount();
+                }
+                function reset(){
+                    count = 0;
+                    updateCount();
+                }
+        </code>
+    </pre>
 </body>
 </html>

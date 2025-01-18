@@ -8,6 +8,17 @@
 <body>
 
     <style>
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        code {
+            font-family: Consolas, "Courier New", monospace;
+        }
         .acc-item1,.acc-item2{
             margin-bottom: 1rem;
         }
@@ -97,5 +108,26 @@
             })
         })
     </script>
+
+
+<pre>
+    <code>
+   
+const headers = document.querySelectorAll('.acc-header');
+const contents = document.querySelectorAll('.acc-body');
+headers.forEach((header,index)=>{
+    header.addEventListener('click',function(){
+        headers.forEach((header,ind)=>{
+            if(index===ind){
+                header.classList.add('active');
+            }else{
+                header.classList.remove('active')
+            }
+        })
+    })
+})
+    
+    </code>
+</pre>
 </body>
 </html>

@@ -7,6 +7,17 @@
 </head>
 <body>
     <style>
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        code {
+            font-family: Consolas, "Courier New", monospace;
+        }
         body{
             margin: 0;
         }
@@ -87,10 +98,31 @@
            stopTime
         })
 
-            
-   
-
     </script>
+
+    <pre>
+        <code>
+                const stopTime = document.querySelector('.stopTime');
+                const timeNow = document.querySelector('.timeNow');
+                const secNow = document.querySelector('.secNow');
+        
+                const timeFun = function myTime(){
+                    const time1 = new Date();
+                    const styleSec = `:${time1.getSeconds()}`
+                    const finalTime = `${time1.getHours()}:${time1.getMinutes()}`
+                    timeNow.innerHTML = finalTime;
+                    secNow.innerHTML = styleSec;
+                    
+                }
+        
+                const clFun = setInterval(timeFun,1000)
+        
+                stopTime.addEventListener('click',function(){
+                   const clInt = clearInterval(clFun);
+                   stopTime
+                })
+        </code>
+    </pre>
 
 </body>
 </html>

@@ -7,6 +7,17 @@
 </head>
 <body>
     <style>
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        code {
+            font-family: Consolas, "Courier New", monospace;
+        }
         .tabs-btn{
             background-color: rgb(73, 73, 73);
             border: 0;
@@ -64,5 +75,26 @@
             })
         })
     </script>
+
+    <pre>
+        <code>
+            const tabsBtn = document.querySelectorAll('.tabs-btn');
+            const tabsContent = document.querySelectorAll('.tabs-content');
+
+            tabsBtn.forEach((tabBtn)=>{
+                tabBtn.addEventListener('click',function(){
+                    tabsBtn.forEach((tabBtn)=>{
+                        tabBtn.classList.remove('avtive');
+                    })
+                    tabsContent.forEach((tabContent)=>{
+                        tabContent.classList.remove('active');
+                    })
+                    tabBtn.classList.add('active');
+                    const targetTab = tabBtn.getAttribute('data-tab');
+                    document.getElementById(targetTab).classList.add('active');
+                })
+            })
+        </code>
+    </pre>
 </body>
 </html>

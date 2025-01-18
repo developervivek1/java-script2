@@ -7,6 +7,17 @@
 </head>
 <body>
     <style>
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        code {
+            font-family: Consolas, "Courier New", monospace;
+        }
         .modal{
             height:100%;
             width: 100%;
@@ -75,5 +86,26 @@
             }
         })
     </script>
+
+    <pre>
+        <code>
+        const modal = document.querySelector('#modal');
+        const modalBody = document.querySelector('.modal-content');
+        const openModal = document.querySelector('.openModal');
+        const closeModal = document.querySelector('.closeModal');
+
+        openModal.addEventListener('click', function(){
+            modal.style.display = "flex";
+        })
+        closeModal.addEventListener("click", function(){
+            modal.style.display = "none";
+        })
+        window.addEventListener('click',function(e){
+            if(e.target===modal){
+                modal.style.display = "none";
+            }
+        })
+        </code>
+    </pre>
 </body>
 </html>

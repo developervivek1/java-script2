@@ -7,6 +7,17 @@
 </head>
 <body>
     <style>
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        code {
+            font-family: Consolas, "Courier New", monospace;
+        }
         html{
             height: 100%;
         }
@@ -104,5 +115,24 @@
         })
        
     </script>
+
+    <pre>
+        <code>
+            const opacity= document.querySelector('.opacity');
+        document.querySelector('.openNav').addEventListener('click', function(){
+            document.querySelector('.nav').style.display = 'block';
+            opacity.style.display ='block';
+        })
+        document.querySelector('.closeBtn').addEventListener('click', function(){
+            document.querySelector('.nav').style.display = 'none';
+            opacity.style.display ='none';
+        })
+
+        opacity.addEventListener('click', function(){
+            document.querySelector('.nav').style.display = 'none';
+            opacity.style.display ='none';
+        })
+        </code>
+    </pre>
 </body>
 </html>
