@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #showData{
+            position: relative;
+            width: 350px;
+            background-color: beige;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            .btn{
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+        }
+    </style>
+   <section>
+        <form id="submitData">
+            <input type="text" placeholder="name" name="" id="name"> <br><br>
+            <input type="email" placeholder="email" name="" id="email"> <br><br>
+            <input type="age" placeholder="age" name="" id="age"> <br><br>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="showData"></div>
+   </section>
+
+   <script>
+        const submitData = document.querySelector('#submitData');
+
+        submitData.addEventListener('submit', function(e){
+            e.preventDefault();
+            const name = document.querySelector('#name').value;
+            const email = document.querySelector('#email').value;
+            const age = document.querySelector('#age').value;
+            const formData = {name,email,age};
+
+            // retrive existing data from local
+            const existingData = JSON.parse(localStorage.getItem('formDataList')) || [];
+
+            //append new data to form data
+            existingData.push(formData);
+
+            //save updated data to local storage
+            localStorage.setItem('formDataList', JSON.stringify(existingData));
+
+            //Display the updated data
+            showData(existingData);
+        })
+           
+        function showData(dataList){
+                const showData1 = document.querySelector('#showData');
+
+                dataList.forEach((data, index) => {
+                    showData1.innerHTML += `
+                    <div style="margin-bottom: 10px; background-color:white;padding:10px;border-radius:10px;position:relative;">
+                        <p><strong>Entry ${index + 1}</strong></p>
+                        <p><strong>Name:</strong> ${data.name}</p>
+                        <p><strong>Email:</strong> ${data.email}</p>
+                        <p><strong>Age:</strong> ${data.age}</p>
+                        <hr>
+                        <button class="delete-record" data-index="${index}">X</button>
+                    </div>
+                    `;              
+                });
+
+            }
+
+            window.addEventListener('load', () => {
+                const savedData = JSON.parse(localStorage.getItem('formDataList'));
+                if (savedData) {
+                    showData(savedData);
+                }
+            });
+           
+
+   </script>
+</body>
+</html>

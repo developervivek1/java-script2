@@ -670,6 +670,95 @@
     </code>
 </pre>
 
-    
+<pre>
+    <code>
+        let landPlots = [
+    { location: "A1", status: "Available" },
+    { location: "B2", status: "Sold" },
+    { location: "C3", status: "Available" },
+    { location: "D4", status: "Sold" },
+    { location: "E5", status: "Available" }
+  ];
+  
+  
+  const filterdata = landPlots.filter((data,index)=>{
+      if(data.status === 'Sold'){
+          return data.status = 'Unsold';
+      }
+  });
+  console.log(filterdata);
+
+
+//output
+[
+  { location: 'B2', status: 'Unsold' },
+  { location: 'D4', status: 'Unsold' }
+]
+    </code>
+</pre>
+
+<pre>
+    <code>
+        function fizzBuzz() {
+            let nums = [];
+          
+            for (let i = 1; i <= 50; i++) {
+              if (i % 3 === 0) {
+                nums.push('fizz');
+              } else {
+                nums.push('buzz');
+              }
+            }
+            return nums;
+          }
+          console.log(fizzBuzz())
+
+         /// output
+          [
+  'buzz', 'buzz', 'fizz', 'buzz', 'buzz',
+  'fizz', 'buzz', 'buzz', 'fizz', 'buzz',
+  'buzz', 'fizz', 'buzz', 'buzz', 'fizz',
+  'buzz', 'buzz', 'fizz', 'buzz', 'buzz',
+  'fizz', 'buzz', 'buzz', 'fizz', 'buzz',
+  'buzz', 'fizz', 'buzz', 'buzz', 'fizz',
+  'buzz', 'buzz', 'fizz', 'buzz', 'buzz',
+  'fizz', 'buzz', 'buzz', 'fizz', 'buzz',
+  'buzz', 'fizz', 'buzz', 'buzz', 'fizz',
+  'buzz', 'buzz', 'fizz', 'buzz', 'buzz'
+]
+    </code>
+</pre>
+
+    <pre>
+        <code>
+            let email = "example@gmail.com";
+            console.log(email.split('@')[0]);
+
+            //output
+            example
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            //count vowels in a string
+            function app(str) {
+                let vowels = 'aeiouAEIOU';
+                let count= 0;
+                  
+                  for(let char of str){
+                      if(vowels.includes(char)){
+                          count++;
+                      }
+                  }
+                  return count;
+              }
+              console.log(app('abcdefghi'));
+
+              //output
+              3
+              
+        </code>
+    </pre>
 </body>
 </html>
