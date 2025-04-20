@@ -760,5 +760,503 @@
               
         </code>
     </pre>
+
+    <pre>
+        <code>
+            function shuffleArr(arr) {
+                for (let i = arr.length - 1; i > 0; i--) {
+                    let j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
+                    [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
+                }
+                return arr;
+            }            
+            
+        </code>
+
+        <code>
+            //other method
+
+            function shuffleArr(arr) {
+                return arr.sort(() => Math.random() - 0.5);
+            }
+            
+            // Example usage
+            let nums = [1, 2, 3, 4, 5, 6, 7];
+            console.log(shuffleArr(nums));
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            const nums = [1, 2, 3, 4, 5, 6, 7];
+
+            function revArr(arr) {
+                let left = 0;
+                let right = arr.length - 1;
+
+                while (left < right) {
+                    // Swap elements
+                    [arr[left], arr[right]] = [arr[right], arr[left]];
+                    left++;
+                    right--;
+                }
+
+                return arr;
+            }
+
+            console.log(revArr([...nums])); // [7, 6, 5, 4, 3, 2, 1]
+
+        </code>
+    </pre>
+
+
+    <pre>
+        <code>
+            //check array is orted or not?
+            function isSorted(arr) {
+                for (let i = 0; i < arr.length - 1; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            
+            // Example usage:
+            console.log(isSorted([1, 2, 3, 4, 5])); // true
+            console.log(isSorted([5, 3, 4, 1, 2])); // false
+            console.log(isSorted([1, 1, 2, 3, 4])); // true
+            console.log(isSorted([])); // true (empty array is considered sorted)
+            console.log(isSorted([7])); // true (single element is considered sorted)
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            //find common value between two arr of intersaction value
+
+
+            function arrayIntersection(arr1, arr2) {
+                return arr1.filter(value => arr2.includes(value));
+            }
+            
+            // Example usage:
+            console.log(arrayIntersection([1, 2, 3, 4, 5], [3, 4, 5, 6, 7])); // [3, 4, 5]
+        </code>
+
+        <code>
+            //another way
+            const nums1 = [1,2,3,4,5];
+            const nums2  = [1,2,3,6,7,8,9];
+
+
+
+
+            const filterVal = function myFilter(nums1, nums2){
+                
+                return nums1.filter((val,index)=>{
+                    return nums2.includes(val);
+                })
+            
+            }
+            console.log(filterVal(nums1,nums2));
+                    </code>
+    </pre>
+
+    <pre>
+        <code>
+            let person = {
+                name: 'Vivek',
+                age: 25.4554,
+                role: 'UI'
+            }
+            
+            let course ={
+                subject: 'UI',
+                score: 90,
+                review: 5
+            }
+            
+            let mergedPerson = {
+                ...person,
+                ...course
+            }
+            
+            let shallowCopy = {
+                ...course
+            }
+            const objToStr = JSON.stringify(person);
+            let deepCopy = JSON.parse(JSON.stringify(person));
+            
+            console.log('1. obj to JSON', objToStr);
+            
+            console.log('2. JSON to obj', JSON.parse(objToStr));
+            
+            console.log('3. this is deepCopy', deepCopy);
+            
+            console.log('4. this is shallowCopy', shallowCopy);
+            
+            console.log(mergedPerson);
+            
+            delete person.age;
+            person.age = 30;
+            person.age = 25;
+            person.name = 'Vivek Pathak'
+            console.log('email' in person);
+            
+            console.log(Object.keys(person));
+            console.log(Object.values(person));
+            console.log(Object.entries(person));
+            
+            let colors = { 
+                red: "#FF0000", 
+                blue: "#0000FF", 
+                green: "#00FF00" 
+            };
+            const {red,green,blue} = colors;
+            console.log('object destructured', red, green, blue)
+            const findKey = function findColorCode(val){
+                return Object.keys(colors).find(key => colors[key] === val);
+            }
+            console.log('findColorCode of #FF0000 is',findKey('#FF0000'))
+            
+            let users = [
+              { name: "Alice", age: 30 },
+              { name: "Bob", age: 25 },
+              { name: "Charlie", age: 35 }
+            ];
+            
+            const sortObj = users.sort((a,b)=>{
+                return a.name - b.name
+            })
+            
+            console.log('sorted object is...',sortObj);
+            
+            let students = [
+              { name: "Alice", score: 85 },
+              { name: "Bob", score: 75 },
+              { name: "Charlie", score: 90 }
+            ];
+            
+            const filterStd = students.filter((student)=>{
+                return student.score > 75
+            })
+            
+            console.log('students which hav score > 75', filterStd)
+            
+            // Convert an Array of Objects to a Single Object
+            
+            let array = [{ key: "a", value: 1 }, { key: "b", value: 2 }];
+            
+            let obj = Object.fromEntries(array.map(item => [item.key, item.value]));
+            
+            console.log(obj); // Output: { a: 1, b: 2 }
+            
+            // Group Objects by a Property
+            let items = [
+              { category: "fruit", name: "Apple" },
+              { category: "vegetable", name: "Carrot" },
+              { category: "fruit", name: "Banana" }
+            ];
+            
+            let grouped = items.reduce((acc, item) => {
+              acc[item.category] = acc[item.category] || [];
+              acc[item.category].push(item.name);
+              return acc;
+            }, {});
+            
+            console.log(grouped);
+            // Output: { fruit: ["Apple", "Banana"], vegetable: ["Carrot"] }
+            
+            
+            // Remove a Property from All Objects in an Array
+            let users = [
+              { name: "Alice", age: 30, city: "NY" },
+              { name: "Bob", age: 25, city: "LA" }
+            ];
+            
+            users = users.map(({ city, ...rest }) => rest);
+            console.log(users);
+            
+            
+            // Check if Two Objects are Equal
+            function isEqual(obj1, obj2) {
+              return JSON.stringify(obj1) === JSON.stringify(obj2);
+            }
+            
+            console.log(isEqual({ a: 1 }, { a: 1 })); // Output: true
+            console.log(isEqual({ a: 1 }, { b: 1 })); // Output: false
+            
+            //  Freeze an Object to Prevent Modification
+            let obj = Object.freeze({ name: "Alice" });
+            obj.name = "Bob"; // No effect
+            console.log(obj.name); // Output: Alice
+            
+            
+            //  Use a Map Instead of an Object
+            let userMap = new Map();
+            userMap.set("name", "Alice");
+            console.log(userMap.get("name")); // Output: Alice
+            
+            
+            
+            
+        </code>
+    </pre>
+    <pre>
+        <code>
+            1. 𝗴𝗶𝘁 𝗶𝗻𝗶𝘁: Initializes a new Git repository in the current directory.
+            2. 𝗴𝗶𝘁 𝗰𝗹𝗼𝗻𝗲 [𝘂𝗿𝗹]: Clones a repository into a new directory.
+            3. 𝗴𝗶𝘁 𝗮𝗱𝗱 [𝗳𝗶𝗹𝗲]: Adds a file or changes in a file to the staging area.
+            4. 𝗴𝗶𝘁 𝗰𝗼𝗺𝗺𝗶𝘁 -𝗺 "[𝗺𝗲𝘀𝘀𝗮𝗴𝗲]": Records changes to the repository with a descriptive message.
+            5. 𝗴𝗶𝘁 𝗽𝘂𝘀𝗵: Uploads local repository content to a remote repository.
+            6. 𝗴𝗶𝘁 𝗽𝘂𝗹𝗹: Fetches changes from the remote repository and merges them into the local branch.
+            7. 𝗴𝗶𝘁 𝘀𝘁𝗮𝘁𝘂𝘀: Displays the status of the working directory and staging area.
+            8. 𝗴𝗶𝘁 𝗯𝗿𝗮𝗻𝗰𝗵: Lists all local branches in the current repository.
+            9. 𝗴𝗶𝘁 𝗰𝗵𝗲𝗰𝗸𝗼𝘂𝘁 [𝗯𝗿𝗮𝗻𝗰𝗵]: Switches to the specified branch.
+            10. 𝗴𝗶𝘁 𝗺𝗲𝗿𝗴𝗲 [𝗯𝗿𝗮𝗻𝗰𝗵]: Merges the specified branch's history into the current branch.
+            11. 𝗴𝗶𝘁 𝗿𝗲𝗺𝗼𝘁𝗲 -𝘃: Lists the remote repositories and their URLs.
+            12. 𝗴𝗶𝘁 𝗹𝗼𝗴: Displays commit logs.
+            13. 𝗴𝗶𝘁 𝗿𝗲𝘀𝗲𝘁 [𝗳𝗶𝗹𝗲]: Unstages the file, but preserves its contents.
+            14. 𝗴𝗶𝘁 𝗿𝗺 [𝗳𝗶𝗹𝗲]: Deletes the file from the working directory and stages the deletion.
+            15. 𝗴𝗶𝘁 𝘀𝘁𝗮𝘀𝗵: Temporarily shelves (or stashes) changes that haven't been committed.
+            16. 𝗴𝗶𝘁 𝘁𝗮𝗴 [𝘁𝗮𝗴𝗻𝗮𝗺𝗲]: Creates a lightweight tag pointing to the current commit.
+            17. 𝗴𝗶𝘁 𝗳𝗲𝘁𝗰𝗵 [𝗿𝗲𝗺𝗼𝘁𝗲]: Downloads objects and refs from another repository.
+            18. 𝗴𝗶𝘁 𝗺𝗲𝗿𝗴𝗲 --𝗮𝗯𝗼𝗿𝘁: Aborts the current conflict resolution process, and tries to reconstruct the pre-merge state.
+            19. 𝗴𝗶𝘁 𝗿𝗲𝗯𝗮𝘀𝗲 [𝗯𝗿𝗮𝗻𝗰𝗵]: Reapplies commits on top of another base tip, often used to integrate changes from one branch onto another cleanly.
+            20. 𝗴𝗶𝘁 𝗰𝗼𝗻𝗳𝗶𝗴 --𝗴𝗹𝗼𝗯𝗮𝗹 𝘂𝘀𝗲𝗿.𝗻𝗮𝗺𝗲 "[𝗻𝗮𝗺𝗲]" 𝗮𝗻𝗱 𝗴𝗶𝘁 𝗰𝗼𝗻𝗳𝗶𝗴 --𝗴𝗹𝗼𝗯𝗮𝗹 𝘂𝘀𝗲𝗿.𝗲𝗺𝗮𝗶𝗹 "[𝗲𝗺𝗮𝗶𝗹]": Sets the name and email to be used with your commits.
+            21. 𝗴𝗶𝘁 𝗱𝗶𝗳𝗳: Shows changes between commits, commit and working tree, etc.
+            22. 𝗴𝗶𝘁 𝗿𝗲𝗺𝗼𝘁𝗲 𝗮𝗱𝗱 [𝗻𝗮𝗺𝗲] [𝘂𝗿𝗹]: Adds a new remote repository.
+            23. 𝗴𝗶𝘁 𝗿𝗲𝗺𝗼𝘁𝗲 𝗿𝗲𝗺𝗼𝘃𝗲 [𝗻𝗮𝗺𝗲]: Removes a remote repository.
+            24. 𝗴𝗶𝘁 𝗰𝗵𝗲𝗰𝗸𝗼𝘂𝘁 -𝗯 [𝗯𝗿𝗮𝗻𝗰𝗵]: Creates a new branch and switches to it.
+            25. 𝗴𝗶𝘁 𝗯𝗿𝗮𝗻𝗰𝗵 -𝗱 [𝗯𝗿𝗮𝗻𝗰𝗵]: Deletes the specified branch.
+            26. 𝗴𝗶𝘁 𝗽𝘂𝘀𝗵 --𝘁𝗮𝗴𝘀: Pushes all tags to the remote repository.
+            27. 𝗴𝗶𝘁 𝗰𝗵𝗲𝗿𝗿𝘆-𝗽𝗶𝗰𝗸 [𝗰𝗼𝗺𝗺𝗶𝘁]: Picks a commit from another branch and applies it to the current branch.
+            28. 𝗴𝗶𝘁 𝗳𝗲𝘁𝗰𝗵 --𝗽𝗿𝘂𝗻𝗲: Prunes remote tracking branches no longer on the remote.
+            29. 𝗴𝗶𝘁 𝗰𝗹𝗲𝗮𝗻 -𝗱𝗳: Removes untracked files and directories from the working directory.
+            30. 𝗴𝗶𝘁 𝘀𝘂𝗯𝗺𝗼𝗱𝘂𝗹𝗲 𝘂𝗽𝗱𝗮𝘁𝗲 --𝗶𝗻𝗶𝘁 --𝗿𝗲𝗰𝘂𝗿𝘀𝗶𝘃𝗲: Initializes and updates submodules recursively.
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            <select name="" id="selectTag">
+                <option value="select" selected>Select</option>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+            </select>
+          
+              
+                const selectTag = document.querySelector("#selectTag");
+                const body = document.querySelector("body");
+          
+                selectTag.addEventListener("change", function () {
+                  body.style.backgroundColor = this.value;
+                });
+              
+        </code>
+    </pre>
+    <pre>
+        <code>
+            <p>this is the texxt will change</p>
+            <button>toggle text</button>
+        
+            
+              const btn = document.querySelector("button");
+              const para = document.querySelector("p");
+              btn.addEventListener("click", function () {
+                if (para.style.display === "block") {
+                  para.style.display = "none";
+                } else {
+                  para.style.display = "block";
+                }
+              });
+            
+        </code>
+    </pre>
+    <pre>
+        <code>
+            <input type="text" id="myInput" />
+            <p id="myTextCount"></p>
+            <p id="myText"></p>
+
+            
+            const inputBox = document.querySelector("#myInput");
+            const myTextCount = document.querySelector("#myTextCount");
+            const myText = document.querySelector("#myText");
+
+            inputBox.addEventListener("input", function () {
+                myTextCount.textContent = inputBox.value.length;
+                myText.textContent = inputBox.value;
+            });
+            
+        </code>
+    </pre>
+    <pre>
+        <code>
+            <p>Counter: <span class="count">0</span></p>
+            <button class="increment">+</button>
+            <button class="decrement">-</button>
+
+            
+            let counter = document.querySelector(".count");
+            let increment = document.querySelector(".increment");
+            let decrement = document.querySelector(".decrement");
+
+            let count = 0;
+            increment.addEventListener("click", function () {
+                count = count + 1;
+                counter.textContent = count;
+            });
+            decrement.addEventListener("click", function () {
+                if (count > 0) {
+                count = count - 1;
+                }
+                counter.textContent = count;
+            });
+            
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            <ul class="ulItems">
+                <li>Item one</li>
+              </ul>
+              <input class="input" type="text" name="" id="" />
+              <button class="btn">Add list</button>
+          
+            
+                let ulItems = document.querySelector(".ulItems");
+                let input = document.querySelector(".input");
+                let btn2 = document.querySelector(".btn");
+          
+                btn2.addEventListener("click", function () {
+                  let li = document.createElement("li");
+          
+                  li.textContent = input.value;
+          
+                  ulItems.appendChild(li);
+          
+                  input.value = "";
+                });
+           
+        </code>
+    </pre>
+    <pre>
+        <code>
+            <ul class="ulItems">
+                <li>Item one</li>
+              </ul>
+              <input class="input" type="text" name="" id="" />
+              <button class="btn">Add list</button>
+          
+              
+                let ulItems3 = document.querySelector(".ulItems");
+                let input3 = document.querySelector(".input");
+                let btn3 = document.querySelector(".btn");
+          
+                btn3.addEventListener("click", function () {
+                  let li = document.createElement("li");
+                  let button = document.createElement("button");
+                  li.textContent = input3.value;
+                  button.textContent = "Delete";
+          
+                  ulItem3s.appendChild(li);
+          
+                  li.appendChild(button);
+                  button.addEventListener("click", function () {
+                    ulItems3.removeChild(li);
+                  });
+                  input.value = "";
+                });
+            
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            <table class="mytable">
+                <tr>
+                  <th>Name</th>
+                  <th>Age</th>
+                </tr>
+                <tbody>
+                  <tr>
+                    <td>Ram</td>
+                    <td>12</td>
+                  </tr>
+                </tbody>
+              </table>
+          
+          
+                const persions = [
+                  {
+                    name: "vivek2",
+                    age: "30",
+                  },
+                  {
+                    name: "Vikash",
+                    age: "25",
+                  },
+                ];
+          
+                let tbody = document.querySelector("tbody");
+          
+                persions.forEach((persion, index) => {
+                  let tr = document.createElement("tr");
+                  let tdName = document.createElement("td");
+                  let tdAge = document.createElement("td");
+          
+                  tbody.appendChild(tr);
+                  tr.appendChild(tdName);
+                  tr.appendChild(tdAge);
+          
+                  tdName.textContent = persion.name;
+                  tdAge.textContent = persion.age;
+                });
+      
+        </code>
+    </pre>
+
+    <pre>
+        <code>
+            <table border class="mytable">
+                <tr>
+                  <th>Name</th>
+                  <th>Age</th>
+                </tr>
+                <tbody>
+                  <tr>
+                    <td>Ram</td>
+                    <td>12</td>
+                  </tr>
+                </tbody>
+              </table>
+              <input type="text" class="nameInput" />
+              <input type="text" class="ageInput" />
+              <button>Add</button>
+              
+                let tbody2 = document.querySelector("tbody");
+          
+                let button = document.querySelector("button");
+                let nameInput = document.querySelector(".nameInput");
+                let ageInput = document.querySelector(".ageInput");
+          
+                button.addEventListener("click", function () {
+                  let tr = document.createElement("tr");
+                  let tdName = document.createElement("td");
+                  let tdAge = document.createElement("td");
+          
+                  tbody2.appendChild(tr);
+                  tr.appendChild(tdName);
+                  tr.appendChild(tdAge);
+                  tdName.textContent = nameInput.value;
+                  tdAge.textContent = ageInput.value;
+                });
+              
+        </code>
+    </pre>
 </body>
 </html>
