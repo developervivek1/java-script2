@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <style>
+    body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+  </style>
+
+<div class="container-fluid mt-3">
+  <h2>Toggleable Tabs</h2>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#html">HTML</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#css">CSS</a>
+    </li>
+    
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="html" class="container-fluid tab-pane active"><br>
+      <h3>HTML</h3>
+            <div class="html-ques">
+                <pre>
+                    <code>
+//What is the purpose of the < !DOCTYPE> declaration?
+<!DOCTYPE> tells the browser which version of HTML you're using, so it knows how to display your webpage correctly.
+It goes at the very top of your HTML file and helps make sure everything looks the same in different browsers. For modern websites, you just use:
+Its main purpose is to ensure that the browser renders the page in standards mode rather than quirks mode.
+When a browser loads a page, it checks the <!DOCTYPE> to determine how strictly it should follow web standards. Without it, browsers may fall back to quirks mode,
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+//What are tags and elements in HTML?
+Tags are the building blocks of HTML. They tell the browser what kind of content you’re writing (like a paragraph, heading, image, link, etc.).
+Semantic HTML elements are tags that clearly describe their meaning to both the browser and developers.
+Instead of just saying “this is a block” (like <div>), semantic elements tell you what kind of content they hold, like:
+=>A header?
+
+//Why Use Semantic HTML?
+Improves readability of your code
+Helps with SEO (search engines understand your content better)
+Makes websites more accessible (screen readers can navigate better)
+                    </code>
+                </pre>
+            
+                <pre>
+                    <code>
+🆔 id vs. 🎓 class
+Feature ||	id	|| class
+            
+Uniqueness ||	Must be unique (only once per page) ||	Can be used on multiple elements
+Purpose	|| Used to identify one specific element	|| Used to group elements for styling/behavior
+Selector ||	#idName in CSS/JS	 || .className in CSS/JS
+Use case ||	Target a single element ||	Style or manipulate a group of elements
+                    </code>
+                </pre>
+            
+                <pre>
+                    <code>
+// How do you embed an image in HTML?
+< img src="cat.jpg" alt="A cute cat" width="300" height="200" title="Click to see a cat" >
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+// What are void (self-closing) elements in HTML?
+Void elements (also called self-closing elements) are HTML tags that do not have any content inside them — so they don’t need a closing tag.
+                    
+example>> < img/ > , < br/ > , < hr />, < input / >,< meta >, < source />, < link >
+                    </code>
+                </pre>
+            
+                <pre>
+                    <code>
+// What is the difference between < section >, < article >, < aside >, and < main >?
+            
+📚 1. < section >
+    What it is: A section of related content.
+    Use when: You have a logical grouping of content, like a group of FAQs or service listings.
+                        
+📰 2. < article >
+    What it is: A self-contained piece of content that can stand alone.  
+    Use when: You’re writing things like blog posts, news articles, comments, or forum posts.
+                        
+📎 3. < aside >
+    What it is: Content that is related to the main content, but not essential.
+    Use when: You have sidebars, tips, quotes, ads, or related links.    
+                        
+🧱 4. < main >
+    What it is: The main content of the page. Should be unique — only one <main> per page.
+    Use when: You want to wrap all the central, meaningful content (excluding headers, nav, sidebars, footers).    
+<main >
+    < h1>Welcome to My Blog</h1 >
+    < article>...< /article>
+</main >
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+// What is the use of the data-* attribute?
+Ans=> The data-* attribute lets you store extra information directly in HTML elements, which you can then access using JavaScript.
+                        
+ex=> < div data-user-id="12345" data-role="admin">John Doe</div>
+    => data-user-id="12345" → stores a custom value for this element
+    => data-role="admin" → stores the role info
+            
+// 🧠 Why use it?
+=> Adds custom metadata to HTML elements
+=> Keeps your HTML clean and valid
+=> Lets JavaScript dynamically read/write these values
+            
+// Accessing with JavaScript: 
+=> const userDiv = document.querySelector('div');
+=> console.log(userDiv.dataset.userId); // "12345"
+=> console.log(userDiv.dataset.role);   // "admin"
+=> Note: data-user-id becomes dataset.userId in camelCase in JS
+            
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+// How HTML5 Handles Multimedia:
+=> < video> Tag
+=> < audio> Tag
+Key attributes:
+=> controls: Show playback controls
+=> autoplay: Starts audio automatically
+=> loop: Repeats the audio
+=> muted: Starts muted
+//example 
+< video class="w-100" autoplay="" muted="" loop="" playsinline="">
+    < source src="./assets/video/2 product animation/form builder.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+< /video>
+                    </code>
+                </pre>
+            
+                <pre>
+                    <code>
+// What is the difference between < scrip t > , < noscript > , and < template > tags ?
+=> Script : Purpose: Used to write or include JavaScript.
+=> < noscript > : Purpose: Provides fallback content for users without JavaScript (disabled)
+     : Only shown if JavaScript is turned off in the browser.
+=> < template > : Purpose: Holds HTML that won’t be rendered immediately.  
+    : Useful when you want to clone or insert content using JavaScript.  
+    : It’s like a hidden blueprint for dynamic content.   
+                                        
+=>  example :
+    < template id="card-template">
+        < div class="card">
+        < h2>Title</h2>
+        < p>Content here...</p>
+        < /div>
+    < /template>   
+                            
+                            
+=> Tag	Used For ||	Rendered by Browser? ||	Runs Automatically?
+    < scrip > || Writing/embedding JavaScript ||	No ||	Yes
+    < noscript>	|| Fallback when JS is not available ||	Yes (if JS is off) ||	No
+    < template> ||	Hidden content for JS to use later	|| No (until JS uses it) ||	No
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+// What are global attributes in HTML? Can you list a few?
+example : id, class, style, lang, title, hidden, contenteditable
+                    </code>
+                </pre>
+            
+                <pre>
+                    <code>
+// What are the accessibility features in HTML5?
+example : header, footer, main, section, aside, article, nav 
+                    </code>
+                </pre>
+            
+                <pre>
+                    <code>
+🧠 1. localStorage
+=> Persists even after the browser is closed
+=> Data is stored indefinitely until cleared by the user or your code
+=> Stores data as key-value pairs
+=> Limit: ~5MB
+=> Only accessible via JavaScript (not sent with requests)
+=> You need to keep data long-term (e.g., user preferences, theme selection).
+example.
+    localStorage.setItem("theme", "dark");
+    //console.log(localStorage.getItem("theme")); // "dark"
+    Common uses::	Preferences, themes
+
+
+🕒 2. sessionStorage
+    => Cleared when the tab or window is closed
+    => Same API as localStorage
+    => Limit: ~5MB
+    => Useful for temporary data (like form state) 
+    => Data should only last for the duration of the tab session.
+    example.
+    sessionStorage.setItem("tempScore", "100");
+    //console.log(sessionStorage.getItem("tempScore")); // "100" 
+    Common uses::	Temp forms/data
+                            
+            
+🍪 3. cookies
+    => Small pieces of data (limit ~4KB per cookie)
+    => Can be set to expire at a specific time
+    => Automatically sent with every HTTP request
+    => Accessible from both JavaScript and server-side
+    => Used for authentication, tracking, and session handling
+    => You need to send data to the server on every request (e.g., auth tokens).
+    example.
+    document.cookie = "username=John; expires=Fri, 1 May 2025 12:00:00 UTC; path=/";
+    Common uses::	Auth, sessions
+            
+                                
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                        // What is the role of the rel attribute in the < link> tag?
+                        => The rel attribute specifies the relationship between the current HTML document and the linked resource (like a stylesheet or icon).
+                        example:: < link rel="stylesheet" href="styles.css"> //stylesheet,icon,preload,auther
+            
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                        // How do < iframe>, < embed>, and < object> differ?
+            
+                        1. < iframe> – Inline Frame
+                            => Loads an entire external HTML page inside a frame.
+                            => Commonly used for:
+                            => Embedding YouTube videos
+                            => Google Maps
+                            => External web apps
+                            < iframe src="https://example.com" width="400" height="300"></ iframe>
+            
+                        2. < embed> – Embed External Resources
+                                => Designed to embed non-HTML content like:                    
+                                => PDF files                   
+                                => Media files (MP3, MP4)                    
+                                => Flash (deprecated)   
+                                < embed src="file.pdf" type="application/pdf" width="600" height="400">
+                        
+                        3. < object> – More Flexible Embedding
+                                => Older but very versatile
+                                => Can embed HTML, PDF, images, even Java applets (legacy)
+                                => Allows fallback content if the resource fails 
+                                example:
+            
+                                < object data="file.pdf" type="application/pdf" width="600" height="400">
+                                    < p>Your browser doesn’t support PDFs. < a href="file.pdf">Download it< /a>.< /p>
+                                < /object>
+                                        
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                        // What is the purpose of srcset in the < img> tag?
+                        🎯 Purpose of srcset
+                            => srcset allows you to define multiple image files for the browser to choose from based on:
+                            => Screen size
+                            => Device resolution (e.g., retina displays)
+                            => This improves:
+                            => Page speed (by loading smaller images on small screens)
+                            => Clarity (by loading high-res images on retina screens)
+            
+                        // example:
+                            < img 
+                                src="small.jpg" 
+                                srcset="small.jpg 480w, medium.jpg 768w, large.jpg 1200w" 
+                                sizes="(max-width: 600px) 480px, (max-width: 1000px) 768px, 1200px" 
+                                alt="A scenic mountain view">
+                            
+                        // How it works:
+                            => srcset gives the browser multiple image sources with their widths (w = pixels).  
+                            => sizes tells the browser how much screen space the image will use under different conditions.
+                            => The browser picks the best image based on current screen width + resolution.    
+            
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                        🌟 // What is Shadow DOM?
+                            The Shadow DOM is a browser feature that lets you attach a hidden, separate DOM tree to an element — one that is isolated from the main DOM.
+                            //OR
+                        // The Shadow DOM is a part of the Web Components standard that allows you to create encapsulated DOM trees — meaning elements can have their own isolated structure and styles.   
+                            => It's like giving an element its own private part of the page that:
+                            => Has its own elements and styles
+                            => Is not affected by outer page styles
+                            => Doesn’t mess up your global CSS or scripts
+                            It’s like giving a component a private, hidden DOM that:
+            
+                            => Has its own HTML elements
+                            => Has its own CSS
+                            => Doesn’t clash with the rest of the page
+            
+            
+                            🧱 Why Shadow DOM Exists
+                            In regular HTML:
+                            => Styles and scripts are global.  
+                            => Components can interfere with each other (CSS leaks).               
+                            => With Shadow DOM:                
+                            => You can build self-contained components that work anywhere, without breaking other code or styles.
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                        // 🧩 What Are Custom Elements in HTML5?
+                        Custom elements are a feature of the Web Components standard that let you create your own HTML tags — with custom behavior, structure, and styling.
+                        //example
+                        < user-card></ user-card>
+                        < weather-widget></ weather-widget>
+            
+                        //Benefits
+                        => Reusability: Build once, use anywhere                       
+                        => Encapsulation (with Shadow DOM)
+                        => Cleaner HTML structure
+                        => Easier to manage and test UI components
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                        // 🌱 Progressive Enhancement
+                        =>  Start with a basic, functional experience, then add advanced features for browsers that support them.
+                        
+                        //  🧩 Philosophy:
+                        =>  Build from the ground up: start simple, enhance for modern users.
+            
+                        //  ✅ Example:
+                        =>  HTML: Display plain content
+                        =>  CSS: Add layout and styling
+                        =>  JavaScript: Add interactivity
+            
+                        // example 
+                        < button>Click me< /button>
+                        < script>
+                        document.querySelector('button').addEventListener('click', () => alert("Clicked!"));
+                        </script> 
+                        => If JavaScript fails, the button is still visible — user just can’t click.
+            
+            
+                        // 🧯 Graceful Degradation
+                            Start with a full-featured experience, then ensure it still functions acceptably in older or less capable browsers.
+            
+                            //🧩 Philosophy:
+                            => Build for modern features first, then make sure it breaks nicely.
+            
+                            //✅ Example:
+                            => Use a fancy animated menu for modern browsers
+                            => Provide a simple HTML menu fallback for older ones
+            
+                            < video controls>
+                                < source src="video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            < /video>
+                            => If the video feature isn’t supported, the fallback message is shown.
+                            
+                            Feature || Progressive Enhancement || Graceful Degradation
+                            => Build Focus || Starts basic, adds features || Starts advanced, scales down
+                            => Primary Audience || Users with older browsers || Users with modern browsers
+                            => Failure Handling || Enhancements are optional || Tries to prevent total failure
+                            => Strategy || Bottom-up || Top-down
+            
+                            //HighLight
+                            => Progressive enhancement builds from a solid base and adds features for capable browsers.
+                            => Graceful degradation builds something advanced and ensures it still works (somewhat) when features fail.
+                    </code>
+                </pre>
+            
+                <pre>
+                    <code>
+                        // 🔡 What is Character Encoding in HTML?
+                        < meta charset="UTF-8">
+                        => Character encoding tells the browser how to interpret the bytes in an HTML file as readable text — like letters, symbols, emojis, etc.
+                        => If encoding isn’t set correctly, text might appear as � or other strange symbols.
+                        
+                        // ✅ Most Common Encoding: UTF-8
+                        => Supports almost all characters and symbols used worldwide
+                        => Recommended for nearly all modern websites
+            
+                        //What Happens If You Skip It?
+                        =>Browsers might guess incorrectly
+                        =>Special characters (€, ñ, 中文, emoji 😄) may break
+                        =>Security or SEO issues could occur
+            
+            
+                    </code>
+                </pre>
+            
+                <pre>
+                    <code>
+                        // 🔧 Common ARIA Roles & Attributes
+            
+                            => Attribute || Purpose || Example Use
+                            => role="button" || Tells screen readers it's a button || Custom div that acts like a button
+                            => aria-hidden="true" || Hides element from screen readers || Decorative icons
+                            => aria-label="Close" || Provides a label for screen readers || Buttons with no visible text
+                            => aria-expanded="true" || Indicates dropdown is open || Accordions, toggles
+                            => aria-live="polite" || Announces dynamic content changes || Notification messages
+                    </code>
+                </pre>
+            
+                <pre>
+                    <code>
+                        // 🧭 Step-by-Step: How the Browser Renders HTML
+            
+                        // The browser renders HTML in these steps:
+                        => Parse HTML → Build DOM → Parse CSS → Build Render Tree → Layout → Paint → Composite         
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                        // novalidate Attribute
+                        => Purpose: The novalidate attribute is used on the < form> element to disable the browser's default form validation.
+                        => When to use: It’s typically used when you want to handle form validation manually using JavaScript (custom validation) instead of relying on the browser’s built-in validation.
+                        
+                        // example
+                            < form id="myForm" novalidate>
+                                < input type="email" id="email" required />
+                                < input type="submit" value="Submit" />
+                            < /form>
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                        // What are datalist and autocomplete used for?
+            
+                        //< datalist> Element
+                            => Purpose: The < datalist> element is used to define a list of predefined options for an < input> element, providing users with a set of suggestions as they type.
+                            => When to use: You can use it when you want to offer users suggestions based on a set of predefined options, making it easier for them to select values.
+                        
+                            < form>
+                                < label for="fruit">Choose a fruit:< /label>
+                                < input list="fruits" id="fruit" name="fruit" />
+                                < datalist id="fruits">
+                                < option value="Apple">
+                                < option value="Banana">
+                                < option value="Cherry">
+                                < option value="Date">
+                                < option value="Elderberry">
+                                < /datalist>
+                                < input type="submit" value="Submit" />
+                            </ form>
+            
+                        => What happens: When the user starts typing in the < input> field, the browser will show a dropdown with the options ("Apple", "Banana", etc.) defined in the < datalist>.
+                        => Note: The user can still enter their own value if it's not in the list. 
+                        
+                        //🔹 autocomplete Attribute
+                            => Purpose: The autocomplete attribute helps the browser remember and suggest previously entered values for form fields, improving usability by reducing repetitive input.
+                            => When to use: It’s particularly useful for form fields that users often fill out, such as email addresses, names, or addresses, enabling them to automatically fill in previously used values.
+                            
+                            < label for="email">Email:< /label>
+                            < input type="email" id="email" name="email" autocomplete="on" />
+            
+                        //What happens:
+                            => The email input field will show previous email addresses that the user has typed in.  
+                            => The password input field will not show any previous passwords (because autocomplete="off").    
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                        // What best practices do you follow for optimizing HTML performance?
+                        ✅ 1. Minimize HTML File Size
+                        =>Remove unnecessary whitespace: Extra spaces, line breaks, and indentation can add unnecessary bytes to the HTML file.
+                        ✅ 2. Reduce DOM Complexity
+                            => Simplify the HTML structure: Avoid deeply nested elements. A simpler DOM tree reduces the complexity for the browser when rendering the page.
+                            => Limit the number of DOM elements: Each element requires memory and processing time, so avoid adding unnecessary < div> or < span> elements.
+                            => Avoid large and complex inline styles
+                        ✅ 3. Defer Non-Essential Resources
+                            => Lazy load images: Use the loading="lazy" 
+                        ✅ 4. Use Semantic HTML
+                        ✅ 5. Optimize Images
+                            => Use modern formats: Prefer using modern image formats like WebP for smaller file sizes compared to JPEG or PNG.
+                            < picture>
+                                < source srcset="image.webp" type="image/webp">
+                                < img src="image.jpg" alt="Image description">
+                            < /picture>
+            
+                        ✅ 6. Use External Stylesheets and Scripts
+                        ✅ 9. Optimize CSS and JavaScript
+                    </code>
+                </pre>
+                <pre>
+                    <code>
+                    // What is the DOMContentLoaded event?
+            
+                        // Event | Triggered When | Use Case
+                        => DOMContentLoaded | When the HTML has been fully loaded and parsed, but before external resources (like images) are loaded. | Execute scripts to manipulate the DOM or initialize UI components.
+                        => load | When the entire page, including images and other resources, has finished loading. | When you need to wait for all resources (e.g., images) to be fully loaded.
+                    </code>
+                </pre>
+            </div>
+    </div>
+    <div id="css" class="container-fluid tab-pane fade"><br>
+      <h3>CSS</h3>
+      <div>
+          <pre>
+              <code>
+                  // What are pseudo-classes and pseudo-elements? Give examples.
+                  //Pseudo-classes
+                    => A pseudo-class is used to define the special state of an element.
+                    => It adds styles based on a condition that isn’t directly present in the HTML (like hovering, visiting a link, focusing on an input, etc.).
+                  //example
+                  => Hover, Focus, Visited, first-child
+
+                  //Pseudo-elements
+                    => A pseudo-element lets you style specific parts of an element.
+                    => It acts like creating a sub-part of an HTML element that you can target and style.
+                  //example
+                  => ::after, ::before, ::first-line, ::first-letter
+              </code>
+          </pre>
+          <pre>
+              <code>
+                  // What is the CSS Box Model?
+                  => The CSS Box Model describes how elements are structured on a webpage.
+                  => Every HTML element is considered as a rectangular box, and this box consists of 4 main parts (from inside to outside):
+                          
+                  => Content → The actual content like text or image.
+                  => Padding → Space inside the box, around the content.
+                  => Border → A line that wraps the padding and content.
+                  => Margin → Space outside the border, separating this box from others.
+              </code>
+          </pre>
+          <pre>
+              <code>
+                  // What is the difference between relative, absolute, fixed, and sticky positioning?
+              
+                  // 1. Relative
+                      => The element is positioned relative to its normal position.
+                      => It moves, but doesn’t affect other elements.
+                      => The "gap" it leaves behind stays.
+
+                  //2. Absolute
+                      => The element is positioned relative to the nearest positioned ancestor (relative, absolute, or fixed).
+                      => If no positioned ancestor is found, it positions relative to the < html> (viewport).
+                      => It’s completely removed from the normal document flow.    
+              
+                  //3. Fixed
+                      => The element is positioned relative to the browser window (viewport).
+                      => Does not move when you scroll!
+                      => Always stays at the same place.
+
+                  // 4. Sticky
+                      => It’s a hybrid of relative + fixed.
+                      => The element acts like relative until a scroll threshold is reached, then sticks like fixed.                
+                      => Useful for sticky headers, sidebars, etc.    
+              </code>
+          </pre>
+          <pre>
+              <code>
+                  // 1. px (pixels)
+                      => Fixed size unit.
+                      => Not responsive — size stays the same no matter parent or root.
+                      => 1px = 1 pixel on the screen.
+
+                  //2. em (relative to parent)
+                      => Size is relative to the parent’s font-size.
+                      => Multiplies down the hierarchy (can cascade).
+                      
+                  // 3. rem (relative to root)
+                      => root em. 
+                      => Always relative to the < html> font-size.
+                      => Consistent scaling across the page — does not depend on parent elements.    
+                  
+                  => px = Absolute.
+                  => em = Relative to parent.     
+                  => rem = Relative to root.
+          
+                  </code>
+          </pre>
+          <pre>
+              <code>
+                  // px, em, rem, %, vh — Quick Comparison
+
+                   => Unit || Stands for || Based on || Good for || Example
+                   => px || Pixels || Fixed size || Absolute measurements (e.g., borders) || font-size: 16px;
+                   => em || Relative to parent || Parent’s font-size || Nested scaling (can cascade) || font-size: 2em;
+                   => rem || Root em || < html> font-size || Consistent scaling across the page || font-size: 1.5rem;
+                   => % || Percentage || Relative to parent element || Responsive sizing || width: 50%;
+                   => vh || Viewport height || 1% of viewport’s height || Full-screen sections || height: 100vh;
+              </code>
+          </pre>
+          <pre>
+              <code>
+                  //What is an Overlay in CSS?
+
+                  In CSS, an overlay usually means:
+                  => A semi-transparent layer placed on top of other content.
+                  => It covers part or all of the screen or an element.
+                  => Often used for modals, popups, darkening backgrounds, image hover effects, etc.
+              </code>
+          </pre>
+          <pre>
+              <code>
+                  //What is z-index in CSS?
+                  => z-index is a CSS property that controls the vertical stacking order of overlapping elements.
+                      => Higher z-index value = element appears in front.
+                      => Lower z-index value = element appears behind.
+                      => It only works on elements that have position set to something like relative, absolute, fixed, or sticky.
+              </code>
+          </pre>
+          <pre>
+              <code>
+                  // 1. visibility: hidden
+                      => The element is still in the document flow, meaning it takes up space, but it is not visible.
+                      => The layout remains the same as if the element is still there, but it's invisible to the user.
+                  
+                  // 2. display: none
+                      => The element is completely removed from the document flow.
+                      => It does not take up any space.                
+                      => It’s like the element doesn’t exist in the layout at all.
+              </code>
+          </pre>
+          <pre>
+              <code>
+                  // 2. Primary Use Case:
+                  // Flexbox:
+                  => Use Flexbox when you want to arrange elements in a single axis — one row or one column.
+                  => It's great for simpler layouts, like navigation bars, cards, buttons, and aligning items inside a container.
+
+                  // Grid:
+                  => Use Grid when you need to create a grid-based layout with both rows and columns.
+                  => It's ideal for complex page layouts, like designing a web page layout, image galleries, or dashboard grids.
+              </code>
+          </pre>
+          <pre>
+              <code>
+                   // Benefits of Using SASS or LESS
+                      // 1. Cleaner and More Maintainable Code
+                      => Using variables, nesting, and mixins leads to cleaner code that’s easier to manage, especially as the project grows.
+                      $primary-color: #3498db;
+                      $font-size: 16px;
+                      
+                      body {
+                        color: $primary-color;
+                        font-size: $font-size;
+                      }
+
+                      @mixin border-radius($radius) {
+                          -webkit-border-radius: $radius;
+                          -moz-border-radius: $radius;
+                          border-radius: $radius;
+                        }
+                        
+                        .button {
+                          @include border-radius(5px);
+                        }
+
+                        .button {
+                          padding: 10px;
+                          background-color: #3498db;
+                        }
+                        
+                        .btn-primary {
+                          @extend .button;
+                          background-color: #2980b9;
+                        }
+
+                      // 2. Reusability
+                      =>Mixins, functions, and variables promote code reuse, reducing redundancy and the potential for errors.
+
+                      //3. Faster Development
+                      =>Features like variables, inheritance, and mixins allow you to develop faster by eliminating repetitive code and simplifying complex tasks.
+
+                      //4. Advanced Styling Features
+                      =>SASS and LESS provide advanced features that aren’t available in regular CSS, such as color manipulation, nested styles, and more. This makes them ideal for large-scale applications with complex styles.
+
+                      // 5. Better Organization
+                      => Preprocessors allow for better organization by splitting your styles into smaller, manageable chunks and making it easier to import them into one file when needed.
+
+                      // 6. Compatibility with CSS
+                      => Both SASS and LESS compile down to standard CSS, so you can use any browser that supports CSS, and it integrates seamlessly with existing projects.
+              
+                      // When to Use SCSS over CSS?
+                          => Larger Projects: SCSS is especially useful for larger projects where you need maintainable, scalable, and flexible styles.
+                          => Team Collaboration: If working in a team, SCSS’s features like variables and mixins promote consistency and prevent redundant styles.                       
+                          => Reusable Styles: SCSS makes it easier to create reusable, modular components (e.g., buttons, forms, grids) that can be reused throughout the project.                            
+                          => Complex Layouts: SCSS helps with more complex layouts by supporting nesting, inheritance, and functions.
+
+                  </code>
+          </pre>
+          <pre>
+              <code>
+                  // What is the calc() function in CSS? How is it useful?
+                  => width: calc(100% - 50px);
+
+                  // Why is calc() Useful?
+                  => The calc() function is useful in various scenarios where you want to create more responsive, flexible, or precise layouts. Below are a few common use cases:
+              
+              
+                  // 2. Responsive Design
+                  => calc() can be particularly useful in responsive design, where you may want to set values dynamically based on the viewport size or other factors.
+                  
+                  // Example:
+                  width: calc(50% - 10px);
+              </code>
+          </pre>
+          <pre>
+              <code>
+                  // Child Combinator (>)
+                  div > p {
+                      background-color: yellow;
+                    }
+                  < div>
+                      < p>Paragraph 1 in the div.</ p> //yellow
+                      < p>Paragraph 2 in the div.</ p> //yello
+                      < section>
+                        <!-- not Child but Descendant -->
+                        < p>Paragraph 3 in the div (inside a section element).</ p>
+                      < /section>
+                      < p>Paragraph 4 in the div.< /p> //yellow
+                  < /div>  
+
+                  // Next Sibling Combinator (+)
+                  div + p {
+                      background-color: yellow;
+                    }
+
+                    < div>
+                      < p>Paragraph 1 in the div.</ p>
+                      < p>Paragraph 2 in the div.</ p>
+                    < /div>
+                    
+                    < p>Paragraph 3. After a div.</ p> // yellow bg color
+                    < p>Paragraph 4. After a div.</ p>
+
+
+                   // General Sibling Selector
+                   div ~ p {
+                      background-color: yellow;
+                    }
+                    < div>
+                      < p>Paragraph 2.</ p>
+                    < /div>
+                    
+                    < p>Paragraph 3.</ p> // yellow bg color
+                    < code>Some code.</ code> 
+                    < p>Paragraph 4.</ p> // yellow bg color
+              </code>
+          </pre>
+
+
+          <pre>
+            <code>
+                1. 𝗴𝗶𝘁 𝗶𝗻𝗶𝘁: Initializes a new Git repository in the current directory.
+                2. 𝗴𝗶𝘁 𝗰𝗹𝗼𝗻𝗲 [𝘂𝗿𝗹]: Clones a repository into a new directory.
+                3. 𝗴𝗶𝘁 𝗮𝗱𝗱 [𝗳𝗶𝗹𝗲]: Adds a file or changes in a file to the staging area.
+                4. 𝗴𝗶𝘁 𝗰𝗼𝗺𝗺𝗶𝘁 -𝗺 "[𝗺𝗲𝘀𝘀𝗮𝗴𝗲]": Records changes to the repository with a descriptive message.
+                5. 𝗴𝗶𝘁 𝗽𝘂𝘀𝗵: Uploads local repository content to a remote repository.
+                6. 𝗴𝗶𝘁 𝗽𝘂𝗹𝗹: Fetches changes from the remote repository and merges them into the local branch.
+                7. 𝗴𝗶𝘁 𝘀𝘁𝗮𝘁𝘂𝘀: Displays the status of the working directory and staging area.
+                8. 𝗴𝗶𝘁 𝗯𝗿𝗮𝗻𝗰𝗵: Lists all local branches in the current repository.
+                9. 𝗴𝗶𝘁 𝗰𝗵𝗲𝗰𝗸𝗼𝘂𝘁 [𝗯𝗿𝗮𝗻𝗰𝗵]: Switches to the specified branch.
+                10. 𝗴𝗶𝘁 𝗺𝗲𝗿𝗴𝗲 [𝗯𝗿𝗮𝗻𝗰𝗵]: Merges the specified branch's history into the current branch.
+                11. 𝗴𝗶𝘁 𝗿𝗲𝗺𝗼𝘁𝗲 -𝘃: Lists the remote repositories and their URLs.
+                12. 𝗴𝗶𝘁 𝗹𝗼𝗴: Displays commit logs.
+                13. 𝗴𝗶𝘁 𝗿𝗲𝘀𝗲𝘁 [𝗳𝗶𝗹𝗲]: Unstages the file, but preserves its contents.
+                14. 𝗴𝗶𝘁 𝗿𝗺 [𝗳𝗶𝗹𝗲]: Deletes the file from the working directory and stages the deletion.
+                15. 𝗴𝗶𝘁 𝘀𝘁𝗮𝘀𝗵: Temporarily shelves (or stashes) changes that haven't been committed.
+                16. 𝗴𝗶𝘁 𝘁𝗮𝗴 [𝘁𝗮𝗴𝗻𝗮𝗺𝗲]: Creates a lightweight tag pointing to the current commit.
+                17. 𝗴𝗶𝘁 𝗳𝗲𝘁𝗰𝗵 [𝗿𝗲𝗺𝗼𝘁𝗲]: Downloads objects and refs from another repository.
+                18. 𝗴𝗶𝘁 𝗺𝗲𝗿𝗴𝗲 --𝗮𝗯𝗼𝗿𝘁: Aborts the current conflict resolution process, and tries to reconstruct the pre-merge state.
+                19. 𝗴𝗶𝘁 𝗿𝗲𝗯𝗮𝘀𝗲 [𝗯𝗿𝗮𝗻𝗰𝗵]: Reapplies commits on top of another base tip, often used to integrate changes from one branch onto another cleanly.
+                20. 𝗴𝗶𝘁 𝗰𝗼𝗻𝗳𝗶𝗴 --𝗴𝗹𝗼𝗯𝗮𝗹 𝘂𝘀𝗲𝗿.𝗻𝗮𝗺𝗲 "[𝗻𝗮𝗺𝗲]" 𝗮𝗻𝗱 𝗴𝗶𝘁 𝗰𝗼𝗻𝗳𝗶𝗴 --𝗴𝗹𝗼𝗯𝗮𝗹 𝘂𝘀𝗲𝗿.𝗲𝗺𝗮𝗶𝗹 "[𝗲𝗺𝗮𝗶𝗹]": Sets the name and email to be used with your commits.
+                21. 𝗴𝗶𝘁 𝗱𝗶𝗳𝗳: Shows changes between commits, commit and working tree, etc.
+                22. 𝗴𝗶𝘁 𝗿𝗲𝗺𝗼𝘁𝗲 𝗮𝗱𝗱 [𝗻𝗮𝗺𝗲] [𝘂𝗿𝗹]: Adds a new remote repository.
+                23. 𝗴𝗶𝘁 𝗿𝗲𝗺𝗼𝘁𝗲 𝗿𝗲𝗺𝗼𝘃𝗲 [𝗻𝗮𝗺𝗲]: Removes a remote repository.
+                24. 𝗴𝗶𝘁 𝗰𝗵𝗲𝗰𝗸𝗼𝘂𝘁 -𝗯 [𝗯𝗿𝗮𝗻𝗰𝗵]: Creates a new branch and switches to it.
+                25. 𝗴𝗶𝘁 𝗯𝗿𝗮𝗻𝗰𝗵 -𝗱 [𝗯𝗿𝗮𝗻𝗰𝗵]: Deletes the specified branch.
+                26. 𝗴𝗶𝘁 𝗽𝘂𝘀𝗵 --𝘁𝗮𝗴𝘀: Pushes all tags to the remote repository.
+                27. 𝗴𝗶𝘁 𝗰𝗵𝗲𝗿𝗿𝘆-𝗽𝗶𝗰𝗸 [𝗰𝗼𝗺𝗺𝗶𝘁]: Picks a commit from another branch and applies it to the current branch.
+                28. 𝗴𝗶𝘁 𝗳𝗲𝘁𝗰𝗵 --𝗽𝗿𝘂𝗻𝗲: Prunes remote tracking branches no longer on the remote.
+                29. 𝗴𝗶𝘁 𝗰𝗹𝗲𝗮𝗻 -𝗱𝗳: Removes untracked files and directories from the working directory.
+                30. 𝗴𝗶𝘁 𝘀𝘂𝗯𝗺𝗼𝗱𝘂𝗹𝗲 𝘂𝗽𝗱𝗮𝘁𝗲 --𝗶𝗻𝗶𝘁 --𝗿𝗲𝗰𝘂𝗿𝘀𝗶𝘃𝗲: Initializes and updates submodules recursively.
+            </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

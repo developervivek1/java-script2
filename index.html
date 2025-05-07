@@ -19,7 +19,8 @@
             color: #dcdcdc;
             padding: 15px;
             border-radius: 8px;
-            overflow-x: auto;
+            overflow-x:auto;
+            
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
         code {
@@ -29,28 +30,25 @@
 
 
 <div class="container-fluid mt-3">
-    <br>
+
     <!-- Nav pills -->
     <ul class="nav nav-pills" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-bs-toggle="pill" href="#home">JS Codes</a>
+        <a class="nav-link active" data-bs-toggle="pill" href="#menu">JS Codes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="pill" href="#menu1">HTML</a>
+        <a class="nav-link" data-bs-toggle="pill" href="#menu1">JS Questions</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="pill" href="#menu2">CSS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="pill" href="#menu3">JavaScript</a>
-      </li>
+      
+ 
+     
     </ul>
   
     <!-- Tab panes -->
     <div class="tab-content">
-        <div id="home" class="container-fluid tab-pane active"><br>
+        <div id="menu" class="container-fluid tab-pane active">
 
-            <h3>JS Codes</h3>
+            <h3 class="mt-5">JS Codes</h3>
             <pre><code>
                 const sum = (a, b) => a + b;
                 console.log(sum(5, 3)); // Output: 8
@@ -1029,40 +1027,7 @@
                         
                     </code>
                 </pre>
-                <pre>
-                    <code>
-                        1. 𝗴𝗶𝘁 𝗶𝗻𝗶𝘁: Initializes a new Git repository in the current directory.
-                        2. 𝗴𝗶𝘁 𝗰𝗹𝗼𝗻𝗲 [𝘂𝗿𝗹]: Clones a repository into a new directory.
-                        3. 𝗴𝗶𝘁 𝗮𝗱𝗱 [𝗳𝗶𝗹𝗲]: Adds a file or changes in a file to the staging area.
-                        4. 𝗴𝗶𝘁 𝗰𝗼𝗺𝗺𝗶𝘁 -𝗺 "[𝗺𝗲𝘀𝘀𝗮𝗴𝗲]": Records changes to the repository with a descriptive message.
-                        5. 𝗴𝗶𝘁 𝗽𝘂𝘀𝗵: Uploads local repository content to a remote repository.
-                        6. 𝗴𝗶𝘁 𝗽𝘂𝗹𝗹: Fetches changes from the remote repository and merges them into the local branch.
-                        7. 𝗴𝗶𝘁 𝘀𝘁𝗮𝘁𝘂𝘀: Displays the status of the working directory and staging area.
-                        8. 𝗴𝗶𝘁 𝗯𝗿𝗮𝗻𝗰𝗵: Lists all local branches in the current repository.
-                        9. 𝗴𝗶𝘁 𝗰𝗵𝗲𝗰𝗸𝗼𝘂𝘁 [𝗯𝗿𝗮𝗻𝗰𝗵]: Switches to the specified branch.
-                        10. 𝗴𝗶𝘁 𝗺𝗲𝗿𝗴𝗲 [𝗯𝗿𝗮𝗻𝗰𝗵]: Merges the specified branch's history into the current branch.
-                        11. 𝗴𝗶𝘁 𝗿𝗲𝗺𝗼𝘁𝗲 -𝘃: Lists the remote repositories and their URLs.
-                        12. 𝗴𝗶𝘁 𝗹𝗼𝗴: Displays commit logs.
-                        13. 𝗴𝗶𝘁 𝗿𝗲𝘀𝗲𝘁 [𝗳𝗶𝗹𝗲]: Unstages the file, but preserves its contents.
-                        14. 𝗴𝗶𝘁 𝗿𝗺 [𝗳𝗶𝗹𝗲]: Deletes the file from the working directory and stages the deletion.
-                        15. 𝗴𝗶𝘁 𝘀𝘁𝗮𝘀𝗵: Temporarily shelves (or stashes) changes that haven't been committed.
-                        16. 𝗴𝗶𝘁 𝘁𝗮𝗴 [𝘁𝗮𝗴𝗻𝗮𝗺𝗲]: Creates a lightweight tag pointing to the current commit.
-                        17. 𝗴𝗶𝘁 𝗳𝗲𝘁𝗰𝗵 [𝗿𝗲𝗺𝗼𝘁𝗲]: Downloads objects and refs from another repository.
-                        18. 𝗴𝗶𝘁 𝗺𝗲𝗿𝗴𝗲 --𝗮𝗯𝗼𝗿𝘁: Aborts the current conflict resolution process, and tries to reconstruct the pre-merge state.
-                        19. 𝗴𝗶𝘁 𝗿𝗲𝗯𝗮𝘀𝗲 [𝗯𝗿𝗮𝗻𝗰𝗵]: Reapplies commits on top of another base tip, often used to integrate changes from one branch onto another cleanly.
-                        20. 𝗴𝗶𝘁 𝗰𝗼𝗻𝗳𝗶𝗴 --𝗴𝗹𝗼𝗯𝗮𝗹 𝘂𝘀𝗲𝗿.𝗻𝗮𝗺𝗲 "[𝗻𝗮𝗺𝗲]" 𝗮𝗻𝗱 𝗴𝗶𝘁 𝗰𝗼𝗻𝗳𝗶𝗴 --𝗴𝗹𝗼𝗯𝗮𝗹 𝘂𝘀𝗲𝗿.𝗲𝗺𝗮𝗶𝗹 "[𝗲𝗺𝗮𝗶𝗹]": Sets the name and email to be used with your commits.
-                        21. 𝗴𝗶𝘁 𝗱𝗶𝗳𝗳: Shows changes between commits, commit and working tree, etc.
-                        22. 𝗴𝗶𝘁 𝗿𝗲𝗺𝗼𝘁𝗲 𝗮𝗱𝗱 [𝗻𝗮𝗺𝗲] [𝘂𝗿𝗹]: Adds a new remote repository.
-                        23. 𝗴𝗶𝘁 𝗿𝗲𝗺𝗼𝘁𝗲 𝗿𝗲𝗺𝗼𝘃𝗲 [𝗻𝗮𝗺𝗲]: Removes a remote repository.
-                        24. 𝗴𝗶𝘁 𝗰𝗵𝗲𝗰𝗸𝗼𝘂𝘁 -𝗯 [𝗯𝗿𝗮𝗻𝗰𝗵]: Creates a new branch and switches to it.
-                        25. 𝗴𝗶𝘁 𝗯𝗿𝗮𝗻𝗰𝗵 -𝗱 [𝗯𝗿𝗮𝗻𝗰𝗵]: Deletes the specified branch.
-                        26. 𝗴𝗶𝘁 𝗽𝘂𝘀𝗵 --𝘁𝗮𝗴𝘀: Pushes all tags to the remote repository.
-                        27. 𝗴𝗶𝘁 𝗰𝗵𝗲𝗿𝗿𝘆-𝗽𝗶𝗰𝗸 [𝗰𝗼𝗺𝗺𝗶𝘁]: Picks a commit from another branch and applies it to the current branch.
-                        28. 𝗴𝗶𝘁 𝗳𝗲𝘁𝗰𝗵 --𝗽𝗿𝘂𝗻𝗲: Prunes remote tracking branches no longer on the remote.
-                        29. 𝗴𝗶𝘁 𝗰𝗹𝗲𝗮𝗻 -𝗱𝗳: Removes untracked files and directories from the working directory.
-                        30. 𝗴𝗶𝘁 𝘀𝘂𝗯𝗺𝗼𝗱𝘂𝗹𝗲 𝘂𝗽𝗱𝗮𝘁𝗲 --𝗶𝗻𝗶𝘁 --𝗿𝗲𝗰𝘂𝗿𝘀𝗶𝘃𝗲: Initializes and updates submodules recursively.
-                    </code>
-                </pre>
+               
             
                 <pre>
                     <code>
@@ -1342,497 +1307,1254 @@
                 </pre>
         
         </div>
-        <div id="menu1" class="container-fluid tab-pane fade"><br>
-            <h3>HTML</h3>
-        <div class="html-ques">
-            <pre>
-                <code>
-                    //What is the purpose of the < !DOCTYPE> declaration?
-                    <!DOCTYPE> tells the browser which version of HTML you're using, so it knows how to display your webpage correctly.
-                    It goes at the very top of your HTML file and helps make sure everything looks the same in different browsers. For modern websites, you just use:
-                    Its main purpose is to ensure that the browser renders the page in standards mode rather than quirks mode.
-                    When a browser loads a page, it checks the <!DOCTYPE> to determine how strictly it should follow web standards. Without it, browsers may fall back to quirks mode,
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    //What are tags and elements in HTML?
-                    Tags are the building blocks of HTML. They tell the browser what kind of content you’re writing (like a paragraph, heading, image, link, etc.).
-                    Semantic HTML elements are tags that clearly describe their meaning to both the browser and developers.
-                    Instead of just saying “this is a block” (like <div>), semantic elements tell you what kind of content they hold, like:
-                    =>A header?
-        
-                    //Why Use Semantic HTML?
-                    Improves readability of your code
-                    Helps with SEO (search engines understand your content better)
-                    Makes websites more accessible (screen readers can navigate better)
-                </code>
-            </pre>
-        
-            <pre>
-                <code>
-                    🆔 id vs. 🎓 class
-                    Feature ||	id	|| class
-        
-                    Uniqueness ||	Must be unique (only once per page) ||	Can be used on multiple elements
-                    Purpose	|| Used to identify one specific element	|| Used to group elements for styling/behavior
-                    Selector ||	#idName in CSS/JS	 || .className in CSS/JS
-                    Use case ||	Target a single element ||	Style or manipulate a group of elements
-                </code>
-            </pre>
-        
-            <pre>
-                <code>
-                    // How do you embed an image in HTML?
-                    < img src="cat.jpg" alt="A cute cat" width="300" height="200" title="Click to see a cat" >
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // What are void (self-closing) elements in HTML?
-                    Void elements (also called self-closing elements) are HTML tags that do not have any content inside them — so they don’t need a closing tag.
-                
-                    example>> < img/ > , < br/ > , < hr />, < input / >,< meta >, < source />, < link >
-                </code>
-            </pre>
-        
-            <pre>
-                <code>
-                    // What is the difference between < section >, < article >, < aside >, and < main >?
-        
-                    📚 1. < section >
-                        What it is: A section of related content.
-                        Use when: You have a logical grouping of content, like a group of FAQs or service listings.
-                    
-                    📰 2. < article >
-                        What it is: A self-contained piece of content that can stand alone.  
-                        Use when: You’re writing things like blog posts, news articles, comments, or forum posts.
-                    
-                    📎 3. < aside >
-                        What it is: Content that is related to the main content, but not essential.
-                        Use when: You have sidebars, tips, quotes, ads, or related links.    
-                    
-                    🧱 4. < main >
-                        What it is: The main content of the page. Should be unique — only one <main> per page.
-                        Use when: You want to wrap all the central, meaningful content (excluding headers, nav, sidebars, footers).    
-                        <main >
-                            < h1>Welcome to My Blog</h1 >
-                            < article>...< /article>
-                        </main >
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // What is the use of the data-* attribute?
-                    Ans=> The data-* attribute lets you store extra information directly in HTML elements, which you can then access using JavaScript.
-                    
-                    ex=> < div data-user-id="12345" data-role="admin">John Doe</div>
-                        => data-user-id="12345" → stores a custom value for this element
-                        => data-role="admin" → stores the role info
-        
-                        // 🧠 Why use it?
-                        => Adds custom metadata to HTML elements
-                        => Keeps your HTML clean and valid
-                        => Lets JavaScript dynamically read/write these values
-        
-                        // Accessing with JavaScript: 
-                        => const userDiv = document.querySelector('div');
-                        => console.log(userDiv.dataset.userId); // "12345"
-                        => console.log(userDiv.dataset.role);   // "admin"
-                        => Note: data-user-id becomes dataset.userId in camelCase in JS
-        
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // How HTML5 Handles Multimedia:
-                    => < video> Tag
-                    => < audio> Tag
-                    Key attributes:
-                        => controls: Show playback controls
-                        => autoplay: Starts audio automatically
-                        => loop: Repeats the audio
-                        => muted: Starts muted
-                    //example 
-                        < video class="w-100" autoplay="" muted="" loop="" playsinline="">
-                            < source src="./assets/video/2 product animation/form builder.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        < /video>
-                </code>
-            </pre>
-        
-            <pre>
-                <code>
-                    // What is the difference between < scrip t > , < noscript > , and < template > tags ?
-                    => Script : Purpose: Used to write or include JavaScript.
-                    => < noscript > : Purpose: Provides fallback content for users without JavaScript (disabled)
-                                    : Only shown if JavaScript is turned off in the browser.
-                    => < template > : Purpose: Holds HTML that won’t be rendered immediately.  
-                                    : Useful when you want to clone or insert content using JavaScript.  
-                                    : It’s like a hidden blueprint for dynamic content.   
+        <div id="menu1" class="container-fluid tab-pane fade">
+            <h3 class="mt-5">JavaScript Questions</h3>
+            <div class="js-ques">
+                <div>
+                    <ul>
+                        <!-- <li>How do you manage asynchronous operations with Angular Signals? Can you give an example?</li>
+                        <li>In what ways do Angular Signals enhance the performance optimization of an Angular application?</li>
+                         -->
+
+
+                        <li>What are the various data types that exist in JavaScript? (Primitive and non-primitive)
+
+                            <table border="1">
+                                <thead>
+                                  <tr>
+                                    <th>Feature</th>
+                                    <th>var</th>
+                                    <th>let</th>
+                                    <th>const</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Scope</td>
+                                    <td>Function-scoped</td>
+                                    <td>Block-scoped</td>
+                                    <td>Block-scoped</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Hoisting</td>
+                                    <td>✅ Hoisted (initialized as undefined)</td>
+                                    <td>✅ Hoisted (but in Temporal Dead Zone)</td>
+                                    <td>✅ Hoisted (but in Temporal Dead Zone)</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Re-declaration</td>
+                                    <td>✅ Allowed</td>
+                                    <td>❌ Not allowed in same scope</td>
+                                    <td>❌ Not allowed in same scope</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Re-assignment</td>
+                                    <td>✅ Allowed</td>
+                                    <td>✅ Allowed</td>
+                                    <td>❌ Not allowed</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Initial Value Required</td>
+                                    <td>❌ No</td>
+                                    <td>❌ No</td>
+                                    <td>✅ Yes</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Global Object Property</td>
+                                    <td>✅ Yes (window.varName)</td>
+                                    <td>❌ No</td>
+                                    <td>❌ No</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                             <pre>
+                                <code>
+                                    // var allows re-declaration
+                                    var a = 1;
+                                    var a = 2; // ✅ OK
+                        
+                                    // let does not
+                                    let b = 1;
+                                    // let b = 2; ❌ SyntaxError
+                        
+                                    // const does not
+                                    const c = 1;
+                                    // const c = 2; ❌ SyntaxError
+                        
+                                    // let allows reassignment
+                                    b = 3; // ✅
+                        
+                                    // const does not
+                                    // c = 4; ❌ TypeError
+                        
+                        
+                                    //Even though const can't be reassigned, objects and arrays declared with const can still be mutated: -->
                                     
-                    =>  example :
-                        < template id="card-template">
-                            < div class="card">
-                            < h2>Title</h2>
-                            < p>Content here...</p>
-                            < /div>
-                        < /template>   
+                                    const user = { name: "Alice" };
+                                    user.name = "Bob"; // ✅ Allowed
+                        
+                                    const arr = [1, 2, 3];
+                                    arr.push(4);       // ✅ Allowed
+                        
+                                    // But reassignment is not allowed
+                                    // user = { name: "Charlie" }; ❌ TypeError
                         
                         
-                    => Tag	Used For ||	Rendered by Browser? ||	Runs Automatically?
-                        < scrip > || Writing/embedding JavaScript ||	No ||	Yes
-                        < noscript>	|| Fallback when JS is not available ||	Yes (if JS is off) ||	No
-                        < template> ||	Hidden content for JS to use later	|| No (until JS uses it) ||	No
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // What are global attributes in HTML? Can you list a few?
-                    example : id, class, style, lang, title, hidden, contenteditable
-                </code>
-            </pre>
-        
-            <pre>
-                <code>
-                    // What are the accessibility features in HTML5?
-                    example : header, footer, main, section, aside, article, nav 
-                </code>
-            </pre>
-        
-            <pre>
-                <code>
-                    🧠 1. localStorage
-                    => Persists even after the browser is closed
-                    => Data is stored indefinitely until cleared by the user or your code
-                    => Stores data as key-value pairs
-                    => Limit: ~5MB
-                    => Only accessible via JavaScript (not sent with requests)
-                    => You need to keep data long-term (e.g., user preferences, theme selection).
-                    example.
-                        localStorage.setItem("theme", "dark");
-                        //console.log(localStorage.getItem("theme")); // "dark"
-                        Common uses::	Preferences, themes
-        
-        
-                    🕒 2. sessionStorage
-                        => Cleared when the tab or window is closed
-                        => Same API as localStorage
-                        => Limit: ~5MB
-                        => Useful for temporary data (like form state) 
-                        => Data should only last for the duration of the tab session.
-                        example.
-                        sessionStorage.setItem("tempScore", "100");
-                        //console.log(sessionStorage.getItem("tempScore")); // "100" 
-                        Common uses::	Temp forms/data
+                                    <!-- Global Object (e.g., window) -->
+                                    var foo = 1;
+                                    let bar = 2;
+                                    const baz = 3;
                         
-        
-                    🍪 3. cookies
-                        => Small pieces of data (limit ~4KB per cookie)
-                        => Can be set to expire at a specific time
-                        => Automatically sent with every HTTP request
-                        => Accessible from both JavaScript and server-side
-                        => Used for authentication, tracking, and session handling
-                        => You need to send data to the server on every request (e.g., auth tokens).
-                        example.
-                        document.cookie = "username=John; expires=Fri, 1 May 2025 12:00:00 UTC; path=/";
-                        Common uses::	Auth, sessions
-        
+                                    console.log(window.foo); // ✅ 1
+                                    console.log(window.bar); // ❌ undefined
+                                    console.log(window.baz); // ❌ undefined
+                                </code>
+                             </pre>
+                              
+                        </li>
+                        <li><p>What is Hoisting?</p>
+
+                            <p>Hoisting is a JavaScript mechanism where variable and function declarations are moved (or "hoisted") to the top of their scope (global or function scope) during the compilation phase, before the code is executed.
+
+                                However, only the declarations are hoisted, not the initializations.</p>
+                                <ul>
+                                    <li>⚠️ Important:
+                                        Variables declared with **var** are hoisted and initialized with undefined.
+                                        
+                                      </li> <li> Variables declared with **let** and **const** are hoisted but not initialized — they are in the Temporal Dead Zone (TDZ).
+                                        
+                                      </li> <li>Function declarations are hoisted with their entire body.
+                                        
+                                      </li><li> Function expressions are treated like variables (only the variable name is hoisted, not the function body).</li>
+                                    </li>
+                                </ul>
+
+                                <p>
+<pre>
+<code>
+                                                console.log(x);  // Output: undefined
+                                                var x = 10;
+
+                                                console.log(y);  // ReferenceError: Cannot access 'y' before initialization
+                                                let y = 20;
+
+                                                ✅ Example 3: Function Declarations
+
+                                                greet(); // Output: Hello
+                                                                                        
+                                                function greet() {
+                                                console.log("Hello");
+                                                }
+                                                Explanation:
+                                                Entire function declarations are hoisted. This means greet() is available even before its definition.
+
+                                                ❌ Example 4: Function Expressions
+                                               
+                                                sayHello(); // TypeError: sayHello is not a function
+
+                                                var sayHello = function () {
+                                                console.log("Hi");
+                                                };
+                                                Explanation:
+                                                Only the variable sayHello is hoisted (with value undefined), not the function itself.
+
+                                                Internally:
+
+                                               
+                                                var sayHello;     // hoisted as undefined
+                                                sayHello();       // undefined is not a function ❌
+                                                sayHello = function () { ... };
+</code>
+</pre>
+                                </p>
+
+                        </li>
+                        <li>What is the difference between Undefined and Null in JavaScript?
+
+                            <pre>
+                                <code>
+✅ Example 1: undefined
+
+let a;
+console.log(a);  // Output: undefined
+a is declared but not initialized, so it's undefined.
+
+✅ Example 2: null
+
+let b = null;
+console.log(b);  // Output: null
+b is explicitly set to null, meaning it was intentionally set to "no value".
+
+✅ Example 3: Type Comparison
+
+console.log(typeof undefined); // "undefined"
+console.log(typeof null);      // "object"  ← legacy quirk in JavaScript
+✅ Example 4: Equality Comparison
+
+console.log(undefined == null);  // true  (loose equality)
+console.log(undefined === null); // false (strict equality)
+== checks value only: so undefined == null is true.
+
+=== checks value and type: so undefined !== null.
+
+🧠 Summary
+Use undefined when a variable has not been assigned a value.
+
+Use null when you want to explicitly clear or empty a value.
+                                </code>
+                            </pre>
+                        </li>
+                        <li>What is the difference between Call, Bind and Apply? (Explain in detail with examples)
+                            ✅ Example Setup
+<pre>
+    <code>
+        js
+Copy
+Edit
+const person = {
+  name: 'Alice',
+};
+
+function greet(greeting, punctuation) {
+  console.log(`${greeting}, ${this.name}${punctuation}`);
+}
+1️⃣ call()
+Calls the function immediately, setting this and passing arguments individually.
+
+js
+Copy
+Edit
+greet.call(person, 'Hello', '!');  // Output: Hello, Alice!
+2️⃣ apply()
+Calls the function immediately, setting this and passing arguments as an array.
+
+js
+Copy
+Edit
+greet.apply(person, ['Hi', '.']);  // Output: Hi, Alice.
+3️⃣ bind()
+Returns a new function with this bound and does NOT call it immediately.
+
+js
+Copy
+Edit
+const greetAlice = greet.bind(person, 'Hey', '!');
+greetAlice();  // Output: Hey, Alice!
+✅ Another Example: Method Borrowing
+js
+Copy
+Edit
+const car = {
+  brand: 'Tesla',
+};
+
+function showBrand() {
+  console.log(this.brand);
+}
+
+showBrand.call(car); // Output: Tesla
+    </code>
+</pre>
+<table border="1">
+    <thead>
+      <tr>
+        <th>Use Case</th>
+        <th>Method</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Execute function with specific <code>this</code> now</td>
+        <td><code>call</code> or <code>apply</code></td>
+      </tr>
+      <tr>
+        <td>Execute later with pre-bound <code>this</code></td>
+        <td><code>bind</code></td>
+      </tr>
+      <tr>
+        <td>Argument list known</td>
+        <td><code>call</code></td>
+      </tr>
+      <tr>
+        <td>Argument list dynamic or from array</td>
+        <td><code>apply</code></td>
+      </tr>
+    </tbody>
+  </table>
+  
+                        </li>
+                        <li>What is the difference between <code>==</code> and <code>===</code>?</li>
+                        <li>Call, Bind and Apply</li>
+                        <li>Function Borrowing
+                            <pre>
+                                <code>
+                                    🔄 Function Borrowing in JavaScript
+Function Borrowing is a JavaScript concept where an object uses a method from another object as if it were its own. This is possible using call(), apply(), or bind() to explicitly set the this context.
+
+✅ Use Case
+When two or more objects share similar properties, but only one of them has a useful method, you can borrow that method instead of redefining it.
+
+🧠 Example: Using call() for Function Borrowing
+js
+Copy
+Edit
+const person1 = {
+  name: 'Alice',
+  greet: function(age) {
+    console.log(`Hello, I'm ${this.name} and I'm ${age} years old.`);
+  }
+};
+
+const person2 = {
+  name: 'Bob'
+};
+
+// Borrow greet from person1
+person1.greet.call(person2, 30);  
+// Output: Hello, I'm Bob and I'm 30 years old.
+✅ Example: Using apply() for Function Borrowing
+js
+Copy
+Edit
+person1.greet.apply(person2, [25]);  
+// Output: Hello, I'm Bob and I'm 25 years old.
+✅ Example: Using bind() for Function Borrowing
+js
+Copy
+Edit
+const greetBob = person1.greet.bind(person2, 40);
+greetBob();  
+// Output: Hello, I'm Bob and I'm 40 years old.
+                                </code>
+                            </pre>
+                        </li>
+                        <li>Higher Order Function
+                            <pre>
+                                <code>
+                                    🔼 What is a Higher-Order Function in JavaScript?
+A Higher-Order Function (HOF) is a function that either:
+
+Takes one or more functions as arguments, or
+
+Returns a function as its result — or both.
+
+In short, functions that operate on other functions.
+
+✅ Common Higher-Order Functions in JavaScript:
+map()
+
+filter()
+
+reduce()
+
+forEach()
+
+Custom functions that return or accept functions
+
+📘 Example 1: HOF that Takes a Function as Argument
+js
+Copy
+Edit
+function greet(name) {
+  return `Hello, ${name}`;
+}
+
+function processUserInput(callback) {
+  const name = 'Alice';
+  console.log(callback(name));
+}
+
+processUserInput(greet); // Output: Hello, Alice
+Here, processUserInput is a higher-order function because it takes greet as an argument.
+
+📘 Example 2: HOF that Returns Another Function
+js
+Copy
+Edit
+function multiplier(factor) {
+  return function(number) {
+    return number * factor;
+  };
+}
+
+const double = multiplier(2);
+console.log(double(5)); // Output: 10
+multiplier is a higher-order function because it returns a new function.
+                                </code>
+                            </pre>
+                        </li>
+                        <li>What is Callback?
+
+                            <pre>
+                                <code>
+                                    🔁 What is a Callback in JavaScript?
+A callback is a function passed as an argument to another function, which is then invoked (called back) at a later time—after some operation has completed.
+
+It allows asynchronous or customizable behavior in JavaScript.
+
+🔧 Syntax Example
+js
+Copy
+Edit
+function greet(name, callback) {
+  console.log(`Hello, ${name}`);
+  callback();
+}
+
+function sayBye() {
+  console.log('Goodbye!');
+}
+
+greet('Alice', sayBye);
+// Output:
+// Hello, Alice
+// Goodbye!
+Here:
+
+greet is a function that accepts another function (sayBye) as a parameter.
+
+sayBye is the callback function.
+
+
+Real-World Example: Simulating Asynchronous Behavior
+js
+Copy
+Edit
+function fetchData(callback) {
+  setTimeout(() => {
+    console.log('Data fetched');
+    callback();
+  }, 2000);
+}
+
+function processData() {
+  console.log('Processing data...');
+}
+
+fetchData(processData);
+// Output after 2 seconds:
+// Data fetched
+// Processing data...
+                                </code>
+                            </pre>
+                        </li>
+                        <li>What is Promises?
+                            <pre>
+                                <code>
+//What is a Promise in JavaScript?
+A Promise is a JavaScript object that represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
+
+It allows you to write asynchronous code in a more readable and manageable way than callbacks.       
+
+// Benefits of Promises
+
+Cleaner syntax for async operations
+Easier to chain multiple async tasks
+Centralized error handling with .catch()
+Helps avoid callback hell     
+
+//📌 States of a Promise
+State ||	Description
+pending || Initial state; neither fulfilled nor rejected
+fulfilled ||	Operation completed successfully
+rejected ||	Operation failed
+
+
+✅ Basic Syntax
+const promise = new Promise((resolve, reject) => {
+  // async operation
+  let success = true;
+
+  if (success) {
+    resolve("Operation successful!");
+  } else {
+    reject("Something went wrong.");
+  }
+});
+
+
+//Consuming a Promise
+
+promise
+  .then(result => {
+    console.log(result); // if resolved
+  })
+  .catch(error => {
+    console.error(error); // if rejected
+  });
+
+
+// Real Example with setTimeout
+ 
+  function fetchData() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("Data fetched!");
+      }, 2000);
+    });
+  }
+  
+  fetchData()
+    .then(data => console.log(data))    // Output after 2s: Data fetched!
+    .catch(err => console.error(err));
+                                </code>
+                            </pre>
+
+                            <pre>
+                                <code>
+
+// In JavaScript, Promises are a way to handle asynchronous operations. A Promise represents a value that may be available now, or in the future, or never. It helps to deal with operations such as fetching data from an API, reading files, or waiting for a timer to complete without blocking the execution of other code.
+
+// Key States of a Promise:
+// A promise can be in one of three states:
+
+// Pending: The initial state; the promise is neither fulfilled nor rejected.
+// Fulfilled: The operation completed successfully, and the result is available.
+// Rejected: The operation failed, and an error or reason is available.
+
+
+// let firstPromise = new Promise( (resolve, reject) => {
+
+//     setTimeout(function sayMyName() {
+//         console.log("My Name is Love babbar");
+//     }, 0);
+// } );
+
+let promise1 = new Promise((resolve, reject)=> {
+    let success = true;
+    if(success) {
+        resolve(10);
+    }
+    else {
+        reject("Internal Server Error");
+    }
+});
+
+promise1.then((message)=> {
+    console.log("first msg:" + message);
+    return 20;
+}).then((message)=> {
+    console.log("second msg: " + message);
+    return 30;
+}).then((message)=> {
+    console.log("third msg: " + message);
+}).catch((error) => {
+    console.error(error);
+}).finally((message) => {
+    console.log("Main to final hu, chalunga pakka")
+})
+
+
+
+
+// promise1.then((message) => {
+//     console.log("Then ka message is " + message);
+// }).catch((error)=> {
+//     console.log("Error: " + error);
+// })
+
+
+// let promise1 = new Promise((resolve, reject)=> {
+//     setTimeout(resolve, 1000, "First");
+// })
+// let promise2 = new Promise((resolve, reject)=> {
+//     setTimeout(resolve, 2000, "Second");
+// })
+// let promise3 = new Promise((resolve, reject)=> {
+//     setTimeout(reject, 4000, "Third");
+// })
+
+// Promise.all([promise3, promise2, promise1])
+// .then((values) => {
+//     console.log(values);
+// })
+// .catch((error)=> {
+//     console.error("error:" + error);
+// })
+                                </code>
+                            </pre>
+                        </li>
+                        <li>What are the static methods of Promises?
+
+                            <table border="1">
+                                <thead>
+                                  <tr>
+                                    <th>Method</th>
+                                    <th>Description</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td><code>Promise.resolve()</code></td>
+                                    <td>Creates a resolved promise</td>
+                                  </tr>
+                                  <tr>
+                                    <td><code>Promise.reject()</code></td>
+                                    <td>Creates a rejected promise</td>
+                                  </tr>
+                                  <tr>
+                                    <td><code>Promise.all()</code></td>
+                                    <td>Waits for all promises to resolve</td>
+                                  </tr>
+                                  <tr>
+                                    <td><code>Promise.allSettled()</code></td>
+                                    <td>Waits for all to settle, resolves with result objects</td>
+                                  </tr>
+                                  <tr>
+                                    <td><code>Promise.race()</code></td>
+                                    <td>Resolves/rejects with the first settled promise</td>
+                                  </tr>
+                                  <tr>
+                                    <td><code>Promise.any()</code></td>
+                                    <td>Resolves with first fulfilled, rejects only if all fail</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              
+                        </li>
+                        <li>ES6 Features
+
+                            <pre>
+                                <code>
+✅ 6. Rest and Spread Operators (...)
+Rest gathers remaining elements.
+
+Spread expands elements.
+
+// Rest
+function sum(...nums) {
+  return nums.reduce((a, b) => a + b);
+}
+
+// Spread
+const arr = [1, 2];
+const newArr = [...arr, 3, 4];
+
+//✅ 4. Destructuring Assignment
+Extract values from arrays or objects.
+
+// Object
+const user = { name: 'Alice', age: 25 };
+const { name, age } = user;
+
+// Array
+const [first, second] = [10, 20];
+
+
+// ✅ 9. Modules (import / export)
+
+// In file.js
+export const PI = 3.14;
+
+// In another file
+import { PI } from './file.js';
+                                </code>
+                            </pre>
+                        </li>
+                     
+                        <li>Arrow function and benefits of arrow function
+                            <pre>
+                                <code>
+An arrow function is a shorter syntax for writing function expressions introduced in ES6 (ES2015). It also has a special behavior when it comes to this binding.
+<table border="1">
+    <thead>
+      <tr>
+        <th>Benefit</th>
+        <th>Explanation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>✅ <strong>Shorter syntax</strong></td>
+        <td>Less boilerplate, cleaner code</td>
+      </tr>
+      <tr>
+        <td>✅ <strong>Lexical <code>this</code> binding</strong></td>
+        <td>Arrow functions don’t have their own <code>this</code>; they inherit it from the parent scope</td>
+      </tr>
+      <tr>
+        <td>✅ <strong>No <code>arguments</code> object</strong></td>
+        <td>Useful to avoid confusion in callbacks or closures</td>
+      </tr>
+      <tr>
+        <td>✅ <strong>Great for inline callbacks</strong></td>
+        <td>Perfect for array methods like <code>map</code>, <code>filter</code>, <code>reduce</code>, etc.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  //example Lexical this Example
+
+  function Counter() {
+    this.count = 0;
+    setInterval(() => {
+      this.count++;
+      console.log(this.count);
+    }, 1000);
+  }
+  
+  new Counter();
+  Arrow function keeps this pointing to the Counter instance (the enclosing scope).
+  If you used a regular function inside setInterval, you'd lose the correct this.
+  
+                                </code>
+                            </pre>
+                        </li>
+                        <li>What are Closures in JavaScript?
+
+                            <pre>
+                                <code>
+function outer(){
+let click = 0;
+    
+    return function inner(){
+        click++;
+        console.log(click);
+    }
+   
+}
+const increment = outer();
+
+increment();
+increment();
+increment();
+
+//The inner function inner() has access to counter from outer()'s scope — even after outer() has returned.
+                                </code>
+                            </pre>
+                        </li>
+                        <li>Event Loop
+                            <pre>
+                                <code>
+The Event Loop is a core part of JavaScript’s concurrency model that allows non-blocking, asynchronous execution — even though JavaScript is single-threaded.
+
+It enables JavaScript to perform tasks like handling timers, DOM events, and asynchronous operations (like fetch) without stopping the main thread.   
+
+
+//Core Concepts Involved
+
+    Call Stack – Where functions are executed
+    Web APIs – Browser-provided APIs for async tasks (e.g., setTimeout, AJAX, DOM events)
+    Callback Queue (Task Queue) – Stores callback functions waiting to be executed
+    Microtask Queue – For promises, queueMicrotask(), MutationObserver, etc.
+    Event Loop – The mechanism that monitors the call stack and pushes tasks from the queue when the stack is empty.
+
+
+//How the Event Loop Works (Step-by-Step)
+    
+JS executes code in the Call Stack.
+When an async operation (like setTimeout) occurs:
+It's handled by Web APIs.
+The callback is queued in the Callback Queue (or Microtask Queue for promises).
+Once the Call Stack is empty, the Event Loop:
+First checks the Microtask Queue and runs all its tasks.
+Then moves one task from the Callback Queue into the stack.
+Repeats the process continuously.  
+
+
+
+//example
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Timeout");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("Promise");
+});
+
+console.log("End");
+Output:
+
+sql
+Copy
+Edit
+Start
+End
+Promise
+Timeout
+</code>
+                            </pre>
+                        </li>
+                        <li>Shallow Copy and Deep Copy (<code>structuredClone</code>)
+                        
+                        
+                        <pre>
+                            <code>
+// Shallow Copy
+=> A shallow copy creates a new object, but copies references for nested objects/arrays.
+
+✅ Characteristics:
+=> Top-level properties are copied.
+=> Nested objects or arrays are shared (not cloned).
+=> Changes to nested structures affect both original and copy.
+
+
+// Example:
+
+const original = {
+  name: "Alice",
+  address: {
+    city: "Delhi"
+  }
+};
+//
+const shallowCopy = { ...original };
+shallowCopy.address.city = "Mumbai";
+//
+console.log(original.address.city); // 🔥 Output: "Mumbai"
+Both original and shallowCopy share the same address object.
+                            </code>
+
+
+                            <code>
+// Deep Copy
+=> A Deep Copy is a process in which all properties of an object, including nested objects and arrays, are recursively copied, resulting in a completely independent clone of the original.
+=> Modifying the deep-copied object does not affect the original object, even for deeply nested structures.
+
+//✅ Characteristics:
+=> Entire structure is cloned, not just the top level.
+=> No shared references — changes are independent.
+=> Copies all levels of an object or array.
+=> Creates new memory references for every nested element.
+=> Ensures no shared references between the original and the copy.
+
+// Example:
+
+const original = {
+  name: "Alice",
+  address: {
+    city: "Paris",
+    zip: 12345
+  }
+};
+
+// Deep copy using structuredClone (modern)
+const deepCopy = structuredClone(original);
+
+deepCopy.address.city = "Tokyo";
+
+console.log(original.address.city); // "Paris" (unchanged)
+console.log(deepCopy.address.city); // "Tokyo"
+
+// Other Deep Copy Methods:
+=> structuredClone(obj) (modern and recommended)
+=> JSON.parse(JSON.stringify(obj)) (loses functions, undefined, and circular references)
+=> Libraries like lodash.cloneDeep(obj)
+                            </code>
+                        </pre>
+                        </li>
+                        <li>Currying in JavaScript
+                            <pre>
+                                <code>
+=> Currying in JavaScript is a functional programming technique where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument.
+// OR
+=>Currying in JavaScript is a technique of transforming a function with multiple arguments into a sequence of functions, each taking a single argument.
+
+// 🔧 Example of Normal Function
+
+function add(a, b) {
+  return a + b;
+}
+add(2, 3); // 5
+
+
+//🔁 Curried Version
+
+function curriedAdd(a) {
+  return function(b) {
+    return a + b;
+  };
+}
+curriedAdd(2)(3); // 5
+
+
+
+// ✅ Benefits of Currying
+
+=> Reusability: You can create specialized functions by partially applying arguments.
+=> Function composition: Works well with other functional techniques.
+=> Cleaner code when used wisely in functional patterns.
+
+
+// 🧠 Currying Using Arrow Functions
+const multiply = a => b => c => a * b * c;
+
+multiply(2)(3)(4); // 24
+
+                                </code>
+                            </pre>
+                        </li>
+                        <li>What are Object Prototypes?</li>
+                        <li>Rest parameter and Spread operator
+                            <pre>
+                                <code>
+// 1. Rest Parameter (...)
+Used in function parameters to collect multiple arguments into an array.
+
+✅ Syntax:
+
+function myFunc(...args) {
+  console.log(args);
+}
+myFunc(1, 2, 3); // Output: [1, 2, 3]
+
+
+// 📌 Example – Sum of numbers:
+function sum(...numbers) {
+  return numbers.reduce((acc, val) => acc + val, 0);
+}
+console.log(sum(1, 2, 3, 4)); // Output: 10
+
+
+// 🔹 2. Spread Operator (...)
+=> Used to spread elements of an array or object into individual elements.
+
+✅ Syntax:
+
+const arr = [1, 2, 3];
+console.log(...arr); // Output: 1 2 3
+
+// 📌 Example – Merging arrays:
+const a = [1, 2];
+const b = [3, 4];
+const merged = [...a, ...b];
+console.log(merged); // Output: [1, 2, 3, 4]
+
+
+// 📌 Example – Cloning an object:
+const obj1 = { name: "John" };
+const obj2 = { ...obj1, age: 30 };
+console.log(obj2); // Output: { name: "John", age: 30 }
+                                </code>
+                            </pre>
+                        </li>
+                        <li>Promises, <code>setTimeout</code> and Callbacks order of execution
+                        <p>Understanding the execution order of Promises, setTimeout, and callbacks in JavaScript requires knowing how the JavaScript Event Loop works—particularly the call stack, microtask queue, and macrotask queue.</p>
+
+                        <pre>
+                            <code>
+// console.log("Start");
+
+setTimeout(() => {
+  console.log("setTimeout");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("Promise 1");
+}).then(() => {
+  console.log("Promise 2");
+});
+
+console.log("End");
+
+//output
+
+Start
+End
+Promise 1
+Promise 2
+setTimeout
+
+
+// 🔎 Why This Order?
+=> console.log("Start") – Synchronous → Executed first.
+=> setTimeout(..., 0) – Scheduled as a macrotask.
+=> Promise.then(...) – Scheduled as microtasks (added to microtask queue).
+=> console.log("End") – Synchronous → Executed next.
+=> Microtasks (Promise 1, then Promise 2) → Executed after sync code.
+=> Macrotask (setTimeout) → Executed after all microtasks.
+
+
+// Another Example with Callback:
+
+function sayHello(cb) {
+  console.log("Inside sayHello");
+  cb();
+}
+
+sayHello(() => console.log("Callback executed"));
+
+
+// Output:
+
+Inside sayHello
+Callback executed
+
+=> ✅ Reason: The callback is invoked synchronously inside the sayHello function.
+
+                            </code>
+                        </pre>
+                        </li>
+                        <li>Design Patterns</li>
+                        <li>What is the difference between Event Capturing and Event Bubbling (with example)?</li>
+                        <li>How JavaScript executes in browser</li>
+                        <li>What is base href?</li>
+                        <li> What is dif
+                            <pre>
+                                <code>
+=> diff stands for difference. In programming and development contexts, it's used to compare two sets of data—usually two versions of a file—and show what has changed.
+ // In General Terms
+=> A diff is a comparison between two versions of text (like source code), showing:
+
+=> What lines were added
+=> What lines were removed
+=> What lines were modified
+=> git diff
+                                </code>
+                            </pre>
+                        </li>
+                        <li>
+                            .class-1 .class-2 {}
+                            .class-1.class-2 {}
+                            .class-1 + .class-2 {}
+                            .class-1 > .class-2 {}
+                            .class-1 ~ .class-2 {}
+                        </li>
+                        <li>
+                            const arr = [1, 2, 3, 4];
+                            arr[10] = 10;
+                            console.log(arr[8]);
+                        </li>
+
+                        <li>
+                            var salary = "1000";
+                            (function () {
+                            console.log("Original salary was " + salary);
+                            var salary = "5000";
+                            console.log("My New Salary " + salary);
+                            })();
+                        </li>
+                        <li>
+                            function sayHi() {
+                                console.log(name);
+                                console.log(age);
+                                var name = 'Lydia';
+                                let age = 21;
+                              }
+                              sayHi();
+                        </li>
+                        <li>
+                            const numbers = [10, 20, 30, 40, 50];
+                            const [y] = numbers;
+                            console.log(y);
+                        </li>
+                        <li>
+                            console.log('Start');
+
+                            setTimeout(() => {
+                            console.log('Timeout');
+                            }, 0);
+
+                            new Promise((resolve, reject) => {
+                            console.log('Promise executor');
+                            resolve();
+                            }).then(() => {
+                            console.log('Promise resolved');
+                            });
+
+                            console.log('End');
+                        </li>
+
+
+                        <li>
+                            let { b, ...a } = {
+                                a: 10,
+                                b: 20,
+                                c: 30,
+                                d: 40,
+                                e: 50,
+                              };
+                              
+                              console.log(b);
+                              console.log(a);
+                              
+                              // Answered:
+                              // b = 20
+                              // a = { a: 10, c: 30, d: 40, e: 50 }
+                        </li>
+                        <li>
+                            const sum = a => b => c => {
+                                console.log(a, b, c);
+                                return a + b + c;
+                              };
+                              
+                              console.log(sum(1)(2)(3));
+                              
+                              // Answered:
+                              // 1 2 3
+                              // 6
+                        </li>
+                        <li>
+                            console.log(parseInt("4*5", 10));
+
+                            // Answered:
+                            // 4
+                        </li>
+                        <li>
+                            console.log([...'Extreme']);
+
+                            // Answered:
+                            // [ 'E', 'x', 't', 'r', 'e', 'm', 'e' ]
+                        </li>
+
+                        <li>
+                            const a = [1, 2, 3, 4, 5].map(num => {
+                                if (typeof num === 'number') return;
+                                return num * 2;
+                              });
+                              
+                              console.log(a);
+                              
+                              // Answered:
+                              // [undefined, undefined, undefined, undefined, undefined]
+                        </li>
+                        <li>
+                            var salary = "1000";
+                            (function () {
+                            console.log("Original salary was " + salary);
+                            var salary = "5000";
+                            console.log("My New Salary " + salary);
+                            })();
+
+                            // Expected:
+                            // Original salary was undefined
+                            // My New Salary 5000
+                        </li>
+                        <li>
+                            function sayHi() {
+                                console.log(name);
+                                console.log(age);
+                                var name = 'Lydia';
+                                let age = 21;
+                              }
+                              sayHi();
+                              
+                              // Expected:
+                              // undefined
+                              // ReferenceError: age is not defined
+                        </li>
+                        <li>
+                            const numbers = [10, 20, 30, 40, 50];
+                            const [y] = numbers;
+                            console.log(y);
+
+                            // Answered:
+                            // 10
+                        </li>
+                        <li>
+                            console.log('Start');
+
+                            setTimeout(() => {
+                            console.log('Timeout');
+                            }, 0);
+
+                            new Promise((resolve, reject) => {
+                            console.log('Promise executor');
+                            resolve();
+                            }).then(() => {
+                            console.log('Promise resolved');
+                            });
+
+                            console.log('End');
+
+                            // Expected:
+                            // Start
+                            // Promise executor
+                            // End
+                            // Promise resolved
+                            // Timeout
+                        </li>
+                        <li>
+                            console.log(a)
+                            const a = 2
+
+                            // Answered:
+                            // ReferenceError: Cannot access 'a' before initialization
+                        </li>
+                        <li>
+                            console.log(sumFun(1,2) => `${sumFun(1,2)}`)
+                            console.log(sumArr(3,4) => `${sumArr(3,4)}`)
+
+                            var sumArr = (a, b) => a + b;
+
+                            function sumFun(a, b) {
+                            return a + b;
+                            }
+
+                            // Answered:
+                            // First line is a syntax error because of incorrect arrow function syntax inside console.log
+                            // Proper way:
+                            console.log(`${sumFun(1, 2)}`);
+                            console.log(`${sumArr(3, 4)}`);
+                        </li>
+                        <li>
+                            let [a, b, c] = [5, 7]
+                            console.log(a, b, c)
+
+                            // Answered:
+                            // 5 7 undefined
+                        </li>
+                        <li>
+                            let x = 10;
+                            let x = 20;
+                            console.log(x);
+
+                            // Expected:
+                            // Uncaught SyntaxError: Identifier 'x' has already been declared
+
+                            // Answered
+                        </li>
+                        <li>
+                            await Promise.resolve(23)
+                            .then((result) => result + 1)
+                            .then((result) => result + 100)
+
+                            // Answered:
+                            // 124
+                        </li>
+                        <li>
+                            // How can you shuffle the elements of an array to randomize their order?
+
+                                names = ["Alice", "Bob", "Charlie", "David", "Eve"];
+
+                                // Example shuffle:
+                                names.sort(() => Math.random() - 0.5);
+                        </li>
+                        <li>
+                            let number = 45678123465;
+                            // Expected Output: 4 + 5 + 6 + 7 + 8 + 1 + 2 + 3 + 4 + 6 + 5
                             
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // What is the role of the rel attribute in the < link> tag?
-                    => The rel attribute specifies the relationship between the current HTML document and the linked resource (like a stylesheet or icon).
-                    example:: < link rel="stylesheet" href="styles.css"> //stylesheet,icon,preload,auther
-        
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // How do < iframe>, < embed>, and < object> differ?
-        
-                    1. < iframe> – Inline Frame
-                        => Loads an entire external HTML page inside a frame.
-                        => Commonly used for:
-                        => Embedding YouTube videos
-                        => Google Maps
-                        => External web apps
-                        < iframe src="https://example.com" width="400" height="300"></ iframe>
-        
-                    2. < embed> – Embed External Resources
-                            => Designed to embed non-HTML content like:                    
-                            => PDF files                   
-                            => Media files (MP3, MP4)                    
-                            => Flash (deprecated)   
-                            < embed src="file.pdf" type="application/pdf" width="600" height="400">
-                    
-                    3. < object> – More Flexible Embedding
-                            => Older but very versatile
-                            => Can embed HTML, PDF, images, even Java applets (legacy)
-                            => Allows fallback content if the resource fails 
-                            example:
-        
-                            < object data="file.pdf" type="application/pdf" width="600" height="400">
-                                < p>Your browser doesn’t support PDFs. < a href="file.pdf">Download it< /a>.< /p>
-                            < /object>
-                                    
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // What is the purpose of srcset in the < img> tag?
-                    🎯 Purpose of srcset
-                        => srcset allows you to define multiple image files for the browser to choose from based on:
-                        => Screen size
-                        => Device resolution (e.g., retina displays)
-                        => This improves:
-                        => Page speed (by loading smaller images on small screens)
-                        => Clarity (by loading high-res images on retina screens)
-        
-                    // example:
-                        < img 
-                            src="small.jpg" 
-                            srcset="small.jpg 480w, medium.jpg 768w, large.jpg 1200w" 
-                            sizes="(max-width: 600px) 480px, (max-width: 1000px) 768px, 1200px" 
-                            alt="A scenic mountain view">
-                        
-                    // How it works:
-                        => srcset gives the browser multiple image sources with their widths (w = pixels).  
-                        => sizes tells the browser how much screen space the image will use under different conditions.
-                        => The browser picks the best image based on current screen width + resolution.    
-        
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    🌟 // What is Shadow DOM?
-                        The Shadow DOM is a browser feature that lets you attach a hidden, separate DOM tree to an element — one that is isolated from the main DOM.
-                        //OR
-                    // The Shadow DOM is a part of the Web Components standard that allows you to create encapsulated DOM trees — meaning elements can have their own isolated structure and styles.   
-                        => It's like giving an element its own private part of the page that:
-                        => Has its own elements and styles
-                        => Is not affected by outer page styles
-                        => Doesn’t mess up your global CSS or scripts
-                        It’s like giving a component a private, hidden DOM that:
-        
-                        => Has its own HTML elements
-                        => Has its own CSS
-                        => Doesn’t clash with the rest of the page
-        
-        
-                        🧱 Why Shadow DOM Exists
-                        In regular HTML:
-                        => Styles and scripts are global.  
-                        => Components can interfere with each other (CSS leaks).               
-                        => With Shadow DOM:                
-                        => You can build self-contained components that work anywhere, without breaking other code or styles.
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // 🧩 What Are Custom Elements in HTML5?
-                    Custom elements are a feature of the Web Components standard that let you create your own HTML tags — with custom behavior, structure, and styling.
-                    //example
-                    < user-card></ user-card>
-                    < weather-widget></ weather-widget>
-        
-                    //Benefits
-                    => Reusability: Build once, use anywhere                       
-                    => Encapsulation (with Shadow DOM)
-                    => Cleaner HTML structure
-                    => Easier to manage and test UI components
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // 🌱 Progressive Enhancement
-                    =>  Start with a basic, functional experience, then add advanced features for browsers that support them.
-                    
-                    //  🧩 Philosophy:
-                    =>  Build from the ground up: start simple, enhance for modern users.
-        
-                    //  ✅ Example:
-                    =>  HTML: Display plain content
-                    =>  CSS: Add layout and styling
-                    =>  JavaScript: Add interactivity
-        
-                    // example 
-                    < button>Click me< /button>
-                    < script>
-                    document.querySelector('button').addEventListener('click', () => alert("Clicked!"));
-                    </script> 
-                    => If JavaScript fails, the button is still visible — user just can’t click.
-        
-        
-                    // 🧯 Graceful Degradation
-                        Start with a full-featured experience, then ensure it still functions acceptably in older or less capable browsers.
-        
-                        //🧩 Philosophy:
-                        => Build for modern features first, then make sure it breaks nicely.
-        
-                        //✅ Example:
-                        => Use a fancy animated menu for modern browsers
-                        => Provide a simple HTML menu fallback for older ones
-        
-                        < video controls>
-                            < source src="video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        < /video>
-                        => If the video feature isn’t supported, the fallback message is shown.
-                        
-                        Feature || Progressive Enhancement || Graceful Degradation
-                        => Build Focus || Starts basic, adds features || Starts advanced, scales down
-                        => Primary Audience || Users with older browsers || Users with modern browsers
-                        => Failure Handling || Enhancements are optional || Tries to prevent total failure
-                        => Strategy || Bottom-up || Top-down
-        
-                        //HighLight
-                        => Progressive enhancement builds from a solid base and adds features for capable browsers.
-                        => Graceful degradation builds something advanced and ensures it still works (somewhat) when features fail.
-                </code>
-            </pre>
-        
-            <pre>
-                <code>
-                    // 🔡 What is Character Encoding in HTML?
-                    < meta charset="UTF-8">
-                    => Character encoding tells the browser how to interpret the bytes in an HTML file as readable text — like letters, symbols, emojis, etc.
-                    => If encoding isn’t set correctly, text might appear as � or other strange symbols.
-                    
-                    // ✅ Most Common Encoding: UTF-8
-                    => Supports almost all characters and symbols used worldwide
-                    => Recommended for nearly all modern websites
-        
-                    //What Happens If You Skip It?
-                    =>Browsers might guess incorrectly
-                    =>Special characters (€, ñ, 中文, emoji 😄) may break
-                    =>Security or SEO issues could occur
-        
-        
-                </code>
-            </pre>
-        
-            <pre>
-                <code>
-                    // 🔧 Common ARIA Roles & Attributes
-        
-                        => Attribute || Purpose || Example Use
-                        => role="button" || Tells screen readers it's a button || Custom div that acts like a button
-                        => aria-hidden="true" || Hides element from screen readers || Decorative icons
-                        => aria-label="Close" || Provides a label for screen readers || Buttons with no visible text
-                        => aria-expanded="true" || Indicates dropdown is open || Accordions, toggles
-                        => aria-live="polite" || Announces dynamic content changes || Notification messages
-                </code>
-            </pre>
-        
-            <pre>
-                <code>
-                    // 🧭 Step-by-Step: How the Browser Renders HTML
-        
-                    // The browser renders HTML in these steps:
-                    => Parse HTML → Build DOM → Parse CSS → Build Render Tree → Layout → Paint → Composite         
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // novalidate Attribute
-                    => Purpose: The novalidate attribute is used on the < form> element to disable the browser's default form validation.
-                    => When to use: It’s typically used when you want to handle form validation manually using JavaScript (custom validation) instead of relying on the browser’s built-in validation.
-                    
-                    // example
-                        < form id="myForm" novalidate>
-                            < input type="email" id="email" required />
-                            < input type="submit" value="Submit" />
-                        < /form>
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // What are datalist and autocomplete used for?
-        
-                    //< datalist> Element
-                        => Purpose: The < datalist> element is used to define a list of predefined options for an < input> element, providing users with a set of suggestions as they type.
-                        => When to use: You can use it when you want to offer users suggestions based on a set of predefined options, making it easier for them to select values.
-                    
-                        < form>
-                            < label for="fruit">Choose a fruit:< /label>
-                            < input list="fruits" id="fruit" name="fruit" />
-                            < datalist id="fruits">
-                            < option value="Apple">
-                            < option value="Banana">
-                            < option value="Cherry">
-                            < option value="Date">
-                            < option value="Elderberry">
-                            < /datalist>
-                            < input type="submit" value="Submit" />
-                        </ form>
-        
-                    => What happens: When the user starts typing in the < input> field, the browser will show a dropdown with the options ("Apple", "Banana", etc.) defined in the < datalist>.
-                    => Note: The user can still enter their own value if it's not in the list. 
-                    
-                    //🔹 autocomplete Attribute
-                        => Purpose: The autocomplete attribute helps the browser remember and suggest previously entered values for form fields, improving usability by reducing repetitive input.
-                        => When to use: It’s particularly useful for form fields that users often fill out, such as email addresses, names, or addresses, enabling them to automatically fill in previously used values.
-                        
-                        < label for="email">Email:< /label>
-                        < input type="email" id="email" name="email" autocomplete="on" />
-        
-                    //What happens:
-                        => The email input field will show previous email addresses that the user has typed in.  
-                        => The password input field will not show any previous passwords (because autocomplete="off").    
-                </code>
-            </pre>
-            <pre>
-                <code>
-                    // What best practices do you follow for optimizing HTML performance?
-                    ✅ 1. Minimize HTML File Size
-                    =>Remove unnecessary whitespace: Extra spaces, line breaks, and indentation can add unnecessary bytes to the HTML file.
-                    ✅ 2. Reduce DOM Complexity
-                        => Simplify the HTML structure: Avoid deeply nested elements. A simpler DOM tree reduces the complexity for the browser when rendering the page.
-                        => Limit the number of DOM elements: Each element requires memory and processing time, so avoid adding unnecessary < div> or < span> elements.
-                        => Avoid large and complex inline styles
-                    ✅ 3. Defer Non-Essential Resources
-                        => Lazy load images: Use the loading="lazy" 
-                    ✅ 4. Use Semantic HTML
-                    ✅ 5. Optimize Images
-                        => Use modern formats: Prefer using modern image formats like WebP for smaller file sizes compared to JPEG or PNG.
-                        < picture>
-                            < source srcset="image.webp" type="image/webp">
-                            < img src="image.jpg" alt="Image description">
-                        < /picture>
-        
-                    ✅ 6. Use External Stylesheets and Scripts
-                    ✅ 9. Optimize CSS and JavaScript
-                </code>
-            </pre>
-            <pre>
-                <code>
-                // What is the DOMContentLoaded event?
-        
-                    // Event | Triggered When | Use Case
-                    => DOMContentLoaded | When the HTML has been fully loaded and parsed, but before external resources (like images) are loaded. | Execute scripts to manipulate the DOM or initialize UI components.
-                    => load | When the entire page, including images and other resources, has finished loading. | When you need to wait for all resources (e.g., images) to be fully loaded.
-                </code>
-            </pre>
-        </div>
-        </div>
-        <div id="menu2" class="container-fluid tab-pane fade"><br>
-            <h3>CSS</h3>
+                            let myNum = number.toString();
+                            console.log(myNum.split('').join('+'));
+                        </li>
+                        <li>
+                            // Calculate the sum of numbers stored in an array of objects
 
-            <div>
-                css questions
+                            let number_val = [
+                            { val: 1 },
+                            { val: 2 },
+                            { val: 3 },
+                            { val: 4 },
+                            { val: 5 }
+                            ];
+
+                            // Answered
+                            let sum = number_val.reduce((acc, obj) => acc + obj.val, 0);
+                        </li>
+                      </ul>
+                      
+                </div>
             </div>
         </div>
-        <div id="menu3" class="container-fluid tab-pane fade"><br>
-            <h3>JavaScript</h3>
-
-            <div>
-                JavaScript questions
-            </div>
-        </div>
+        
+      
+        
     </div>
+
+   
 </div>
   
     
