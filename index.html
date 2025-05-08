@@ -1509,51 +1509,54 @@ Use null when you want to explicitly clear or empty a value.
                             ✅ Example Setup
 <pre>
     <code>
-        js
-Copy
-Edit
-const person = {
-  name: 'Alice',
-};
+// 🔹 1. call() – Calls a function immediately with a different this
 
-function greet(greeting, punctuation) {
-  console.log(`${greeting}, ${this.name}${punctuation}`);
-}
-1️⃣ call()
-Calls the function immediately, setting this and passing arguments individually.
+const person1 = { name: "Alice" };
+const person2 = { name: "Bob" };
 
-js
-Copy
-Edit
-greet.call(person, 'Hello', '!');  // Output: Hello, Alice!
-2️⃣ apply()
-Calls the function immediately, setting this and passing arguments as an array.
-
-js
-Copy
-Edit
-greet.apply(person, ['Hi', '.']);  // Output: Hi, Alice.
-3️⃣ bind()
-Returns a new function with this bound and does NOT call it immediately.
-
-js
-Copy
-Edit
-const greetAlice = greet.bind(person, 'Hey', '!');
-greetAlice();  // Output: Hey, Alice!
-✅ Another Example: Method Borrowing
-js
-Copy
-Edit
-const car = {
-  brand: 'Tesla',
-};
-
-function showBrand() {
-  console.log(this.brand);
+function sayHello() {
+  console.log("Hello, I am " + this.name);
 }
 
-showBrand.call(car); // Output: Tesla
+// Call sayHello with person1 as 'this'
+sayHello.call(person1); // Output: Hello, I am Alice
+
+// Call sayHello with person2 as 'this'
+sayHello.call(person2); // Output: Hello, I am Bob
+
+
+// 🔹 2. apply() – Same as call, but passes arguments as an array
+
+function introduce(city, country) {
+  console.log(`I am ${this.name} from ${city}, ${country}`);
+}
+
+introduce.apply(person1, ["Delhi", "India"]); 
+// Output: I am Alice from Delhi, India
+✅ call → arguments separated
+✅ apply → arguments in an array
+
+
+
+// 3. bind() – Returns a new function with this fixed
+
+const person = { name: "Charlie" };
+function sayHi() {
+  console.log("Hi, I am " + this.name);
+}
+
+const newFunc = sayHi.bind(person); // bind, but don't call yet
+
+newFunc(); // Output: Hi, I am Charlie
+🧠 bind is useful when you want to store the function and call it later with the right this.
+
+
+// ✅ In one line:
+=> call = call now with individual args
+=> apply = call now with args in an array
+=> bind = call later with locked this
+
+
     </code>
 </pre>
 <table border="1">
