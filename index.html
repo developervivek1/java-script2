@@ -48,12 +48,12 @@
     <div class="tab-content">
         <div id="menu" class="container-fluid tab-pane active">
 
-            <h3 class="mt-5">JS Codes</h3>
+            <!-- <h3 class="mt-5">JS Codes</h3>
             <pre><code>
 const sum = (a, b) => a + b;
 console.log(sum(5, 3)); // Output: 8
                 </code></pre>
-
+ -->
 
             <pre>
                 <code>
@@ -71,7 +71,7 @@ console.log(makePalindrome(str));
                 </code>
             </pre>    
             
-            <pre>
+            <!-- <pre>
                     <code>
                 // 1. Write a JavaScript function to calculate the sum of two numbers.  
                 function sum(a,b){
@@ -80,7 +80,7 @@ console.log(makePalindrome(str));
                 }
                 console.log(sum(3,5));
                     </code>
-            </pre>
+            </pre> -->
             <pre>
                     <code>
                 // 2. Write a JavaScript program to find the maximum number in an array. 
@@ -106,7 +106,7 @@ console.log(makePalindrome(str));
                 console.log(findMax(numbers1)); // Output: 40
                     </code>
                 </pre>
-                <pre>
+        <pre>
                     <code>
                 // 3. Write a JavaScript function to check if a given string is a palindrome (reads the same forwards and backwards). 
                 const str = "jahaj";
@@ -123,14 +123,14 @@ console.log(makePalindrome(str));
                 console.log(str.split("").reverse().join(""));
                     </code>
             </pre>
-            <pre>
+            <!-- <pre>
                     <code>
                 // 4. Write a JavaScript program to reverse a given string. 
                 const str2 = "javascript";
                 const reverseStr = str2.split("").reverse().join("");
                 console.log(reverseStr);
                     </code>
-            </pre>
+            </pre> -->
             <pre>
                     <code>
                 // 5. Write a JavaScript function that takes an array of numbers and returns a new array with only the even numbers  
@@ -181,7 +181,7 @@ console.log(makePalindrome(str));
                 console.log(`this number ${pNumber} is prime`, isPrime())
                     </code>
                 </pre>
-                <pre>
+                <!-- <pre>
                 <code>
                 // 8. Write a JavaScript program to find the largest element in a nested array.     
                 // Example usage
@@ -217,7 +217,8 @@ console.log(makePalindrome(str));
                 // const largestElement = findLargestInNestedArray(nestedArray);
                 console.log("The largest element from nested array is :", largestElement);
                 </code>
-            </pre>
+            </pre> -->
+            
             <pre>
                 <code>
                 // 9. Write a JavaScript function that returns the Fibonacci sequence up to a given number of terms. 
@@ -386,18 +387,7 @@ console.log(makePalindrome(str));
                 const numbers3 = [1, 2, 3, 1, 2, 4, 5, 6, 4];
                 const uniqueNumbers2 = getUniqueElements(numbers3);
                 console.log(uniqueNumbers2); // [1, 2, 3, 4, 5, 6]
-            
-                // OR
-            
-                function getUniqueElements(arr) {
-                    return arr.filter((value, index, self) => {
-                        return self.indexOf(value) === index;
-                    });
-                }
-                // Example usage
-                const numbers4 = ["apple","apple","orange","banana","banana"];
-                const uniqueNumbers3 = getUniqueElements(numbers4);
-                console.log(uniqueNumbers3); // [1, 2, 3, 4, 5]
+         
                 </code>
             </pre>
             
@@ -432,7 +422,7 @@ console.log(makePalindrome(str));
                 const occurrences = countCharacterOccurrences(string);
                 console.log(occurrences); 
             
-                // OR
+                <!-- // OR
                 let str1 = "I want to count the number of occurrences of each char in this string";
                 let obj = {};
             
@@ -443,7 +433,7 @@ console.log(makePalindrome(str));
                     obj[item] = obj[item] + 1;
                 }
                 }
-                console.log(obj);
+                console.log(obj); -->
                 </code>
             </pre>
             <pre>
@@ -462,7 +452,7 @@ console.log(makePalindrome(str));
                 const reversed2 = reverseWords(sentence2);
                 console.log(reversed2); // "JavaScript is this world Hello"
             
-                // OR
+                <!-- // OR
             
                 function reverseWords(sentence) {
                     return sentence.split(' ').reduce((reversed, word) => word + ' ' + reversed, '').trim();
@@ -470,10 +460,10 @@ console.log(makePalindrome(str));
                 // Example usage
                 const sentence = "Hello world this is JavaScript";
                 const reversed = reverseWords(sentence);
-                console.log(reversed); // "JavaScript is this world Hello"
+                console.log(reversed); // "JavaScript is this world Hello" -->
                 </code>
             </pre>
-            <pre>
+            <!-- <pre>
                 <code>
                 //22 4. Implement a function that removes duplicates from an array, keeping only the unique elements.     
                 function removeDuplicates(arr) {
@@ -484,8 +474,8 @@ console.log(makePalindrome(str));
                 const uniqueNumbers = removeDuplicates(numbers5);
                 console.log(uniqueNumbers); // [1, 2, 3, 4, 5]
                 </code>
-            </pre>
-            <pre>
+            </pre> -->
+            <!-- <pre>
                 <code>
                 //23 6. Implement a function that flattens a nested array into a single-dimensional array. 
                 function flattenArray(arr) {
@@ -497,8 +487,8 @@ console.log(makePalindrome(str));
                 const flattenedArray = flattenArray(nestedArray3);
                 console.log(flattenedArray); // [1, 2, 3, 4, [5, 6]]
                 </code>
-            </pre>
-            <pre>
+            </pre> -->
+            <!-- <pre>
                 <code>
                 //24 7. Write a function that checks if a given string is an anagram of another string (contains the same characters in a different order).     
                 function isAnagram(str1, str2) {
@@ -511,7 +501,7 @@ console.log(makePalindrome(str));
                 console.log(isAnagram("listen", "silent")); // true
                 console.log(isAnagram("hello", "world"));   // false
                 </code>
-            </pre>
+            </pre> -->
             <pre>
                 <code>
                 //25 8. Implement a function that finds the second smallest element in an array of integers.     
@@ -548,7 +538,7 @@ console.log(makePalindrome(str));
                     console.log(generateRandomString(10)); // Example: "A1bC2dE3Fg"
                 </code>
             </pre>
-            <pre>
+            <!-- <pre>
                 <code>
                 //27 10. Implement a function that converts a number to its Roman numeral representation.     
                 //28 4. Implement a function that returns the average value of numbers in an array. 
@@ -564,7 +554,7 @@ console.log(makePalindrome(str));
                 const numbers6 = [2, 4, 6, 8, 10];
                 console.log(calculateAverage(numbers6)); // Output: 6
                 </code>
-            </pre>
+            </pre> -->
             <pre>
                 <code>
                 //29. 5. Write a function that sorts an array of strings in alphabetical order.     
@@ -607,7 +597,7 @@ console.log(makePalindrome(str));
                 // Output: [1, 2, 3]
                 </code>
             </pre>
-            <pre>
+            <!-- <pre>
                 <code>
                 //32. 9. Write a function that finds the second largest number in an array.   
                 function findSecondLargest(arr) {
@@ -618,7 +608,7 @@ console.log(makePalindrome(str));
                 // Example usage
                 console.log(findSecondLargest([10, 20, 4, 45, 99])); // Output: 45
                 </code>
-            </pre>
+            </pre> -->
             <pre>
                 <code>
                     //33. What are higher order functions, and what are their benefits?
