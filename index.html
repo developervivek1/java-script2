@@ -50,9 +50,26 @@
 
             <h3 class="mt-5">JS Codes</h3>
             <pre><code>
-                const sum = (a, b) => a + b;
-                console.log(sum(5, 3)); // Output: 8
+const sum = (a, b) => a + b;
+console.log(sum(5, 3)); // Output: 8
                 </code></pre>
+
+
+            <pre>
+                <code>
+
+//make any string as palindrome
+
+let str = 'vivek';
+
+const makePalindrome = function myFun1(){
+    const addStr = str + str.split('').reverse().join('');
+    return addStr === addStr.split('').reverse().join('');
+}
+
+console.log(makePalindrome(str));
+                </code>
+            </pre>    
             
             <pre>
                     <code>
@@ -70,11 +87,7 @@
                 const numbers = [2,3,5,10,35,55,101];
                 const maxNum = Math.max(...numbers);
                 console.log(maxNum);
-                // OR
-                function maxNum2(numbers){
-                    return Math.max(...numbers);
-                }
-                console.log(maxNum2(numbers));
+                
                 
                 // OR
                 function findMax(arr) {
@@ -144,22 +157,7 @@
                     return result;
                 }  
                 console.log(facNum(5)) 
-            
-                // OR
-            
-                function factorialRecursive(n) {
-                    if (n < 0) {
-                        return "Factorial is not defined for negative numbers.";
-                    }
-                    if (n === 0 || n === 1) {
-                        return 1;
-                    }
-                    return n * factorialRecursive(n - 1);
-                }
-                
-                // Example usage
-                const number = 5;
-                console.log(`Factorial of ${number} is:`, factorialRecursive(number));
+
                     </code>
             </pre>
             <pre>
@@ -267,24 +265,24 @@
             <pre>
                 <code>
                 //12 5. Implement a function that takes a arrays and sort them without using any built-in sorting functions. 
-                function customSort(array) {
-                    let n = array.length;
-                    for (let i = 0; i < n - 1; i++) {
-                        for (let j = 0; j < n - i - 1; j++) {
-                            if (array[j] > array[j + 1]) {
-                                // Swap the elements
-                                let temp = array[j];
-                                array[j] = array[j + 1];
-                                array[j + 1] = temp;
-                            }
+                
+                function bubbleSort(arr) {
+                    for (let i = 0; i < arr.length; i++) {
+                      for (let j = 0; j < arr.length - i - 1; j++) {
+                        if (arr[j] > arr[j + 1]) {
+                          const lesser = arr[j + 1];
+                          arr[j + 1] = arr[j];
+                          arr[j] = lesser;
                         }
+                      }
                     }
-                    return array;
-                }
+                    // return the sorted array
+                    return arr;
+                  }
+                  
+                console.log(bubbleSort([3, 4, 9, 3, 1]));
             
-                // Example usage
-                const numbersSort = [64, 34, 25, 12, 22, 11, 90];
-                console.log("Sorted array:", customSort(numbersSort));
+                
                 </code>
             </pre>
             <pre>
@@ -327,19 +325,7 @@
                 console.log("Merged Sorted Array:", result);
                 </code>
             </pre>
-            <pre>
-                <code>
-                //14 8. Implement a function that flattens a nested array in JavaScript, converting it into a single-level array. 
-                function flattenArray(array) {
-                    return array.flat(Infinity); // Flatten to any depth
-                }
             
-                // Example usage
-                const nestedArray2 = [1, [2, [3, 4], 5], 6, [7, [8, [9]]]];
-                const flattened = flattenArray(nestedArray2);
-                console.log("Flattened Array:", flattened);
-                </code>
-            </pre>
             
             <pre>
                 <code>
