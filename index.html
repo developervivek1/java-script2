@@ -449,21 +449,7 @@ console.log(makePalindrome(str));
                 }).join(' '))
                 </code>
             </pre>
-            <pre>
-                <code>
-                //11 4. Write a recursive function to calculate the factorial of a given number.     
-                const num = 5;
-                function factorial(num) { 
             
-                    if (num <= 1){
-                        return 1; 
-                    } else{
-                        return num * factorial(num - 1); 
-                    }
-                }
-                console.log(factorial(5));
-                </code>
-            </pre>
             <pre>
                 <code>
                 //12 5. Implement a function that takes a arrays and sort them without using any built-in sorting functions. 
@@ -525,6 +511,33 @@ console.log(makePalindrome(str));
                 const sortedArray2 = [2, 4, 6, 8];
                 const result = mergeSortedArrays(sortedArray1, sortedArray2);
                 console.log("Merged Sorted Array:", result);
+                </code>
+            </pre>
+
+            <pre>
+                <code>
+function mergeArrays(arr1, arr2) {
+const result = [];
+let index = 0;
+
+  // Copy elements from first array
+  for (let i = 0; i < arr1.length; i++) {
+    result[index] = arr1[i];
+    index++;
+  }
+
+  // Copy elements from second array
+  for (let i = 0; i < arr2.length; i++) {
+    result[index] = arr2[i];
+    index++;
+  }
+
+  return result;
+}
+const sortedArray1 = [1, 3, 5, 7];
+const sortedArray2 = [2, 4, 6, 8];
+const result = mergeArrays(sortedArray1, sortedArray2);
+console.log("Merged Sorted Array:", result);
                 </code>
             </pre>
             
