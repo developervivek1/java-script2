@@ -54,7 +54,53 @@ const sum = (a, b) => a + b;
 console.log(sum(5, 3)); // Output: 8
                 </code></pre>
  -->
+<pre>
+    <code>
 
+// reverse arry number
+
+const nums = [1,2,3,4,5,6,7];
+
+const reverseNum = function myFun(arr){
+    let reverse = []
+    for(let i=arr.length-1; i>=0; i--){
+        reverse.push(arr[i])
+    }
+    return reverse;
+}
+console.log(reverseNum(nums))
+    </code>
+</pre>
+<pre>
+    <code>
+// Implement a function to reverse a string without using the built-in reverse() method.     
+const nums = 'Vivek';
+
+const reverseNum = function myFun(arr){
+    let reverse = ''
+    for(let i=arr.length-1; i>=0; i--){
+        reverse = reverse+arr[i]
+    }
+    return reverse;
+}
+console.log(reverseNum(nums))
+    </code>
+</pre>
+<pre>
+    <code>
+const nums = 'Im Vivek Pathak';
+
+const reverseNum = function myFun(arr){
+   let word = nums.split(' ');
+   let reverse = '';
+   for(i=word.length-1; i>=0; i--){
+       reverse = reverse + word[i] + ' ';
+   }
+   return reverse.trim();
+}
+console.log(reverseNum(nums));
+    </code>
+</pre>
  <pre>
     <code>
 // Write a function to find the longest common prefix string amongst an array of strings.        
@@ -270,7 +316,23 @@ const makePalindrome = function myFun1(){
 
 console.log(makePalindrome(str));
                 </code>
-            </pre>    
+            </pre> 
+            
+            <pre>
+                <code>
+// Given a string, write a function to count the occurrences of each character in the string.                       
+const nums = ['app', 'bpp', 'cpp', 'cpp', 'app', 'bpp'];
+
+const reverseNum = function myFun(arr){
+    let count = {};
+    for (let x of arr){
+        count[x] = count[x] ? count[x] + 1 : 1;
+    }
+    return count;
+}
+console.log(reverseNum(nums));
+                </code>
+            </pre>
             
             <!-- <pre>
                     <code>
@@ -553,21 +615,7 @@ console.log("Merged Sorted Array:", result);
                 console.log(areAnagrams("hello", "world"));   // false
                 </code>
             </pre>
-            <pre>
-                <code>
-                //16 2. Implement a function to reverse a string without using the built-in reverse() method.     
-                function reverseString(str) {
-                    let reversed = '';
-                    for (let i = str.length - 1; i >= 0; i--) {
-                        reversed += str[i];
-                    }
-                    return reversed;
-                }
             
-                // Example usage
-                console.log(reverseString("hello")); // "olleh"
-                </code>
-            </pre>
             <pre>
                 <code>
                 //17 3. Given an array of numbers, write a function to find the largest and smallest numbers in the array.     
@@ -618,7 +666,7 @@ console.log("Merged Sorted Array:", result);
                     console.log(sum1); // 15
                 </code>
             </pre>
-            <pre>
+            <!-- <pre>
                 <code>
                 //20 8. Given a string, write a function to count the occurrences of each character in the string.  
                 function countCharacterOccurrences(str) {
@@ -636,7 +684,7 @@ console.log("Merged Sorted Array:", result);
                 const occurrences = countCharacterOccurrences(string);
                 console.log(occurrences); 
             
-                <!-- // OR
+                // OR
                 let str1 = "I want to count the number of occurrences of each char in this string";
                 let obj = {};
             
@@ -647,10 +695,10 @@ console.log("Merged Sorted Array:", result);
                     obj[item] = obj[item] + 1;
                 }
                 }
-                console.log(obj); -->
+                console.log(obj);
                 </code>
-            </pre>
-            <pre>
+            </pre> -->
+            <!-- <pre>
                 <code>
                 //21 1. Write a function that reverses the order of words in a sentence without using the built-in reverse() method.     
                 function reverseWords(sentence) {
@@ -666,7 +714,7 @@ console.log("Merged Sorted Array:", result);
                 const reversed2 = reverseWords(sentence2);
                 console.log(reversed2); // "JavaScript is this world Hello"
             
-                <!-- // OR
+                // OR
             
                 function reverseWords(sentence) {
                     return sentence.split(' ').reduce((reversed, word) => word + ' ' + reversed, '').trim();
@@ -674,9 +722,9 @@ console.log("Merged Sorted Array:", result);
                 // Example usage
                 const sentence = "Hello world this is JavaScript";
                 const reversed = reverseWords(sentence);
-                console.log(reversed); // "JavaScript is this world Hello" -->
+                console.log(reversed); // "JavaScript is this world Hello"
                 </code>
-            </pre>
+            </pre> -->
             <!-- <pre>
                 <code>
                 //22 4. Implement a function that removes duplicates from an array, keeping only the unique elements.     
@@ -716,7 +764,7 @@ console.log("Merged Sorted Array:", result);
                 console.log(isAnagram("hello", "world"));   // false
                 </code>
             </pre> -->
-            <pre>
+            <!-- <pre>
                 <code>
                 //25 8. Implement a function that finds the second smallest element in an array of integers.     
                 function secondSmallest(arr) {
@@ -731,7 +779,7 @@ console.log("Merged Sorted Array:", result);
                 // Example usage
                 console.log(secondSmallest([4, 2, 6, 1, 5])); // Output: 2
                 </code>
-            </pre>
+            </pre> -->
             
             <pre>
                 <code>
@@ -750,6 +798,41 @@ console.log("Merged Sorted Array:", result);
                 
                     // Example usage
                     console.log(generateRandomString(10)); // Example: "A1bC2dE3Fg"
+                </code>
+                //OR
+                <code>
+let char = 'ABCXYZabcxyz123';
+
+function myFun(length){
+    let random = '';
+    for(let i=0; i < length; i++){
+        randomIndex = Math.floor(Math.random() * char.length);
+        random = random + char[randomIndex];
+    }
+    return random;
+}
+console.log(myFun(5))
+                </code>
+            </pre>
+            <pre>
+                <code>
+
+const nums = [1,2,3,4,5,6]
+const random = function myFun(arr){
+    for(let i = arr.length-1; i>=0; i--){
+        let j = Math.floor(Math.random() * (i+1));
+        [arr[i],arr[j]] = [arr[j],arr[i]]
+    }
+    return arr
+}
+console.log(random(nums));
+
+//OR
+
+const random = function myFun(arr){
+    return arr.sort(()=> Math.random() - 0.5)
+}
+console.log(random(nums));
                 </code>
             </pre>
             <!-- <pre>
