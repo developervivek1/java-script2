@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        pre {
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x:auto;
+            
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        code {
+            font-family: Consolas, "Courier New", monospace;
+        }
+    </style>
+
+
+<div class="container-fluid mt-3">
+
+    <!-- Nav pills -->
+    <ul class="nav nav-pills" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="pill" href="#menu">JS Codes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="pill" href="#menu1">JS Questions</a>
+      </li>
+      
+ 
+     
+    </ul>
+  
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div id="menu" class="container-fluid tab-pane active">
+
+            <!-- <h3 class="mt-5">JS Codes</h3>
+            <pre><code>
+const sum = (a, b) => a + b;
+console.log(sum(5, 3)); // Output: 8
+                </code></pre>
+ -->
+<pre>
+    <code>
+const nums1 = [1,2,3,4,5];
+const nums2  = [1,2,3,6,7,8,9];
+
+const sortNum = function myFun(arr1, arr2) {
+   return arr1.filter((value)=>arr2.includes(value));
+console.log(sortNum(nums1,nums2)) ;
+//[ 1, 2, 3 ] output
+    </code>
+</pre>
+<pre>
+    <code>
+
+// reverse arry number
+
+const nums = [1,2,3,4,5,6,7];
+
+const reverseNum = function myFun(arr){
+    let reverse = []
+    for(let i=arr.length-1; i>=0; i--){
+        reverse.push(arr[i])
+    }
+    return reverse;
+}
+console.log(reverseNum(nums))
+    </code>
+</pre>
+<pre>
+    <code>
+// Implement a function to reverse a string without using the built-in reverse() method.     
+const nums = 'Vivek';
+
+const reverseNum = function myFun(arr){
+    let reverse = ''
+    for(let i=arr.length-1; i>=0; i--){
+        reverse = reverse+arr[i]
+    }
+    return reverse;
+}
+console.log(reverseNum(nums))
+    </code>
+</pre>
+<pre>
+    <code>
+const nums = 'Im Vivek Pathak';
+
+const reverseNum = function myFun(arr){
+   let word = nums.split(' ');
+   let reverse = '';
+   for(i=word.length-1; i>=0; i--){
+       reverse = reverse + word[i] + ' ';
+   }
+   return reverse.trim();
+}
+console.log(reverseNum(nums));
+    </code>
+</pre>
+
+ <pre>
+    <code>
+// Write a function to find the longest common prefix string amongst an array of strings.        
+// Input: strs = ["flower","flow","flight"]
+// Output: "fl"
+
+function longestCommonPrefix(strs) {
+  if (!strs.length) return "";
+
+  let prefix = strs[0];
+
+  for (let i = 1; i < strs.length; i++) {
+    while (strs[i].indexOf(prefix) !== 0) {
+      prefix = prefix.slice(0, -1); // remove last char
+      if (!prefix) return "";
+    }
+  }
+
+  return prefix;
+}
+    </code>
+ </pre>
+</div>
+<div id="menu1" class="container-flui tab-pane">
+    <div>
+
+
+<pre>
+<code>
+// What is this?
+
+=> In JavaScript, the this keyword refers to an object.
+=> The this keyword refers to different objects depending on how it is used:
+
+=> In an object method, this refers to the object.
+    //this in a Method
+    => When used in an object method, this refers to the object.
+    => In the example on top of this page, this refers to the person object.
+    => Because the fullName method is a method of the person object.
+    const person = {
+        firstName: "John",
+        lastName : "Doe",
+        id       : 5566,
+        fullName : function() {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+
+=> Alone, this refers to the global object.
+    //this Alone
+    => When used alone, this refers to the global object.
+    => Because this is running in the global scope.
+    => In a browser window the global object is [object Window]:
+    //ex
+    let x = this;
+    // output => [object Window]
+    => In strict mode, when used alone, this also refers to the global object:
+    "use strict";
+    let x = this; => same output
+
+=> In a function, this refers to the global object.
+    // this in a Function (Default)
+    => In a function, the global object is the default binding for this.
+    => In a browser window the global object is [object Window]:
+
+    function myFunction() {
+            return this;
+        }
+    myFunction()
+    output=> [object Window]
+
+=> In a function, in strict mode, this is undefined.    
+    // this in a Function (Strict)
+    => JavaScript strict mode does not allow default binding.
+    => So, when used in a function, in strict mode, this is undefined.
+
+    "use strict";
+    function myFunction() {
+            return this;
+        }
+    myFunction()
+    output=> [object Window]
+
+
+=> In an event, this refers to the element that received the event.
+    // this in Event Handlers
+    => In HTML event handlers, this refers to the HTML element that received the event:
+    < button onclick="this.style.display='none'">
+        Click to Remove Me!
+    < /button>
+
+
+
+=> Methods like call(), apply(), and bind() can refer this to any object.
+    // Object Method Binding
+    => In these examples, this is the person object:
+    const person = {
+        firstName  : "John",
+        lastName   : "Doe",
+        id     : 5566,
+        myFunction : function() {
+            return this;
+        }
+    };
+    person.myFunction()
+    //output => [object Object]
+
+    //example2
+    const person = {
+        firstName: "John",
+        lastName: "Doe",
+        id: 5566,
+        fullName : function() {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+    person.fullName()
+    //output => John Doe
+    // i.e. this.firstName is the firstName property of this (the person object).
+
+    //example3
+    => The example below calls person1.fullName with person2 as an argument, this refers to person2, even if fullName is a method of person1:
+    
+    const person1 = {
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+    }
+
+    const person2 = {
+        firstName:"John",
+        lastName: "Doe",
+    }
+
+    person1.fullName.call(person2); 
+    //output => John Doe
+    //In this example this refers to person2, even if it is a method of person1:
+
+    //example3
+    // Function Borrowing
+
+    => With the bind() method, an object can borrow a method from another object.
+    => This example creates 2 objects (person and member).
+    => The member object borrows the fullname method from the person object:
+
+    const person = {
+        firstName:"John",
+        lastName: "Doe",
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+    }
+
+    const member = {
+        firstName:"Hege",
+        lastName: "Nilsen",
+    }
+
+    person.fullName.bind(member);
+    //output => Hege Nilsen
+
+</code>
+</pre>
+
+<pre>
+<code>
+// The JavaScript call() Method
+=> The call() method is a predefined JavaScript method.
+=> It can be used to invoke (call) a method with an object as an argument (parameter).
+//OR
+=> With call(), an object can use a method belonging to another object.
+
+
+//example
+const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+// This will return "John Doe":
+person.fullName.call(person1);
+
+//OR
+
+const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+
+// This will return "Mary Doe"
+person.fullName.call(person2);
+
+
+//The call() Method with Arguments
+=> The call() method takes arguments separately.
+const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.call(person1, "Oslo", "Norway");
+
+
+// The JavaScript apply() Method
+=> The apply() method is similar to the call() method but its takes argument as an array.
+=> In this example the fullName method of person is applied on person1:
+
+//example
+const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName: "Mary",
+  lastName: "Doe"
+}
+// This will return "Mary Doe":
+person.fullName.apply(person1);
+
+//OR
+
+const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+person.fullName.apply(person1, ["Oslo", "Norway"]);
+
+
+//Function Borrowing
+=> With the bind() method, an object can borrow a method from another object.
+=> The example below creates 2 objects (person and member).
+=> The member object borrows the fullname method from the person object:
+
+//example
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+let fullName = person.fullName.bind(member);
+//output=> Hege Nilsen
+
+
+// Preserving(संरक्षण) this = Use of bind()
+=> Sometimes the bind() method has to be used to prevent losing this.
+
+//example
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+person.display();
+// output = John Doe
+
+// but
+
+=> When a function is used as a callback, this is lost.
+=> This example will try to display the person name after 3 seconds, but it will display undefined instead:
+
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+
+setTimeout(person.display, 3000);
+//output willl be undefined, undefind
+
+=> The bind() method solves this problem.
+
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function () {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + " " + this.lastName;
+  }
+}
+
+let display = person.display.bind(person);
+setTimeout(display, 3000);
+
+// Now output will be print John Doe after 3 seconds
+</code>
+</pre>
+    
+<pre>
+<code>
+// JavaScript Closures
+=> JavaScript variables can belong to:
+=> The local scope or The global scope
+=> Global variables can be made local (private) with closures.
+=> Closures makes it possible for a function to have "private" variables.  
+
+// Local Variables
+
+=> A local variable is a "private" variable defined inside a function.
+=> A function can access all variables in the local scope.
+//Example
+function myFunction() {
+  let a = 4;
+  return console.log(a*a);
+}
+myFunction();
+//output will br 16
+
+// Global Variables
+
+=> A global variable is a "public" variable defined outside a function.
+=> A function can access all variables in the global scope:
+//Example
+let a = 4;
+function myFunction() {
+
+  return console.log(a*a);
+}
+myFunction();
+
+// Note
+=> Undeclared variables (created without a keyword var, let, const), are always global, even if they are created inside a function.
+function myFunction() {
+  a = 4;
+}
+myFunction();
+console.log(a*a);
+//output = 16
+
+</code>    
+</pre>
+
+<pre>                         
+<code>
+// var allows re-declaration
+var a = 1;
+var a = 2; // ✅ OK
+
+// let does not
+let b = 1;
+// let b = 2; ❌ SyntaxError
+
+// const does not
+const c = 1;
+// const c = 2; ❌ SyntaxError
+
+// let allows reassignment
+b = 3; // ✅
+
+// const does not
+// c = 4; ❌ TypeError
+
+
+//Even though const can't be reassigned, objects and arrays declared with const can still be mutated: --&gt;
+            
+const user = { name: "Alice" };
+user.name = "Bob"; // ✅ Allowed
+
+const arr = [1, 2, 3];
+arr.push(4);       // ✅ Allowed
+
+// But reassignment is not allowed
+// user = { name: "Charlie" }; ❌ TypeError
+
+
+<!-- Global Object (e.g., window) -->
+var foo = 1;
+let bar = 2;
+const baz = 3;
+
+console.log(window.foo); // ✅ 1
+console.log(window.bar); // ❌ undefined
+console.log(window.baz); // ❌ undefined
+</code>
+</pre>
+
+<pre>
+<code>
+//What is An Event Loop in JavaScript?
+=>The event loop is an important concept in JavaScript that enables asynchronous programming by handling tasks efficiently. 
+  Since JavaScript is single-threaded, it uses the event loop to manage the execution of multiple tasks without blocking the main thread.
+
+    //example
+    console.log("Start");
+
+    setTimeout(() => {
+        console.log("setTimeout Callback");
+    }, 0);
+
+    Promise.resolve().then(() => {
+        console.log("Promise Resolved");
+    });
+
+    console.log("End");
+
+    //output
+    Start
+    End
+    Promise Resolved
+    setTimeout Callback
+
+    //Explanation
+    //In this example
+
+    =>console.log("Start") executes first.
+    =>setTimeout schedules its callback but does not execute it immediately.
+    =>Promise.resolve().then() is placed in the microtask queue and executes before the callback queue.
+    =>Promise Resolved appears before setTimeout Callback due to microtask priority.
+    
+    // explanation2
+    => "Start" and "End" are synchronous, so they run immediately.
+    => Promise.then goes to the microtask queue.
+    => setTimeout goes to the macrotask queue.
+    => After the synchronous code ends:
+    => Microtasks (Promise) are executed first.
+    => Then the macrotask (Timeout) is executed.
+
+JavaScript executes code synchronously in a single thread. However, 
+it can handle asynchronous operations such as fetching data from an API, 
+handling user events, or setting timeouts without pausing execution. 
+This is made possible by the event loop.  
+
+//How the Event Loop Works
+=> The event loop continuously checks whether the call stack is empty and
+   whether there are pending tasks in the callback queue or microtask queue.
+<img src="./images/img-js/Event-Loop-in-JavaScript.jpg" alt="">  
+
+=> <b>Call Stack</b>: JavaScript has a call stack where function execution is managed in a Last-In, First-Out (LIFO) order.
+=> <b>Web APIs (or Background Tasks)</b>: These include setTimeout, setInterval, fetch, DOM events, and other non-blocking operations.
+=> <b>Callback Queue (Task Queue)</b>: When an asynchronous operation is completed, its callback is pushed into the task queue.
+=> <b>Microtask Queue:</b> Promises and other microtasks go into the microtask queue, which is processed before the task queue.
+=> <b>Event Loop:</b> It continuously checks the call stack and, if empty, moves tasks from the queue to the stack for execution.
+
+//Why is the Event Loop Important?
+=> Non-blocking Execution: Enables JavaScript to handle multiple tasks efficiently.
+=> Better Performance: Ensures UI updates and API calls do not freeze the page.
+=> Optimized Async Handling: Prioritizes microtasks over macrotasks for better responsiveness.
+
+</code>
+</pre>
+
+<pre>
+    <code>
+//MicroTask vs MacroTask        
+    console.log("1");
+
+    setTimeout(() => {
+    console.log("2 - setTimeout (macrotask)");
+    }, 0);
+
+    Promise.resolve().then(() => {
+    console.log("3 - Promise.then (microtask)");
+    });
+
+    console.log("4");
+
+    //output
+    1
+    4
+    3 - Promise.then (microtask)
+    2 - setTimeout (macrotask)
+    </code>
+</pre>
+
+<pre>
+    <code>
+// What is Prototypal Inheritance?
+=> Prototypal Inheritance is a mechanism in JavaScript where objects inherit directly from other objects. Each object has an internal link to another object
+   called its prototype, forming a prototype chain.
+
+   // 1. __proto__ and the Prototype Chain
+   => Every object in JavaScript has a hidden property called [[Prototype]] (accessible as __proto__) that points to another object.
+   => If a property is not found on the object, JavaScript looks up the prototype chain until it finds it or reaches null.
+
+   const animal = {
+    speak() {
+        console.log("Animal speaks");
+    },
+    };
+
+    const dog = {
+    bark() {
+        console.log("Woof!");
+    },
+    };
+
+    dog.__proto__ = animal;
+
+    dog.speak(); // Animal speaks
+    => 🔁 Prototype Chain: dog → animal → Object.prototype → null
+
+    // 2. Object.create() for Inheritance
+T       => his method creates a new object and sets its prototype.
+        const parent = {
+            greet() {
+                console.log("Hello from parent");
+            },
+        };
+
+        const child = Object.create(parent);
+        child.greet(); // Hello from parent
+        => Simple and powerful way to implement inheritance without classes.
+
+    // 3. Class-based Inheritance (ES6)
+    => JavaScript introduced class syntax in ES6. Under the hood, it still uses prototypes, but the syntax is more familiar
+       to developers from class-based languages like Java or C#.
+       class Animal {
+        speak() {
+            console.log("Animal speaks");
+        }
+        }
+
+        class Dog extends Animal {
+        bark() {
+            console.log("Woof!");
+        }
+        }
+
+        const d = new Dog();
+        d.speak(); // Animal speaks
+        d.bark();  // Woof!
+
+        => 🔍 Internally, this creates a prototype chain just like before:
+        => d → Dog.prototype → Animal.prototype → Object.prototype → null
+
+
+    </code>
+</pre>
+
+<pre>
+<code>
+// 🔍 9. Explain Debouncing and Throttling in JavaScript
+=> Both debouncing and throttling are performance optimization techniques used to control how often
+   a function executes in response to high-frequency events like:
+   * scroll
+   * resize
+   * mousemove
+   * keyup / input
+
+//⚙️ Debouncing
+// ✅ Definition:
+=> Debouncing ensures a function is executed only once after a specified delay after the last event.
+=> If the event keeps firing, the timer resets.
+
+//📌 Use case:
+=> Search input field (trigger API only when user stops typing)
+=> Resize event handler
+
+//example
+
+    function debounce(func, delay) {
+    let timer;
+    return function (...args) {
+        clearTimeout(timer); // Clear existing timer
+        timer = setTimeout(() => {
+        func.apply(this, args);
+        }, delay);
+    };
+    }
+
+// Usage
+window.addEventListener("resize", debounce(() => {
+console.log("Resize event handled");
+}, 300));
+=>The function only runs after 300ms have passed since the last resize event.
+
+
+// ⚙️ Throttling
+// ✅ Definition:
+=> Throttling ensures a function is executed at most once every specified interval, 
+   regardless of how often the event fires.
+
+// 📌 Use case:
+=> Scroll position tracking
+=> Auto-save every 2 seconds while typing
+=> Limiting button click handlers
+
+//example
+    function throttle(func, limit) {
+      let lastCall = 0;
+      return function (...args) {
+        const now = Date.now();
+        if (now - lastCall >= limit) {
+          lastCall = now;
+          func.apply(this, args);
+        }
+      };
+    }
+
+// Usage
+window.addEventListener("scroll", throttle(() => {
+  console.log("Scroll event handled");
+}, 200));
+=> The function runs at most once every 200ms, even if the scroll event fires constantly.
+
+| Feature       | Debounce                     | Throttle                      |
+| ------------- | ---------------------------- | ----------------------------- |
+| Function runs | After the last event (waits) | At regular intervals          |
+| Use case      | Search input, window resize  | Scroll, drag, button spamming |
+| Behavior      | Delays execution until stop  | Restricts execution frequency |
+| Timer resets? | Yes, on every event          | No, runs on fixed interval    |
+
+// ✅ Summary:
+
+=> Use debouncing when you want the action to happen after the user is done (e.g., typing).
+=> Use throttling when you want to limit how often a function runs during continuous events (e.g., scrolling).
+
+</code>
+</pre>
+
+<pre>
+    <code>
+// Regular function
+// Defining a regular function
+    function greet(name) {
+        console.log('Hello, ' + name + '!');
+    }
+
+    // Calling the function
+    greet('Geek');
+
+    //Output
+    Hello, Geek!
+
+
+    // 1. Access arguments with Regular functions
+    function showArgs() {
+        console.log(arguments);
+    }
+    showArgs(1, 2, 3);
+
+    //Output
+    [Arguments] { '0': 1, '1': 2, '2': 3 }
+
+    // 2. Duplicate named parameters in Regular functions
+        function example(a, b, a) {
+            console.log(a, b);
+        }
+    example(1, 2, 3);
+
+       // Output
+        3 2   
+        
+    // 3. Hosting in Regular functions   
+
+    greet(); // Output: Hello Geeks!
+
+    function greet() {
+        console.log('Hello Geeks!');
+    } 
+
+    //Output
+    Hello Geeks!
+
+    // 4. Using this keyword in Regular function
+    const obj = {
+        name: 'Geeks',
+        greet: function() {
+            console.log(this.name);
+        }
+    };
+    obj.greet();
+
+    //Output
+    //Geeks
+
+
+// Arrow function
+
+// Defining an arrow function
+const greet = (name) => {
+    console.log(`Hello, ${name}!`);
+};
+
+// Calling the function
+greet('Geeks');
+
+// Output
+// Hello, Geeks!
+
+// 1. Access arguments with Arrow functions
+
+const showArgs = (...args) => {
+    console.log(args);
+};
+showArgs(1, 2, 3);
+
+// Output
+[ 1, 2, 3 ]
+
+
+// 2. Duplicate named parameters in Arrow functions
+const example = (a, b, a) => {
+    console.log(a);
+}; 
+// SyntaxError: Duplicate parameter name not allowed in this context
+
+
+// 3. Hoisting in Arrow functions
+greet(); // ReferenceError: Cannot access 'greet' before initialization
+
+const greet = () => {
+    console.log('Hello!');
+};
+
+// Output:
+// ReferenceError: Cannot access 'greet' before initialization
+
+
+// 4. Using this keyword with Arrow function
+const obj = {
+    name: 'Geeks',
+    greet: () => {
+        console.log(this.name);
+    }
+};
+obj.greet(); 
+// Output: undefined (inherited from outer scope)
+    </code>
+</pre>
+
+
+</div>
+
+</div>
+
+
+
+  
+    
+  
+</body>
+</html>
