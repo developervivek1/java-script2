@@ -17,7 +17,7 @@
         pre {
             background-color: #1e1e1e;
             color: #dcdcdc;
-            padding: 15px;
+            padding: 9px;
             border-radius: 8px;
             overflow-x:auto;
             
@@ -29,7 +29,7 @@
     </style>
 
 
-<div class="container-fluid mt-3">
+<div class="container-fluid py-2 mt-3">
 
     <!-- Nav pills -->
     <ul class="nav nav-pills" role="tablist">
@@ -46,7 +46,7 @@
   
     <!-- Tab panes -->
     <div class="tab-content">
-        <div id="menu" class="container-fluid tab-pane active">
+        <div id="menu" class="container-fluid px-0 tab-pane active">
 
             <!-- <h3 class="mt-5">JS Codes</h3>
             <pre><code>
@@ -136,9 +136,8 @@ function longestCommonPrefix(strs) {
     </code>
  </pre>
 </div>
-<div id="menu1" class="container-flui tab-pane">
-    <div>
-
+<div id="menu1" class="container-flui py-0 tab-pane">
+<div>
 
 <pre>
 <code>
@@ -603,6 +602,40 @@ This is made possible by the event loop.
 => Better Performance: Ensures UI updates and API calls do not freeze the page.
 => Optimized Async Handling: Prioritizes microtasks over macrotasks for better responsiveness.
 
+<table border="1">
+<thead>
+  <tr>
+    <th>Method</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><code>Promise.resolve()</code></td>
+    <td>Creates a resolved promise</td>
+  </tr>
+  <tr>
+    <td><code>Promise.reject()</code></td>
+    <td>Creates a rejected promise</td>
+  </tr>
+  <tr>
+    <td><code>Promise.all()</code></td>
+    <td>Waits for all promises to resolve</td>
+  </tr>
+  <tr>
+    <td><code>Promise.allSettled()</code></td>
+    <td>Waits for all to settle, resolves with result objects</td>
+  </tr>
+  <tr>
+    <td><code>Promise.race()</code></td>
+    <td>Resolves/rejects with the first settled promise</td>
+  </tr>
+  <tr>
+    <td><code>Promise.any()</code></td>
+    <td>Resolves with first fulfilled, rejects only if all fail</td>
+  </tr>
+</tbody>
+</table>
 </code>
 </pre>
 
@@ -1194,6 +1227,260 @@ export const PI = 3.14;
 // In another file
 import { PI } from './file.js';
 </code>
+</pre>
+
+<h5 class="mt-3">Slice vs Splice</h5>
+<pre>
+  <code>
+// Slice
+=> Purpose: Extracts a section of an array (or string) and returns a new array (or string). 
+   The original array (or string) remains unchanged.  
+   
+  => For Arrays: arr.slice(startIndex, endIndex)
+  => For Strings: str.slice(startIndex, endIndex)
+
+// const fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry'];
+
+// 1. Extracting from a specific start to the end
+  const citrus = fruits.slice(2); // Starts at index 2 ('cherry') and goes to the end
+  console.log(citrus);             // Output: ['cherry', 'date', 'elderberry']
+  console.log(fruits);             // Output: ['apple', 'banana', 'cherry', 'date', 'elderberry'] (original unchanged)
+
+// 2. Extracting within a range
+  const tropical = fruits.slice(1, 4); // Starts at index 1 ('banana'), ends BEFORE index 4 ('elderberry')
+  console.log(tropical);           // Output: ['banana', 'cherry', 'date']
+  console.log(fruits);             // Output: ['apple', 'banana', 'cherry', 'date', 'elderberry'] (original unchanged)
+
+// 3. Using negative indices
+  const lastTwo = fruits.slice(-2); // Starts 2 from the end ('date') to the end
+  console.log(lastTwo);            // Output: ['date', 'elderberry']
+
+  const middlePart = fruits.slice(-4, -1); // Starts 4 from end ('banana'), ends BEFORE 1 from end ('elderberry')
+  console.log(middlePart);         // Output: ['banana', 'cherry', 'date']
+
+// 4. No arguments (creates a shallow copy of the entire array)
+  const copyFruits = fruits.slice();
+  console.log(copyFruits);         // Output: ['apple', 'banana', 'cherry', 'date', 'elderberry']
+  console.log(copyFruits === fruits); // Output: false (it's a new array, but elements are shallow copied)
+  
+// splice()
+=> Purpose: Changes the contents of an array by removing existing 
+   elements and/or adding new elements. It modifies the original array in place.
+
+  => arr.splice(startIndex, deleteCount, item1, item2, ...)
+
+// Example
+
+let colors = ['red', 'green', 'blue', 'yellow', 'purple'];
+
+// 1. Deleting elements
+const removedColors1 = colors.splice(1, 2); // Remove 2 elements starting from index 1 ('green', 'blue')
+console.log(colors);          // Output: ['red', 'yellow', 'purple'] (original array modified)
+console.log(removedColors1);  // Output: ['green', 'blue'] (the removed elements)
+
+colors = ['red', 'green', 'blue', 'yellow', 'purple']; // Reset for next example
+
+// 2. Adding elements (deleteCount is 0)
+const addedColors = colors.splice(2, 0, 'orange', 'pink'); // At index 2, remove 0 elements, add 'orange', 'pink'
+console.log(colors);          // Output: ['red', 'green', 'orange', 'pink', 'blue', 'yellow', 'purple']
+console.log(addedColors);     // Output: [] (no elements were removed)
+
+colors = ['red', 'green', 'blue', 'yellow', 'purple']; // Reset
+
+// 3. Replacing elements (delete and add)
+const replacedColors = colors.splice(1, 1, 'cyan'); // At index 1, remove 1 element ('green'), add 'cyan'
+console.log(colors);          // Output: ['red', 'cyan', 'blue', 'yellow', 'purple']
+console.log(replacedColors);  // Output: ['green'] (the removed element)
+
+colors = ['red', 'green', 'blue', 'yellow', 'purple']; // Reset
+
+// 4. Deleting from a specific index to the end
+const remainingColors = colors.splice(3); // Remove all elements from index 3 ('yellow') to the end
+console.log(colors);          // Output: ['red', 'green', 'blue']
+console.log(remainingColors); // Output: ['yellow', 'purple']
+
+colors = ['red', 'green', 'blue']; // Reset
+
+// 5. Using negative startIndex
+colors.splice(-1, 0, 'orange'); // At 1 from the end ('blue'), remove 0, add 'orange'
+console.log(colors);           // Output: ['red', 'green', 'orange', 'blue']
+</code>
+</pre>
+
+<pre> 
+<code>
+let landPlots = [
+  { location: "A1", status: "Available" },
+  { location: "B2", status: "Sold" },
+  { location: "C3", status: "Available" },
+  { location: "D4", status: "Sold" },
+  { location: "E5", status: "Available" }
+];
+        
+const filterdata = landPlots.filter((data,index)=&gt;{
+    if(data.status === 'Sold'){
+        return data.status = 'Unsold';
+    }
+});
+console.log(filterdata);
+            
+//output
+[
+  { location: 'B2', status: 'Unsold' },
+  { location: 'D4', status: 'Unsold' }
+]
+</code>
+</pre>
+<pre>                
+<code>
+function fizzBuzz() {
+    let nums = [];
+
+    for (let i = 1; i &lt;= 50; i++) {
+    if (i % 3 === 0) {
+        nums.push('fizz');
+    } else {
+        nums.push('buzz');
+    }
+    }
+    return nums;
+}
+console.log(fizzBuzz())
+/// output
+[
+    'buzz', 'buzz', 'fizz', 'buzz', 'buzz',
+    'fizz', 'buzz', 'buzz', 'fizz', 'buzz',
+    'buzz', 'fizz', 'buzz', 'buzz', 'fizz',
+    'buzz', 'buzz', 'fizz', 'buzz', 'buzz',
+    'fizz', 'buzz', 'buzz', 'fizz', 'buzz',
+    'buzz', 'fizz', 'buzz', 'buzz', 'fizz',
+    'buzz', 'buzz', 'fizz', 'buzz', 'buzz',
+    'fizz', 'buzz', 'buzz', 'fizz', 'buzz',
+    'buzz', 'fizz', 'buzz', 'buzz', 'fizz',
+    'buzz', 'buzz', 'fizz', 'buzz', 'buzz'
+]
+</code>
+</pre>
+<pre>
+<code>
+let email = "example@gmail.com";
+console.log(email.split('@')[0]);
+            
+//output
+example
+</code>
+</pre>
+
+<pre>         
+  <code>
+  function shuffleArr(arr) {
+          for (let i = arr.length - 1; i &gt; 0; i--) {
+              let j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
+              [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
+          }
+          return arr;
+      }                                   
+  </code>        
+  <code>
+      //other method
+      function shuffleArr(arr) {
+          return arr.sort(() =&gt; Math.random() - 0.5);
+      }
+      // Example usage
+      let nums = [1, 2, 3, 4, 5, 6, 7];
+      console.log(shuffleArr(nums));
+  </code>
+</pre>
+
+<pre>                    
+  <code>
+//count vowels in a string
+function app(str) {
+    let vowels = 'aeiouAEIOU';
+    let count= 0;
+    
+    for(let char of str){
+        if(vowels.includes(char)){
+            count++;
+        }
+    }
+    return count;
+}
+console.log(app('abcdefghi'));
+//output
+3
+                        
+</code>
+</pre>
+<pre>
+<code>
+let nums = [9,1,2,3,4,5];
+function isSorted(arr){
+    for(let i=0; i < arr.length-1; i++){
+        if(arr[i]>arr[i+1]){
+            return 'false'
+        }
+    }
+    return 'true'
+}
+console.log(isSorted(nums));   
+</code>
+</pre>
+<pre>
+  <code>
+//find common value between two arr of intersaction value
+                 
+function arrayIntersection(arr1, arr2) {
+    return arr1.filter(value => arr2.includes(value));
+}
+// Example usage:
+console.log(arrayIntersection([1, 2, 3, 4, 5], [3, 4, 5, 6, 7])); // [3, 4, 5]
+//another way
+const nums1 = [1,2,3,4,5];
+const nums2  = [1,2,3,6,7,8,9];
+  </code>
+</pre>
+
+<pre>
+  <code>
+let person = {
+              name: 'Vivek',
+              age: 25.4554,
+              role: 'UI'
+            }          
+console.log(Object.keys(person));
+console.log(Object.values(person));
+console.log(Object.entries(person));                  
+console.log('email' in person);  
+delete person.age;
+console.log(person);
+
+//Output
+
+=> [ 'name', 'age', 'role' ]
+=> [ 'Vivek', 25.4554, 'UI' ]
+=> [ [ 'name', 'Vivek' ], [ 'age', 25.4554 ], [ 'role', 'UI' ] ]
+=> false
+=> { name: 'Vivek', role: 'UI' }
+  </code>
+</pre>
+
+<pre>
+  <code>
+let colors = { 
+                  red: "#FF0000", 
+                  blue: "#0000FF", 
+                  green: "#00FF00" 
+                };
+function myFun(val){
+    return Object.keys(colors).find((key,ind)=>{
+        return colors[key] === val
+    })
+} 
+console.log(myFun('#FF0000'));
+//Output
+=>red
+  </code>
 </pre>
 
 </div>
