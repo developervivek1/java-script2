@@ -443,6 +443,19 @@ setTimeout(display, 3000);
 <pre>
 <code>
 // JavaScript Closures
+
+//example closure
+function outer(){
+    var name = "Vivek";
+    function inner(){
+      
+        console.log('my name is...', name);
+    }
+    inner();
+}
+outer();
+
+
 => JavaScript variables can belong to:
 => The local scope or The global scope
 => Global variables can be made local (private) with closures.
@@ -873,6 +886,315 @@ obj.greet();
     </code>
 </pre>
 
+
+<pre>
+  <code>
+// What is Debouncing in JavaScript?
+=> Debouncing in JavaScript can be defined as the technique that is used to limit the number of times a function gets executed.
+   Debouncing is useful when the event is frequently being triggered in a short interval of time like typing, scrolling, and resizing.
+
+// Debounce function
+  function debounce(func, delay) {
+      let timeout;
+      return function (...args) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+              func.apply(this, args);
+          }, delay);
+      };
+  }
+
+// Function to be debounced
+  function search(query) {
+      console.log('Searching for:', query);
+  }
+
+// Create a debounced version of the search function
+  const dSearch = debounce(search, 100);
+
+// Simulate typing with multiple calls to the debounced function
+  dSearch('Hello');
+  dSearch('Hello, ');
+  dSearch('Hello, World!');  // Only this call will trigger after 100ms
+  // Output
+  => Searching for: Hello, World!
+  </code>
+</pre>
+
+<h5 class="mt-3">Promises</h5>
+<pre>
+  <code>
+//What is a Promise in JavaScript?
+A Promise is a JavaScript object that represents the eventual completion (or failure) of an asynchronous operation, and its resulting value.
+
+It allows you to write asynchronous code in a more readable and manageable way than callbacks.       
+
+// Benefits of Promises
+
+Cleaner syntax for async operations
+Easier to chain multiple async tasks
+Centralized error handling with .catch()
+Helps avoid callback hell     
+
+//📌 States of a Promise
+State ||	Description
+pending || Initial state; neither fulfilled nor rejected
+fulfilled ||	Operation completed successfully
+rejected ||	Operation failed
+
+
+✅ Basic Syntax
+const promise = new Promise((resolve, reject) =&gt; {
+  // async operation
+  let success = true;
+
+  if (success) {
+    resolve("Operation successful!");
+  } else {
+    reject("Something went wrong.");
+  }
+});
+
+
+//Consuming a Promise
+
+promise
+  .then(result =&gt; {
+    console.log(result); // if resolved
+  })
+  .catch(error =&gt; {
+    console.error(error); // if rejected
+  });
+
+
+// Real Example with setTimeout
+ 
+  function fetchData() {
+    return new Promise((resolve, reject) =&gt; {
+      setTimeout(() =&gt; {
+        resolve("Data fetched!");
+      }, 2000);
+    });
+  }
+  
+  fetchData()
+    .then(data =&gt; console.log(data))    // Output after 2s: Data fetched!
+    .catch(err =&gt; console.error(err));
+</code>
+</pre>
+
+<pre>
+<code>
+
+// In JavaScript, Promises are a way to handle asynchronous operations. A Promise represents a value that may be available now, or in the future, or never. It helps to deal with operations such as fetching data from an API, reading files, or waiting for a timer to complete without blocking the execution of other code.
+
+// Key States of a Promise:
+// A promise can be in one of three states:
+
+// Pending: The initial state; the promise is neither fulfilled nor rejected.
+// Fulfilled: The operation completed successfully, and the result is available.
+// Rejected: The operation failed, and an error or reason is available.
+
+
+// let firstPromise = new Promise( (resolve, reject) =&gt; {
+
+//     setTimeout(function sayMyName() {
+//         console.log("My Name is Love babbar");
+//     }, 0);
+// } );
+
+let promise1 = new Promise((resolve, reject)=&gt; {
+    let success = true;
+    if(success) {
+        resolve(10);
+    }
+    else {
+        reject("Internal Server Error");
+    }
+});
+
+promise1.then((message)=&gt; {
+    console.log("first msg:" + message);
+    return 20;
+}).then((message)=&gt; {
+    console.log("second msg: " + message);
+    return 30;
+}).then((message)=&gt; {
+    console.log("third msg: " + message);
+}).catch((error) =&gt; {
+    console.error(error);
+}).finally((message) =&gt; {
+    console.log("Main to final hu, chalunga pakka")
+})
+
+
+
+
+// promise1.then((message) =&gt; {
+//     console.log("Then ka message is " + message);
+// }).catch((error)=&gt; {
+//     console.log("Error: " + error);
+// })
+
+
+// let promise1 = new Promise((resolve, reject)=&gt; {
+//     setTimeout(resolve, 1000, "First");
+// })
+// let promise2 = new Promise((resolve, reject)=&gt; {
+//     setTimeout(resolve, 2000, "Second");
+// })
+// let promise3 = new Promise((resolve, reject)=&gt; {
+//     setTimeout(reject, 4000, "Third");
+// })
+
+// Promise.all([promise3, promise2, promise1])
+// .then((values) =&gt; {
+//     console.log(values);
+// })
+// .catch((error)=&gt; {
+//     console.error("error:" + error);
+// })
+</code>
+</pre>
+
+<h5 class="mt-3">Function Currying</h5>
+<pre>
+<code>
+// Currying is used in JavaScript to break down complex function calls into smaller, 
+   more manageable steps. It transforms a function with multiple arguments into a series
+   of functions, each taking a single argument.
+
+    => It converts a function with multiple parameters into a sequence of functions.
+    => Each function takes a single argument and returns another function until all arguments are received.
+  
+  //example 
+  function fun(a){
+      return function(b){
+          return function(c){
+              return a+b+c;
+          }
+      }
+  }
+  fun(3)(4)(5);
+  console.log(fun(3)(4)(5));  
+  //output 
+  =>12
+
+  //example 2
+  function myMail(to){
+    return function(subject){
+        return function(body){
+            return `${to} and ${subject} and ${body}`
+        }
+    }
+  }
+  myMail('to Interviewer')('subject: front-end')('body: Hey Sir May I know the feedback');
+  console.log(myMail('to Interviewer')('subject: front-end')('body: Hey Sir May I know the feedback'));
+
+  //output
+  => to Interviewer and subject: front-end and body: Hey Sir May I know the feedback
+
+// Advantages of Currying Function
+=> It helps us to create a higher-order function
+=> It reduces the chances of error in our function by dividing it into multiple smaller functions that can handle one responsibility.
+=> It is very useful in building modular and reusable code
+=> It helps us to avoid passing the same variable multiple times
+=> It makes the code more readable
+
+</code>
+</pre>
+
+
+<h5 class="mt-3">shallow copy vs deep copy javascript</h5>
+<pre>
+  <code>
+// Shallow Copy
+=> A shallow copy creates a new object or array but only copies the top-level elements. 
+   If the original object contains nested objects or arrays, the copied object will reference the same nested structures as the original. 
+   This means that if you modify a nested object in either the original or the copied object, the changes will be reflected in both.
+   copying in JavaScript include: Spread syntax (...), Object.assign()
+
+// Example 
+  const originalObject = {
+    name: 'John',
+    address: {
+      city: 'New York',
+    },
+  };
+
+  const shallowCopy = { ...originalObject };
+  shallowCopy.name = 'Jane'; // Changes only the shallow copy
+  shallowCopy.address.city = 'Los Angeles'; // Changes both original and shallow copy
+  console.log(originalObject.name); // Output: John
+  console.log(originalObject.address.city); // Output: Los Angeles
+
+  // Deep Copy
+  A deep copy creates a completely independent copy of the original object, including all 
+  nested objects. If the original object contains nested objects, the copied object will 
+  contain new copies of those nested objects. This means that modifying a nested object in 
+  either the original or the copied object will not affect the other.
+  
+  // Common methods for creating deep copies in JavaScript include:
+  JSON.parse(JSON.stringify(object)) (This method has limitations, as it does not copy functions or handle circular references)
+  structuredClone() (This method is generally preferred for deep copying, but it may not be supported in all environments
+  
+  // Example
+  const originalObject = {
+    name: 'John',
+    address: {
+      city: 'New York',
+    },
+  };
+
+  const deepCopy = structuredClone(originalObject);
+  deepCopy.name = 'Jane'; // Changes only the deep copy
+  deepCopy.address.city = 'Los Angeles'; // Changes only the deep copy
+  console.log(originalObject.name); // Output: John
+  console.log(originalObject.address.city); // Output: New York
+
+</code>
+</pre>
+
+
+<h5 class="mt-3">Rest n Spread</h5>
+<pre>                                
+<code>
+✅ 6. Rest and Spread Operators (...)
+The rest operator (...) in JavaScript is used to collect multiple arguments into a single array. It's especially useful in functions when you don't know how many arguments will be passed.
+
+Rest gathers remaining elements.
+
+Spread expands elements.
+
+// Rest
+function sum(...nums) {
+  return nums.reduce((a, b) =&gt; a + b);
+}
+
+// Spread
+const arr = [1, 2];
+const newArr = [...arr, 3, 4];
+
+//✅ 4. Destructuring Assignment
+Extract values from arrays or objects.
+
+// Object
+const user = { name: 'Alice', age: 25 };
+const { name, age } = user;
+
+// Array
+const [first, second] = [10, 20];
+
+
+// ✅ 9. Modules (import / export)
+
+// In file.js
+export const PI = 3.14;
+
+// In another file
+import { PI } from './file.js';
+</code>
+</pre>
 
 </div>
 
