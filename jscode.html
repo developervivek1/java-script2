@@ -135,7 +135,398 @@ function longestCommonPrefix(strs) {
 }
     </code>
  </pre>
+
+<pre>
+  <code>
+const nums = [0,1,2,0,3,0,4,5,6,7];
+
+function myFun(num){
+    let nonZero = 0;
+      for(let i=0; i< num.length; i++){
+          if(num[i] !==0){
+              num[nonZero] = num[i];
+              nonZero++
+          }
+      }
+      for(let i = nonZero; i< num.length; i++){
+          num[i] = 0;
+      }
+      return num;
+}
+console.log(myFun(nums));
+//output [1, 2, 3, 4, 5, 6, 7, 0, 0, 0]
+  </code>
+</pre>
+
+<pre>
+  <code>
+// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+// Input: nums = [2,2,1]
+// Output: 1
+
+const singleFun = function single(arr) {
+    arr.sort((a, b) => a - b); // Sort the array first
+
+    for (let i = 0; i < arr.length - 1; i += 2) {
+        if (arr[i] !== arr[i + 1]) {
+            return arr[i];
+        }
+    }
+    return arr[arr.length - 1]; // Last element is the unique one
+};
+
+const nums = [1, 0, 1];
+console.log(singleFun(nums)); // Output: 0
+
+//OR 
+
+let singleNumber = function(arr) {
+    
+   return arr.reduce((acc, num) => acc ^ num, 0);
+};
+
+  </code>
+</pre>
+<pre>
+  <code>
+// Given an integer array nums, return true if any value appears at least twice in the array,
+//  and return false if every element is distinct.
+// Input: nums = [1,2,3,1]
+// Output: true
+
+const singleFun = function single(arr) {
+  arr.sort((a, b) => a - b); // sort the array
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] === arr[i + 1]) {
+      return true; // duplicate found
+    }
+  }
+
+  return false; // no duplicates
+};
+
+const nums = [1, 2, 2];
+console.log(singleFun(nums)); // true
+  </code>
+</pre>
+<pre>
+  <code>
+// Input: digits = [1,2,3]
+// Output: [1,2,4]
+
+function plusOne(digits) {
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] < 9) {
+      digits[i]++;       // Add one if digit is less than 9
+      return digits;
+    }
+    digits[i] = 0;        // Set to 0 and carry over to next digit
+  }
+
+  // If all digits were 9, we need an extra 1 at the front
+  digits.unshift(1);
+  return digits;
+}
+  </code>
+</pre>
+
+<pre>
+  <code>
+//make any string as palindrome
+
+let str = 'vivek';
+
+const makePalindrome = function myFun1(){
+    const addStr = str + str.split('').reverse().join('');
+    return addStr === addStr.split('').reverse().join('');
+}
+
+console.log(makePalindrome(str));
+  </code>
+</pre>
+<pre>
+  <code>
+// Given a string, write a function to count the occurrences of each character in the string.                       
+const nums = ['app', 'bpp', 'cpp', 'cpp', 'app', 'bpp'];
+
+const reverseNum = function myFun(arr){
+    let count = {};
+    for (let x of arr){
+        count[x] = count[x] ? count[x] + 1 : 1;
+    }
+    return count;
+}
+console.log(reverseNum(nums));
+  </code>
+</pre>
+
+<pre>
+  <code>
+function findMax(arr) {
+// Initialize max to the first element of the array
+let max = arr[0];
+// Iterate through the array starting from the second element
+for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+        max = arr[i];  // Update max if a larger element is found
+    }
+}
+    return max;
+}
+// Example usage
+const numbers1 = [10, 20, 5, 40, 25];
+console.log(findMax(numbers1)); // Output: 40
+  </code>
+</pre>
+
+<pre>
+  <code>
+// 3. Write a JavaScript function to check if a given string is a palindrome (reads the same forwards and backwards). 
+const str = "jahaj";
+function strPal(){
+    if(str === str.split("").reverse().join("")){
+        return "its a palindrome"
+    }else{
+        return "false"
+    }
+}
+const check = strPal(str);
+console.log(check);
+// Testing
+console.log(str.split("").reverse().join(""));
+  </code>
+</pre>
+<pre>
+  <code>
+// 5. Write a JavaScript function that takes an array of numbers and returns a new array with only the even numbers  
+const arryNum = [1,2,3,4,5,6,7,8,9]
+function evenfun(){
+    return arryNum.filter((num)=>{
+        return num % 2 ===0
+    })
+}
+console.log(evenfun());
+  </code>
+</pre>
+<pre>
+  <code>
+// 6. Write a JavaScript program to calculate the factorial of a given number. 
+const givenNum = 5;
+function facNum(givenNum){
+    let result = 1;
+    for(let i=1; i<=givenNum; i++){
+        result = result*i;
+    }
+    return result;
+}  
+console.log(facNum(5)) 
+  </code>
+</pre>
+<pre>
+  <code>
+// 7. Write a JavaScript function to check if a given number is prime.
+//  prime number means which is divisible by itself 0,1 is not a prime num and 2 is prime number 
+let pNumber = 7;
+function isPrime(){
+    if(pNumber <=1){
+        return false;
+    } else if (pNumber===2) {
+        return true;
+    } else if (pNumber % 2 === 0){
+        return false;
+    }
+    for (let i =2; i<=Math.sqrt(pNumber); i++){
+        if(pNumber % i === 0) return false;
+    }
+    return "true";
+} 
+console.log(`this number ${pNumber} is prime`, isPrime())
+  </code>
+</pre>
+<pre>
+  <code>
+// 10. Write a JavaScript program to convert a string to title case (capitalize the first letter of each word).
+const strTitle = "my name is vivek pathak";
+console.log(strTitle.split(' ').map((word)=>{
+    return word.charAt(0).toUpperCase() + word.slice(1)
+}).join(' '))
+  </code>
+</pre>
+<pre>
+  <code>
+//12 5. Implement a function that takes a arrays and sort them without using any built-in sorting functions. 
+                
+function bubbleSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          const lesser = arr[j + 1];
+          arr[j + 1] = arr[j];
+          arr[j] = lesser;
+        }
+      }
+    }
+    // return the sorted array
+    return arr;
+  }
+  
+console.log(bubbleSort([3, 4, 9, 3, 1]));
+  </code>
+</pre>
+
+<pre>
+  <code>
+function mergeArrays(arr1, arr2) {
+const result = [];
+let index = 0;
+
+  // Copy elements from first array
+  for (let i = 0; i < arr1.length; i++) {
+    result[index] = arr1[i];
+    index++;
+  }
+
+  // Copy elements from second array
+  for (let i = 0; i < arr2.length; i++) {
+    result[index] = arr2[i];
+    index++;
+  }
+
+  return result;
+}
+const sortedArray1 = [1, 3, 5, 7];
+const sortedArray2 = [2, 4, 6, 8];
+const result = mergeArrays(sortedArray1, sortedArray2);
+console.log("Merged Sorted Array:", result);
+//output Merged Sorted Array: [1, 3, 5, 7,2, 4, 6, 8]
+  </code>
+</pre>
+<pre>
+  <code>
+//15 9. Write a function that determines if two strings are anagrams of each other  
+function areAnagrams(str1, str2) {
+    return str1.split("").sort().join("") === str2.split("").sort().join("");
+}
+// Example usage
+console.log(areAnagrams("listen", "silent")); // true
+console.log(areAnagrams("hello", "world"));   // false
+  </code>
+</pre>
+<pre>
+  <code>
+//18 4. Write a function that takes an array of integers as input and returns a new array with only the unique elements. 
+function getUniqueElements(arr) {
+    const uniqueElements = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (!uniqueElements.includes(arr[i])) {
+            uniqueElements.push(arr[i]);
+        }
+    }
+
+    return uniqueElements;
+}
+// Example usage
+const numbers3 = [1, 2, 3, 1, 2, 4, 5, 6, 4];
+const uniqueNumbers2 = getUniqueElements(numbers3);
+console.log(uniqueNumbers2); // [1, 2, 3, 4, 5, 6]
+  </code>
+</pre>
+<pre>
+  <code>
+//19 7. Implement a function to find the sum of all the numbers in an array.
+function sumOfArray(arr) {
+    return arr.reduce((sum, current) => sum + current, 0);
+}
+
+// Example usage
+const numbersAll = [1, 2, 3, 4, 5];
+const sum1 = sumOfArray(numbersAll);
+console.log(sum1); // 15
+  </code>
+</pre>
+<pre>
+  <code>
+let char = 'ABCXYZabcxyz123';
+function myFun(length){
+    let random = '';
+    for(let i=0; i < length; i++){
+        randomIndex = Math.floor(Math.random() * char.length);
+        random = random + char[randomIndex];
+    }
+    return random;
+}
+console.log(myFun(5))
+  </code>
+</pre>
+<pre>
+  <code>
+const nums = [1,2,3,4,5,6]
+const random = function myFun(arr){
+    for(let i = arr.length-1; i>=0; i--){
+        let j = Math.floor(Math.random() * (i+1));
+        [arr[i],arr[j]] = [arr[j],arr[i]]
+    }
+    return arr
+}
+console.log(random(nums));
+
+//OR
+
+const random = function myFun(arr){
+    return arr.sort(()=> Math.random() - 0.5)
+}
+console.log(random(nums));
+  </code>
+</pre>
+<pre>
+  <code>
+//29. 5. Write a function that sorts an array of strings in alphabetical order.     
+function sortStrings(arr) {
+    return arr.slice().sort();
+}
+// Example usage
+const strings = ["banana", "apple", "grape", "kiwi"];
+console.log(sortStrings(strings)); // Output: ["apple", "banana", "grape", "kiwi"]
+  </code>
+</pre>
+<pre>
+  <code>
+//31. 7. Write a function that removes all falsy values (false, null, 0, “”, undefined, and NaN) from an array. 
+function removeFalsyValues(arr) {
+    return arr.filter(Boolean);
+}
+// Example usage
+console.log(removeFalsyValues([0, 1, false, "", null, 2, undefined, 3])); 
+// Output: [1, 2, 3]
+  </code>
+</pre>
+<pre>
+  <code>
+//33. What are higher order functions, and what are their benefits?
+const primes = [3, 5, 7, 11];
+// pass a function to map
+const doubledPrimes = primes.map((x) => x * 2);
+console.log(doubledPrimes);
+// expected output: Array [6, 10, 14, 22]
+  </code>
+</pre>
+<pre>
+  <code>
+//34. Write a loop that prints every number divisible by 3 from 1-200:    
+for (let i = 1; i < 201; i++) {
+    if (i % 3 === 0) {
+    }
+    // console.log(i);
+}          
+  </code>
+</pre>
+
 </div>
+
+
+<!-- js questions -->
 <div id="menu1" class="container-flui py-0 tab-pane">
 <div>
 
