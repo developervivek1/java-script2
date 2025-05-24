@@ -522,6 +522,182 @@ for (let i = 1; i < 201; i++) {
 }          
   </code>
 </pre>
+<pre>
+  <code>
+let email = "example@gmail.com";
+console.log(email.split('@').slice(0,1));
+//output 'example' 
+  </code>
+</pre>
+<pre>
+  <code>
+function myFun(){
+let nums = [];
+    
+    for(let i =1; i < 51; i++){
+        if(i % 2 === 0){
+            nums.push('fizz')
+        }else{
+            nums.push('buzz')
+        }
+    }
+    return nums;
+}
+console.log(myFun())
+  </code>
+</pre>
+<pre>
+  <code>
+let landPlots = [
+    { location: "A1", status: "Available" },
+    { location: "B2", status: "Sold" },
+    { location: "C3", status: "Available" },
+    { location: "D4", status: "Sold" },
+    { location: "E5", status: "Available" }
+];
+                      
+const filterdata = landPlots.filter((data,index)=>{
+    if(data.status === 'Sold'){
+        return data.status = 'Unsold';
+    }
+});
+console.log(filterdata);
+                      
+//output
+[
+  { location: 'B2', status: 'Unsold' },
+  { location: 'D4', status: 'Unsold' }
+]
+  </code>
+</pre>
+<pre>
+  <code>
+const strs = 'Vivek';
+function myFun(str){
+    const vowels = 'aeiou';
+    let count = 0;
+    
+    for(let x of str ){
+        if(vowels.includes(x)){
+            count++
+        }
+    }
+    return count;
+}
+console.log(myFun(strs));
+  </code>
+</pre>
+<pre>
+<code>
+function shuffleArr(arr) {
+for (let i = arr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
+    [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
+}
+return arr;
+}  
+
+//OR
+
+//other method
+            
+function shuffleArr(arr) {
+    return arr.sort(() => Math.random() - 0.5);
+}
+  </code>
+</pre>
+<pre>
+  <code>
+function isSorted(arr) {
+for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] > arr[i + 1]) {
+        return false;
+    }
+}
+return true;
+}
+                        
+// Example usage:
+console.log(isSorted([1, 2, 3, 4, 5])); // true
+console.log(isSorted([5, 3, 4, 1, 2])); // false
+  </code>
+</pre>
+<pre>
+  <code>
+// Check if Two Objects are Equal
+function isEqual(obj1, obj2) {
+  return JSON.stringify(obj1) === JSON.stringify(obj2);
+}
+
+console.log(isEqual({ a: 1 }, { a: 1 })); // Output: true
+console.log(isEqual({ a: 1 }, { b: 1 })); // Output: false
+  </code>
+</pre>
+
+<pre>
+  <code>
+    // Group Objects by a Property
+let items = [
+  { category: "fruit", name: "Apple" },
+  { category: "vegetable", name: "Carrot" },
+  { category: "fruit", name: "Banana" }
+];
+
+let grouped = items.reduce((acc, item) => {
+acc[item.category] = acc[item.category] || [];
+acc[item.category].push(item.name);
+return acc;
+}, {});
+                        
+console.log(grouped);
+// Output: { fruit: ["Apple", "Banana"], vegetable: ["Carrot"] }
+  </code>
+</pre>
+
+<pre>
+  <code>
+     // Remove a Property from All Objects in an Array
+let users = [
+{ name: "Alice", age: 30, city: "NY" },
+{ name: "Bob", age: 25, city: "LA" }
+];
+                        
+users = users.map(({ city, ...rest }) => rest);
+console.log(users);
+                                          
+// Check if Two Objects are Equal
+  function isEqual(obj1, obj2) {
+  return JSON.stringify(obj1) === JSON.stringify(obj2);
+}
+                        
+console.log(isEqual({ a: 1 }, { a: 1 })); // Output: true
+console.log(isEqual({ a: 1 }, { b: 1 })); // Output: false
+                        
+//  Freeze an Object to Prevent Modification
+let obj = Object.freeze({ name: "Alice" });
+obj.name = "Bob"; // No effect
+console.log(obj.name); // Output: Alice
+  </code>
+</pre>
+
+<pre>
+  <code>
+console.log({ a: 1 } === { a: 1 }) //False
+console.log({ a: 1 } == { a: 1 })  //False
+  </code>
+</pre>
+
+<pre>
+  <code>
+var foo = 1;
+let bar = 2;
+const baz = 3;
+
+console.log(window.foo); // ✅ 1
+console.log(window.bar); // ❌ undefined
+console.log(window.baz); // ❌ undefined
+  </code>
+</pre>
 
 </div>
 
