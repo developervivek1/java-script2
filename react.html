@@ -197,14 +197,134 @@
                      
             
         </div>
-        <div id="css" class=" tab-pane fade"><br>
+<div id="css" class=" tab-pane fade"><br>
           <h3>React Que</h3>
+<div>
+<pre>
+<code>
+//Props vs State
+=> props are read-only inputs passed from a parent component to a child component.
+=> Props are known as properties it can be used to pass data from one component to another. Props cannot be modified, read-only, and Immutable.
 
-          <div>
+// Key Characteristics:
+=> Immutable in the child component.
+=> Used to pass data and event handlers down the component tree.
+=> Makes components reusable.
+=> Controlled by the parent component.
 
-          </div>
+//Example
+function Welcome(props) {
+  return < h1>Hello, {props.name}!< /h1>;
+}
+< Welcome name="Alice" />
+
+
+// State
+// ✅ Definition:
+state is a local, mutable data store within a component.
+
+// ✅ Key Characteristics:
+=> Managed within the component.
+=> Can be changed using useState (in functional components).
+=> Triggers a re-render when updated.
+=> Used for interactivity (like toggles, form inputs, etc.).
+
+// ✅ Example:
+
+import { useState } from 'react';
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    < >
+      < p >Count: {count} < /p >
+      < button on Click = { () = > setCount (count + 1) }> Increment < / button >
+    < />
+  );
+}
+
+// In Short:
+=> Use props to send data into a component.
+=> Use state to manage local, interactive data.
+</code>
+</pre>
+
+<pre>
+<code>
+// How ReactJS Reconciliation Works
+
+=> The reconciliation process involves the following steps
+
+// 1. Render Phase
+=> React calls the render() method of a component to generate a new Virtual DOM representation.
+=> This new Virtual DOM is compared with the previous Virtual DOM snapshot.
+
+//2. Diffing Algorithm
+=> React compares the old and new Virtual DOM trees to determine the differences.
+=> Instead of re-rendering the entire UI, React updates only the changed nodes.
+
+//3. Commit Phase
+=> Once the differences are determined, React applies the updates to the real DOM in the most efficient way.
+=> React batches updates and minimizes reflows and repaints for better performance.
+
+
+// Reconciliation Vs Diffing Algorithm
+
+| Concept           | Description                                                                  |
+| ----------------- | ---------------------------------------------------------------------------- |
+| Reconciliation    | Process of updating the DOM efficiently when state/props change.             |
+| Diffing Algorithm | Optimized comparison of new and old virtual DOMs to compute minimal changes. |
+| Key Technique     | Compare element types, use keys in lists, update only changed parts.         |
+
+</code>
+</pre>
+
+<pre>
+  <code>
+// Explain the component lifecycle methods in React (e.g., componentDidMount, componentDidUpdate, componentWillUnmount).
+=> The lifecycle methods are hooks that allow you to perform actions at different stages of a component's lifecycle. For example, componentDidMount is called after a component is mounted to the DOM, and componentWillUnmount is called before a component is unmounted. 
+
+// What are React Hooks?
+=> Hooks are functions that let you use React features without having to write a class component. They are a more functional and concise way to manage state, side effects, and other React functionalities. 
+
+// Explain useState and useEffect hooks.
+=> useState is used to add state to functional components, while useEffect is used to perform side effects (e.g., fetching data, setting up subscriptions). 
+
+// What are Controlled Components?
+=> Controlled components have their value controlled by the React component itself, using state and onChange event handlers. They are used to manage form data. 
+
+// What are Uncontrolled Components?
+=> Uncontrolled components use the DOM's native methods to handle their values. They are often used for simple form elements. 
+
+//=> What is Prop Drilling?
+=> Prop drilling is when you pass down props through multiple layers of components to a component that needs it, which can make the code harder to manage. 
+
+//=> How can you avoid prop drilling?
+=> Context API or Redux can be used to avoid prop drilling. 
+
+// => What are React Fragments?
+=> Fragments are a way to group multiple elements without adding extra nodes to the DOM. 
+
+// => Explain Higher-Order Components (HOCs).
+=> HOCs are functions that take a component as input and return a new, enhanced component. 
+
+//=> Advanced:
+//=> What is Redux?
+=> Redux is a state management library that helps organize and manage the state of a React application, particularly in large and complex applications. 
+
+//=> What is the purpose of the Context API?
+=> The Context API provides a way to share data between components without prop drilling. 
+
+//=> Explain Server-Side Rendering (SSR) in React.
+=> SSR involves rendering React components on the server and sending the HTML to the client, which can improve SEO and initial page load times. 
+
+// => What is React.memo?
+=> React.memo is a higher-order component that memoizes the functional component, preventing unnecessary re-renders when the props are unchanged
+  </code>
+</pre>
+</div>
           
-        </div>
+</div>
       </div>
     </div>
     
