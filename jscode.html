@@ -55,6 +55,114 @@ console.log(sum(5, 3)); // Output: 8
                 </code></pre>
  -->
 <pre>
+  <code>
+for (var i = 0; i < 3; i++) {
+    setTimeout(() => console.log(i), 1000);
+} 
+//output 
+3
+3
+3
+
+//explanation
+=> The variable i is declared with var, which is function-scoped, not block-scoped.
+=> By the time the setTimeout callback is executed (after 1000ms), the for loop has already finished, and i is 3.
+=> All three callbacks share the same reference to i, so they all print 3.
+
+// How to fix for output 0,1,2
+for (let i = 0; i < 3; i++) {
+    setTimeout(() => console.log(i), 1000);
+}
+//output > 0,1,2
+=> This works because let is block-scoped, and a new binding of i is created in each iteration of the loop.
+
+//Another way
+for (var i=0; i< 3; i++){
+    console.log(i);
+}
+
+//OR
+
+for (let i=0; i< 3; i++){
+    console.log(i);
+}
+
+//output > 0,1,2</3>
+</code>
+</pre>
+
+<pre>
+<code>
+function myCounter(){
+  let count = 0;
+  return function (){
+      count++;
+      console.log(count);
+}
+const counter1 = myCounter();
+const counter2 = myCounter();
+counter1();
+counter1();
+counter2();
+
+// Output > 1 2 1
+  </code>
+</pre>
+<pre>
+  <code>
+function myCounter(){
+  let count = 0;
+  return function (){
+      count++;
+      console.log(count);
+  }
+}
+const counter = myCounter();
+
+counter();
+counter();
+counter();
+
+//ouput > 1,2,3
+  </code>
+</pre>
+<pre>
+  <code>
+function myCounter(){
+    let count = 10;
+    return function (){
+    console.log(count);
+    }
+}
+const counter = myCounter();
+
+counter();
+counter();
+counter();
+
+//output > 10,10,10
+  </code>
+</pre>
+
+<pre>
+<code>
+    function myCounter(){
+    let count = 10;
+    return function (){
+        let count = 20;
+        console.log(count);
+    }
+}
+const counter = myCounter();
+
+counter();
+counter();
+counter();
+
+//output > 20,20,20
+</code>
+</pre>
+<pre>
     <code>
 const nums1 = [1,2,3,4,5];
 const nums2  = [1,2,3,6,7,8,9];
