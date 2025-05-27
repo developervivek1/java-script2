@@ -322,6 +322,142 @@ function Counter() {
 => React.memo is a higher-order component that memoizes the functional component, preventing unnecessary re-renders when the props are unchanged
   </code>
 </pre>
+<pre>
+  <code>
+<h5>useMemo example</h5>  
+import React, { useState, useMemo } from 'react';
+
+const users = [
+  'Alice Johnson',
+  'Bob Smith',
+  'Charlie Williams',
+  'David Brown',
+  'Emily Davis',
+  'Frank Miller',
+  'Grace Wilson',
+  'Hannah Moore',
+  'Ivan Taylor',
+  'Jane Anderson',
+  // Imagine this list has thousands of names...
+];
+
+function UserSearch() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // Filter the user list only when searchTerm changes
+  const filteredUsers = useMemo(() => {
+    console.log('Filtering users...');
+    return users.filter(user =>
+      user.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm]);
+
+  return (
+    < div>
+      < h2>Contact List< /h2>
+      < input
+        type="text"
+        placeholder="Search users..."
+        value={searchTerm}
+        on Change={e => setSearchTerm(e.target.value)}
+      />
+      < ul>
+        {filteredUsers.map(user => (
+          < li key={user}>{user}< /li>
+        ))}
+      < /ul>
+    </ div>
+  );
+}
+
+export default UserSearch;
+
+
+/// Without useMemo
+
+function UserSearch() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [count, setCount] = useState(0);
+
+  // Filter the user list only when searchTerm changes
+  function filteredUsers() {
+    console.log("Filtering users...");
+    return users.filter((user) =>
+      user.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+
+  return (
+    < div>
+      < h2>Contact List</h2>
+      < input
+        type="text"
+        placeholder="Search users..."
+        value={searchTerm}
+        on Change={(e) => setSearchTerm(e.target.value)}
+      />
+      < ul>
+        {filteredUsers().map((user) => (
+          < li key={user}>{user}</li>
+        ))}
+      </ ul>
+
+      < button on Click={() => setCount (count + 1)}>Count: {count}< /button>
+    </ div>
+  );
+}
+
+export default UserSearch;
+
+=> without useMemo the components of filter will render on every change of count by use using useMemo 
+   in filter function it will not re-render when count or component state change
+  </code>
+</pre>
+
+
+<pre>
+  <code>
+    <h5>UseCallback</h5>
+
+import React, { useState, memo, useCallback } from "react";
+import { use } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  const MemoisedFun = useCallback(() => {
+    setCount((prev) => prev + 1);
+  }, []);
+
+  return (
+    < div>
+      < h2>useCallback< /h2>
+      < h2>Count is : {count}< /h2>
+      < MemoisedChild onIncrease={MemoisedFun} />
+    </ div>
+  );
+}
+
+function Child({ onIncrease }) {
+  console.log("child component rendered");
+  return < button onClick={onIncrease}>Click to increase the count< /button>;
+}
+const MemoisedChild = memo(Child);
+
+export default App;
+
+  </code>
+</pre>
+
+
+
+
+
+
+
+
+
+
 </div>
           
 </div>
