@@ -418,34 +418,39 @@ export default UserSearch;
 <pre>
   <code>
     <h5>UseCallback</h5>
+=> useCallback is a React Hook that memoizes a function, so it doesn’t get recreated 
+   on every render unless its dependencies change. This is useful when passing functions to 
+   child components that depend on referential equality to prevent unnecessary re-renders.
 
 import React, { useState, memo, useCallback } from "react";
-import { use } from "react";
 
-function App() {
+const Child = memo(function Child({ onClick }) {
+  console.log("incremnt from child");
+  return (
+    <>
+      < button onClick={onClick}> increment from child < /button>
+    </>
+  );
+});
+
+function Counter() {
   const [count, setCount] = useState(0);
 
-  const MemoisedFun = useCallback(() => {
+  const increment = useCallback(() => {
     setCount((prev) => prev + 1);
   }, []);
 
   return (
     < div>
-      < h2>useCallback< /h2>
-      < h2>Count is : {count}< /h2>
-      < MemoisedChild onIncrease={MemoisedFun} />
+      < h2>Count: {count}</ h2>
+      < button onClick={increment}>Increment </ button>
+
+      < Child onClick={increment} />
     </ div>
   );
 }
 
-function Child({ onIncrease }) {
-  console.log("child component rendered");
-  return < button onClick={onIncrease}>Click to increase the count< /button>;
-}
-const MemoisedChild = memo(Child);
-
-export default App;
-
+export default Counter;
   </code>
 </pre>
 

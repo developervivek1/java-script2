@@ -813,6 +813,24 @@ console.log(window.baz); // ❌ undefined
 <!-- js questions -->
 <div id="menu1" class="container-flui py-0 tab-pane">
 <div>
+  <pre>
+    <code>
+console.log([] == []);  // false
+console.log({} == {}); // false
+
+console.log([] === []); // false
+console.log({} === {}); // false
+
+//Explain
+| Expression    | Result | Why                         |
+| ------------- | ------ | --------------------------- |
+| `[] == []`    | false  | Different array references  |
+| `{}` == `{}`  | false  | Different object references |
+| `[] === []`   | false  | Same as above               |
+| `{}` === `{}` | false  | Same as above               |
+
+    </code>
+  </pre>
 <pre>
   <code>
 // 🌐 What Are Web Accessibility Standards?
@@ -826,7 +844,7 @@ console.log(window.baz); // ❌ undefined
 
 => ✅ Techniques & Best Practices
 // Semantic HTML
-=> Use elements like <button>, <nav>, <main>, <label>, <form>, etc., for meaning—not just layout.
+=> Use elements like < button>, < nav>, < main>, < label>, < form>, etc., for meaning—not just layout.
 
 // ARIA (Accessible Rich Internet Applications)
 => Add roles and properties (e.g., role="dialog", aria-label) to enhance accessibility, especially for screen readers.
