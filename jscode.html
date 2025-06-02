@@ -813,6 +813,117 @@ console.log(window.baz); // ❌ undefined
 <!-- js questions -->
 <div id="menu1" class="container-flui py-0 tab-pane">
 <div>
+<pre>
+  <code>
+// 🌐 What Are Web Accessibility Standards?
+=> Web accessibility standards are guidelines and best practices that ensure websites
+   and web applications are usable by everyone, including people with disabilities (e.g., visual, auditory, motor, cognitive impairments).
+  
+//🛠️ What Is the Ability to Build Accessible User Interfaces?
+=> Building accessible UIs means designing and developing websites or apps so that all users can access and interact with them, regardless of disabilities.
+
+// This includes:
+
+=> ✅ Techniques & Best Practices
+// Semantic HTML
+=> Use elements like <button>, <nav>, <main>, <label>, <form>, etc., for meaning—not just layout.
+
+// ARIA (Accessible Rich Internet Applications)
+=> Add roles and properties (e.g., role="dialog", aria-label) to enhance accessibility, especially for screen readers.
+
+// Keyboard Navigation
+=> Ensure all interactive elements are accessible via the keyboard (e.g., Tab, Enter, Esc).
+
+// Color Contrast
+=> Use high contrast between text and background (WCAG recommends a 4.5:1 ratio for normal text).
+
+// Alt Text for Images
+=> Provide alt attributes so screen readers can describe the image content.
+
+// Accessible Forms
+=> Ensure every input field has a label, and provide clear validation messages.
+
+// Screen Reader Testing
+=> Test your site using screen readers like NVDA, VoiceOver, or JAWS.
+
+// Responsive & Zoomable Layouts
+=>Allow users to scale text and layout without breaking the UI. 
+
+
+// Why It Matters
+=> Legal Compliance: Avoid lawsuits (e.g., ADA compliance in the U.S.)
+=> Inclusivity: You serve a wider audience, including ~15% of the global population with disabilities
+=> SEO & UX Benefits: Accessible sites are often better structured and more usable for everyone
+  
+  </code>
+</pre>
+
+<pre>
+  <code>
+// how to do frontend performance optimization   
+=> Front-end performance optimization is about improving how fast and efficiently a web page loads and
+   responds to user interactions. A faster site improves user experience, SEO rankings, and conversion rates. 
+
+// 🚀 1. Optimize Assets
+// 🖼️ Images
+=> Use modern formats: WebP, AVIF
+=> Compress images (TinyPNG, ImageOptim)
+=> Use responsive images (<picture>, srcset)
+=> Lazy-load below-the-fold images (loading="lazy")
+
+// 📦 CSS & JS
+=> Minify CSS, JS, and HTML
+=> Combine files where possible to reduce HTTP requests
+=> Remove unused CSS (PurgeCSS, Tailwind’s tree-shaking)
+=> Split large JS bundles (code-splitting with Webpack/Vite)
+
+// ⚙️ 2. Leverage Browser Caching
+=> Set proper Cache-Control and ETag headers for static assets so they’re stored and reused by the browser.
+
+// 🌐 3. Use a CDN (Content Delivery Network)
+=> Serve static assets (images, fonts, JS/CSS) through a CDN like Cloudflare, Akamai, or AWS CloudFront to reduce latency.
+
+// ⚡ 4. Reduce Initial Load Time
+// ⏱️ Lazy Load Non-Critical Assets
+  => Lazy-load images, videos, and third-party scripts
+  => Defer non-critical JS with async or defer
+
+// ✂️ Tree Shaking
+  => Remove unused JS code (ES6 modules + tools like Webpack/Rollup support this)
+
+//🧠 Critical CSS
+  =>Inline only the CSS required to render above-the-fold content
+
+// 🔃 5. Optimize JavaScript Execution
+=> Avoid heavy computations on the main thread
+=> Use web workers for background tasks
+=> Debounce or throttle expensive event handlers (like scroll, resize)
+
+// 🛑 6. Reduce Repaints & Reflows
+=> Avoid layout thrashing (e.g., accessing and modifying DOM styles in a loop)
+=> Use CSS transforms and opacity for animations (GPU-accelerated)
+=> Minimize DOM depth and complexity
+
+// 📉 7. Optimize Fonts
+=> Use only needed font weights and subsets
+=> Use font-display: swap to avoid invisible text during loading
+=> Serve fonts via a CDN
+
+
+
+
+
+
+✅ Final Checklist
+
+=> Compress & optimize images
+=> Minify and lazy-load JS/CSS
+=> Use a CDN
+=> Inline critical CSS
+=> Reduce third-party scripts
+=> Monitor and continuously optimize with tools   
+  </code>
+</pre>
 
 <pre>
 <code>
