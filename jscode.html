@@ -833,6 +833,18 @@ console.log({} === {}); // false
   </pre>
 <pre>
   <code>
+console.log(NaN === NaN); //false
+console.log(undefined === undefined); //true
+console.log(null === null); // true
+console.log(Object === Object); // true
+console.log(Number.isNaN(NaN)); // true (use this to check NaN)
+console.log(new Object() === new Object()); // false
+
+
+  </code>
+</pre>  
+<pre>
+  <code>
 // 🌐 What Are Web Accessibility Standards?
 => Web accessibility standards are guidelines and best practices that ensure websites
    and web applications are usable by everyone, including people with disabilities (e.g., visual, auditory, motor, cognitive impairments).
