@@ -1,0 +1,537 @@
+
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+      <style>
+        body {
+                background-color: #121212;
+                color: #ffffff;
+                font-family: Arial, sans-serif;
+            }
+      </style>
+    
+    <div class="container-flui mt-3">
+      <h5 class="mt-4">Toggleable Tabs</h5>
+      <br>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-bs-toggle="tab" href="#html">DSA Coding</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#css">React Ques</a>
+        </li>
+        
+      </ul>
+    
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div id="html" class=" tab-pane active"><br>
+<div>
+<pre>
+    <code>
+// counting frequency
+// [1,2,3,4] -> [1,4,9,16]
+// [1,2,4,2] -> [1,4,4,16]
+// {1: 1,2:2,4:1}
+// {1: 1, 4:2,16:1}
+
+function findSquare(array, array2) {
+    let mappedArray1 = {};
+    let mappedArray2 = {};
+    for (let item of array) { // n times
+        mappedArray1[item] = (mappedArray1[item] || 0) + 1
+    }
+    for (let item2 of array2) { //n times
+        mappedArray2[item2] = (mappedArray2[item2] || 0) + 1
+    }
+    for (let key in mappedArray1) { //n times
+        if (!mappedArray2[key * key]) {
+            return false;
+        }
+        if (mappedArray1[key] !== mappedArray2[key * key]) {
+            return false;
+        }
+    }
+    return true;
+}
+// time complexity -> O(n ^2) - > Quadratic
+const result = findSquare([1, 2, 4, 2], [1, 4, 4, 16]);
+// time complexity -> O(n) -> linear time complexity
+console.log(result); // true
+    </code>
+</pre>
+
+<pre>
+    <code>
+// anagram
+// 'hello' -> 'llleh'
+function isAnagram(string, string2) {
+    if (string.length !== string2.length) {
+        return false;
+    }
+    let counter = {};
+    for (let letter of string) {
+        counter[letter] = (counter[letter] || 0) + 1
+    }
+    for (let item of string2) {
+        console.log(counter);
+        if (!counter[item]) {
+            return false;
+        }
+        counter[item] -= 1;
+    }
+    return true;
+}
+
+const result = isAnagram('hello', 'lelol')
+console.log(result);
+    </code>
+</pre>
+
+<pre>
+    <code>
+// checking sum zero
+// [-5,-4,-3,-2,0,2,6,8] -> input
+// [-4,4] -> output
+// here what we are going to do add each element with
+// all other element to check it sum is zero or not
+
+function findSumZeroPair(array) {
+    let left = 0;
+    let right = array.length - 1;
+    while (left < right) {
+        let sum = array[left] + array[right];
+        if (sum === 0) {
+            return [array[left], array[right]];
+        } else if (sum > 0) {
+            right--;
+        } else {
+            left++;
+        }
+    }
+}
+
+// time complexity -> O(n) -> linear time complexity
+const result = findSumZeroPair([-5, -4, -3, -2, 0, 2, 4, 6, 8]);
+console.log(result);
+
+    </code>
+</pre>
+<pre>
+    <code>
+const nums = [1,2,1,3,2,4,4,5,5,6,6,7,7,8,8];
+function myFun(arr){
+    let uniqNum = [];
+    for(let i=0; i <= arr.length-1; i++){
+        if(!uniqNum.includes(arr[i])){
+            uniqNum.push(arr[i])
+        }
+    }
+    return uniqNum;
+}
+const uniq = myFun(nums) // output [1,2,3,4,5,6,7,8]
+console.log(uniq.length); // output 8
+    </code>
+</pre>
+
+<pre>
+    <code>
+// count largest sum of consecutive digits
+
+// [1, 2, 3, 4, 3, 5, 4, 6, 7, 8], 4
+
+function findSumOfCons(array, num) {
+    let maxSum = 0;
+    let tempSum = 0;
+    if (array.length < num) {
+        throw  new Error('array length should be greater than num');
+    } else {
+        for (let i = 0; i < num; i++) {
+            maxSum += array[i];
+        }
+        tempSum = maxSum;
+        for (let j = num; j < array.length; j++) {
+            tempSum = tempSum - array[j - num] + array[j];
+            maxSum = Math.max(maxSum, tempSum);
+        }
+        return maxSum;
+    }
+}
+// time complexity -> O(n) -> linear time complexity
+const result = findSumOfCons([1, 2, 3, 4, 3, 5, 4, 6, 7, 8], 4);
+console.log(result);
+    </code>
+</pre>
+
+
+<pre>
+    <code>
+        //Find index of given number by divide n conquor
+
+// [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+// find the index of a given no in a sorted array
+// find index of 5
+// answer should be 4
+
+// if i use one for loop and compare no with given no
+// then i am using one for loop
+// time complexity -> linear O(n)
+
+// divide and conquerer technique
+// time complexity -> binary O(log(n))
+
+
+// [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+//  min -> 0, max -> 14 , middle -> 7
+// [1,2,3,4,5,6,7]
+// min -> 0 , max -> 6, middle -> 3
+// min -> 4 , max -> 6 , middle -> 5
+// [5,6,7]
+// min -> 4, max -> 4, middle -> 4
+// 4
+
+
+function searchAlgo(array, number) {
+    let min = 0;
+    let max = array.length - 1;
+    while (min <= max) {
+        let middleIndex = Math.floor((min + max) / 2);
+        console.log(middleIndex, 'middle index', min, 'min', max, 'max');
+        if (array[middleIndex] < number) {
+            min = middleIndex + 1;
+        } else if (array[middleIndex] > number) {
+            max = middleIndex - 1;
+        } else {
+            return middleIndex;
+        }
+    }
+    return -1;
+}
+
+const result = searchAlgo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 5);
+console.log(result);
+    </code>
+</pre>
+<pre>
+    <code>
+// recurssive function
+=> A recursive function is a function that calls itself in order to 
+   solve a problem. It is commonly used when a problem can be broken down 
+   into smaller sub-problems of the same type.     
+
+/ helper recursion
+
+// [1,2,3,4,5,6,7,8,9,10] -> input
+// [1,3,5,7,9] -> output
+
+function findOddNumbers(array) {
+    let result = [];
+
+    function helperRecursiveFunction(tempArray) {
+        if (tempArray.length === 0) {
+            return;
+        }
+        if (tempArray[0] % 2 !== 0) {
+            result.push(tempArray[0]);
+        }
+        helperRecursiveFunction(tempArray.slice(1));
+    }
+
+    helperRecursiveFunction(array);
+    return result;
+}
+
+const result = findOddNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+console.log(result);
+
+    </code>
+</pre>
+<pre>
+    <code>
+// Linear search Algorithm
+
+const users = [{username: "shagun", email: "info@codesikho.com"},
+    {username: "anmol", email: "abc@gmail.com"},
+    {username: "abhi", email: "abc@gmail.com"}, {
+        username: "akh_1",
+        email: "abc@gmail.com"
+    }, {username: "akshay", email: "abc@gmail.com"},
+    {username: "tanishq", email: "abc@gmail.com"}, {
+        username: "abhijeet",
+        email: "abc@gmail.com"
+    }, {username: "kavya", email: "abc@gmail.com"},
+    {username: "aditi", email: "abc@gmail.com"}, {
+        username: "aditya",
+        email: "abc@gmail.com"
+    }, {username: "vasu", email: "abc@gmail.com"},
+    {username: "ady", email: "abc@gmail.com"}];
+
+function isUsernameTaken(array, val) {
+    for (let item of array) {
+        if (item['username'] === val) {
+            return true;
+        }
+    }
+    return false;
+}
+const result = isUsernameTaken(users,'tanishq');
+console.log(result);
+
+// time complexity -> O(n)-> linear time complexity
+// best case O(1) , worst case, average case -> O(n)
+
+    </code>
+</pre>
+
+<pre>
+    <code>
+/// binary search algorithm
+// find the index of a given no in an array
+
+function binarySearch(array, element) {
+    let startingIndex = 0;
+    let endingIndex = array.length - 1;
+    let middleIndex = Math.floor((startingIndex + endingIndex) / 2);
+    while (array[middleIndex] !== element && startingIndex <= endingIndex) {
+        if (array[middleIndex] > element) {
+            endingIndex = middleIndex - 1;
+        } else {
+            startingIndex = middleIndex + 1;
+        }
+        middleIndex = Math.floor((startingIndex + endingIndex) / 2);
+    }
+    return array[middleIndex] === element ? middleIndex : -1;
+}
+
+const result = binarySearch(["h","e","b","c"], "h");
+console.log(result);
+
+// binary search is way faster than linear search
+// time complexity: O(log n)
+    </code>
+</pre>
+
+<pre>
+    <code>
+// naive search algorithm
+// find if world is a substring of hello world
+
+
+function naiveSearchAlgorithm(string, substring) {
+    for (let i = 0; i < string.length; i++) {
+        for (let j = 0; j < substring.length; j++) {
+            if (string[i + j] !== substring[j]) {
+                break;
+            }
+            if (j === substring.length - 1) {
+                return true
+            }
+        }
+    }
+    return false;
+}
+
+
+const result = naiveSearchAlgorithm('hello world', 'wore');
+console.log(result);
+
+// Quadratic time complexity -> O(n * n); -> naive search algo
+    </code>
+</pre>
+
+<pre>
+    <code>
+// kmp algorithm
+function calculateTable(substring, lps) {
+    let j = 0;
+    let i = 1;
+    lps[0] = 0;
+    while (i < substring.length) {
+        if (substring[i] === substring[j]) {
+            lps[i] = j + 1;
+            j += 1;
+            i += 1;
+        } else {
+            if (j !== 0) {
+                j = lps[j - 1];
+            } else {
+                lps[i] = 0;
+                i++;
+            }
+        }
+    }
+}
+
+function kmpAlgorithm(string, substring) {
+    let lps = new Array(substring.length).fill(0);
+    let lengthOfString = string.length;
+    let lengthOfSubString = substring.length;
+    calculateTable(substring, lps);
+    let i = 0;
+    let j = 0;
+    while (i < lengthOfString) {
+        if (string[i] === substring[j]) {
+            i += 1;
+            j += 1;
+        } else {
+            if (j !== 0) {
+                j = lps[j - 1];
+            } else {
+                i += 1;
+            }
+        }
+        if (j === lengthOfSubString) {
+            j = lps[j - 1];
+            return true;
+        }
+    }
+    return false;
+}
+
+const result = kmpAlgorithm('onionionspl', 'onios')
+console.log(result);
+
+    </code>
+</pre>
+<pre>
+    <code>
+//BUBBLE SORT : STEPS
+// start looping from with a variable called i in the end of array
+// towards beginning
+// start inner loop with a variable j until i -1
+// if arr[j] is greater than arr[j+1] swap them
+// return sorted array
+// [5,3,4,1,2,8,6,7] -> input
+// [1,2,3,4,5,6,7,8] -> output
+
+function bubbleSort(array) {
+    for (let i = array.length; i > 0; i--) {
+        for (let j = 0; j < i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                [array[j], array[j + 1]] = [array[j + 1], array[j]];
+            }
+        }
+    }
+    return array;
+}
+
+const result = bubbleSort([5, 3, 4, 1, 2, 8, 6, 7]);
+console.log(result);
+// time complexity -> O(n^2) -> Quadratic
+    </code>
+</pre>
+
+<pre>
+    <code>
+//BUBBLE SORT : STEPS Optimization
+// start looping from with a variable called i in the end of array
+// towards beginning
+// start inner loop with a variable j until i -1
+// if arr[j] is greater than arr[j+1] swap them
+// return sorted array
+// [5,3,4,1,2,8,6,7] -> input
+// [1,2,3,4,5,6,7,8] -> output
+
+function bubbleSort(array) {
+    let isSwapped;
+    for (let i = array.length; i > 0; i--) {
+        console.log(i);
+        isSwapped = false;
+        for (let j = 0; j < i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                [array[j], array[j + 1]] = [array[j + 1], array[j]];
+                isSwapped = true;
+            }
+        }
+        if (!isSwapped) {
+            break;
+        }
+    }
+    return array;
+}
+
+const result = bubbleSort([1, 2, 3, 4, 5, 6, 7, 8]);
+console.log(result);
+// time complexity -> O(n^2) -> Quadratic
+// time complexity -> O(1) -> best case
+
+    </code>
+</pre>
+
+<pre>
+    <code>
+// insertion algorithm
+// STEPS
+
+// start by picking second element of an array
+// compare second element with first one and place them in order
+//  now similarly take third element and compare it with rest two and fit it to the correct position
+// repeat the same steps till last element of array
+
+// [2,1,9,7,6,4] -> input
+// [1,2,4,6,7,9] -> output
+
+// compare this 2 with 8 , we have got 8 is bigger than 2;
+// [4,5,6,7,8,2];   2
+// we will write 8 on 2nd position
+// [4,5,6,7,8,8];
+// then we will compare it with 7 again as we can see 7 is bigger than 2
+// [4,5,6,7,7,8]; -> copied 7 to next position
+// we will repeat this process till j is greater than current value
+function insertionSort(array) {
+    for (let i = 1; i < array.length; i++) {
+        let currentVal = array[i];
+        for (j = i - 1; j >= 0 && array[j] > currentVal; j--) {
+            array[j + 1] = array[j];
+        }
+        array[j + 1] = currentVal;
+    }
+    return array;
+}
+
+const result = insertionSort([2, 1, 9, 7, 6, 4]);
+console.log(result);
+    </code>
+</pre>
+
+
+
+</div>
+            
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="css" class=" tab-pane fade"><br>
+          <h3>React Que</h3>
+
+          <div>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    </body>
+    </html>
