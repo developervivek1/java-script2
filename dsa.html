@@ -502,9 +502,274 @@ const result = insertionSort([2, 1, 9, 7, 6, 4]);
 console.log(result);
     </code>
 </pre>
+<pre>
+    <code>
+// [1,5,9]  [2,6,10,18]
+// merging two sorted arrays
+
+function mergeSortedArrays(array1, array2) {
+    let results = [];
+    let i = 0;
+    let j = 0;
+    while (i < array1.length && j < array2.length) {
+        if (array1[i] < array2[j]) {
+            results.push(array1[i])
+            i++;
+        } else {
+            results.push(array2[j])
+            j++;
+        }
+    }
+    while (i < array1.length) {
+        results.push(array1[i]);
+        i++;
+    }
+    while (j < array2.length) {
+        results.push(array2[j]);
+        j++;
+    }
+    return results
+}
+
+const result = mergeSortedArrays([1, 5, 9], [2, 6, 10, 18]);
+console.log(result);
+    </code>
+</pre>
+<pre>
+    <code>
+// using merge sort algorithm
+// STEPS
+// break up array into halves until we have 1 element array
+// then merge these sorted arrays until we have full length array
+// Once we have got the merged array we will return that
+// input -> [1, 5, 10, 2, 19, 6, 18]
+function mergeSortedArrays(array1, array2) {
+    let results = [];
+    let i = 0;
+    let j = 0;
+    while (i < array1.length && j < array2.length) {
+        if (array1[i] < array2[j]) {
+            results.push(array1[i])
+            i++;
+        } else {
+            results.push(array2[j])
+            j++;
+        }
+    }
+    while (i < array1.length) {
+        results.push(array1[i]);
+        i++;
+    }
+    while (j < array2.length) {
+        results.push(array2[j]);
+        j++;
+    }
+    return results
+}
+
+function mergeSortAlgorithm(array) {
+    if (array.length <= 1) {
+        return array;
+    }
+    let midPoint = Math.floor(array.length / 2);
+    let leftPoint = mergeSortAlgorithm(array.slice(0, midPoint));
+    let rightPoint = mergeSortAlgorithm(array.slice(midPoint));
+    return mergeSortedArrays(leftPoint, rightPoint);
+}
+
+const result = mergeSortAlgorithm([1, 5, 10, 2, 19, 6, 18]);
+console.log(result);
+    </code>
+</pre>
+<pre>
+    <code>
+//Calculating pivot value
 
 
+// Pivot utility/helper
+// It will accept 3 arguments : array ,start index, end index
+// We will grab pivot from start of our array
+// store current pivot index inside a variable
+// run a loop on array till end
+// if pivot is greater than element than increment pivot index to next value
+// and swap that element at pivot index (So that we have all the elements next to pivot)
+// at the end swap the pivot with pivot index
+// then we will return the pivot index
+// [4, 1, 2, 8, 7, 5, 9, 3]
+//
 
+
+function pivotUtility(array, start = 0, end = array.length - 1) {
+    let pivotIndex = start;
+    let pivot = array[start];
+    for (let i = 1; i <= array.length - 1; i++) {
+        if (pivot > array[i]) {
+            pivotIndex++;
+            [array[pivotIndex], array[i]] = [array[i], array[pivotIndex]];
+        }
+    }
+    [array[pivotIndex], array[start]] = [pivot, array[pivotIndex]];
+    console.log(array);
+    return pivotIndex;
+}
+
+const result = pivotUtility([4, 8, 1, 2, 7, 5, 9, 3]);
+console.log(result);
+
+
+    </code>
+</pre>
+<pre>
+    <code>
+        //final quick sort
+// Pivot utility/helper
+// It will accept 3 arguments : array ,start index, end index
+// We will grab pivot from start of our array
+// store current pivot index inside a variable
+// run a loop on array till end
+// if pivot is greater than element than increment pivot index to next value
+// and swap that element at pivot index (So that we have all the elements next to pivot)
+// at the end swap the pivot with pivot index
+// then we will return the pivot index
+// [4, 1, 2, 8, 7, 5, 9, 3]
+// [1,2,3,4,7,5,8,9]
+
+
+function pivotUtility(array, start = 0, end = array.length - 1) {
+    let pivotIndex = start;
+    let pivot = array[start];
+    for (let i = start + 1; i <= end; i++) {
+        if (pivot > array[i]) {
+            pivotIndex++;
+            [array[pivotIndex], array[i]] = [array[i], array[pivotIndex]];
+        }
+    }
+    [array[pivotIndex], array[start]] = [pivot, array[pivotIndex]];
+    return pivotIndex;
+}
+
+// how to use QUICK SORT
+// call pivot utility then recursively call it on left and right side
+// our recursive function base case will be when we have got
+function quickSort(array, left = 0, right = array.length - 1) {
+    if (left < right) {
+        let pivotIndex = pivotUtility(array, left, right); // index 3 first time
+        quickSort(array, left, pivotIndex - 1);
+        quickSort(array, pivotIndex + 1, right);
+    }
+    return array;
+}
+
+const result = quickSort([4, 1, 2, 8, 7, 5, 9, 3]);
+console.log(result);
+    </code>
+</pre>
+
+<pre>
+    <code>
+// Radix Sort helper/Utility functions
+
+// count digits
+// input - 143 , output - 3
+
+function countDigits(number) {
+    if (number === 0) {
+        return 1;
+    }
+    return Math.floor(Math.log10(Math.abs(number))) + 1;
+}
+
+// getDigit
+// input - 143, get last digit
+// output - 3
+// 0 - last digit, 1 - second last and so on
+
+function getDigit(number, index) {
+    const stringNumber = Math.abs(number).toString();
+    const currentIndex = stringNumber.length - 1 - index;
+    return stringNumber[currentIndex] ? parseInt(stringNumber[currentIndex]) : 0;
+}
+
+
+// [1, 121, 1444, 123]
+// counting max digits
+
+function maxDigits(array) {
+    let maxNumber = 0;
+    for (let i = 0; i < array.length; i++) {
+        maxNumber = Math.max(maxNumber, countDigits(array[i]));
+    }
+    return maxNumber;
+}
+    </code>
+</pre>
+
+<pre>
+    <code>
+// Radix Sort helper/Utility functions
+
+// count digits
+// input - 143 , output - 3
+
+function countDigits(number) {
+    if (number === 0) {
+        return 1;
+    }
+    return Math.floor(Math.log10(Math.abs(number))) + 1;
+}
+
+// getDigit
+// input - 143, get last digit
+// output - 3
+// 0 - last digit, 1 - second last and so on
+
+function getDigit(number, index) {
+    const stringNumber = Math.abs(number).toString();
+    const currentIndex = stringNumber.length - 1 - index;
+    return stringNumber[currentIndex] ? parseInt(stringNumber[currentIndex]) : 0;
+}
+
+
+// [1, 121, 1444, 123]
+// counting max digits
+
+function maxDigits(array) {
+    let maxNumber = 0;
+    for (let i = 0; i < array.length; i++) {
+        maxNumber = Math.max(maxNumber, countDigits(array[i]));
+    }
+    return maxNumber;
+}
+
+// Logic for radix sort
+// Define a function that accepts list of numbers that is array
+// figure out what is the largest digit count?
+// loop from 0 to largest digit count
+// for each iteration of loop:
+// we will create bucket of 0-9
+// we will place each no in corresponding bucket
+// according to this index of loop
+// replace existing array according to bucket
+// once the iteration is over : return list (array)
+// [1, 121, 1444, 123, 57 , 65 , 757,0];
+
+function radixSort(array) {
+    let maxDigitCount = maxDigits(array);
+    for (let i = 0; i < maxDigitCount; i++) {
+        let digitBucket = Array.from({length: 10}, () => []);
+        for (let j = 0; j < array.length; j++) {
+            let lastDigit = getDigit(array[j], i);
+            digitBucket[lastDigit].push(array[j]);
+        }
+        array = [].concat(...digitBucket);
+    }
+    return array;
+}
+
+const result = radixSort([1, 121, 1444, 123, 57, 65, 757, 0]);
+console.log(result);
+    </code>
+</pre>
 </div>
             
         </div>
