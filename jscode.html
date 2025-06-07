@@ -815,6 +815,47 @@ console.log(window.baz); // ❌ undefined
 <div>
   <pre>
     <code>
+let fName = {
+    name:"john"
+}
+var age;
+function product(a, b) {
+    age = a * b;
+    return a * b;
+}
+console.log(age)  //UD
+let result = product.call(this, 20, 5);
+ 
+ 
+function profile(age1){
+    return {
+        ...fName,age1
+    }
+}
+let age2 = profile.call(this.age)
+console.log(result,age2);
+
+//output
+=>undefined
+=>100 { name: 'john', age1: undefined }
+    </code>
+  </pre>
+
+  <pre>
+    <code>
+let arr = [
+  {name:"a",age:21},{name:"b",age:20},{name:"c",age:30},{name:"d",age:30}
+];
+
+// console.log(arr.find((item)=>item.age < 30))
+// output => { name: 'a', age: 21 }
+
+// console.log(arr.find((item)=>item.age < 10))
+// output => undefind
+    </code>
+  </pre>
+  <pre>
+    <code>
 console.log([] == []);  // false
 console.log({} == {}); // false
 
