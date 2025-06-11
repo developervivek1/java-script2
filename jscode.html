@@ -2353,6 +2353,102 @@ console.log('sorted object is...', sortObj);
   </code>
 </pre>
 
+<pre>
+  <code>
+    🔹 Basic Git & GitHub Questions
+What is the difference between Git and GitHub?
+
+Git is a distributed version control system.
+
+GitHub is a hosting service for Git repositories with collaboration features.
+
+What is the difference between git pull and git fetch?
+
+git fetch: gets changes from the remote but does not merge.
+
+git pull: fetches + merges into your current branch.
+
+How do you revert a commit that has already been pushed to GitHub?
+
+Use git revert <commit-hash> to create a new commit that undoes the changes.
+
+What is a merge conflict, and how do you resolve it?
+
+Occurs when changes in two branches conflict.
+
+Resolve manually in the conflicting files, then add, commit.
+
+What does git stash do?
+
+Temporarily saves changes that are not ready to commit, allowing you to work on something else.
+
+🔹 Intermediate Questions
+Explain branching in Git. How do you create and switch branches?
+
+git branch branch-name creates a branch.
+
+git checkout branch-name switches to it (or use git switch in newer versions).
+
+What is the difference between git merge and git rebase?
+
+merge: joins two branches with a merge commit.
+
+rebase: moves or combines commits to create a linear history.
+
+What are tags in Git, and how do you use them in GitHub releases?
+
+Tags mark specific points (e.g., versions). Use git tag v1.0.0 and git push origin --tags.
+
+What are GitHub Actions? Have you used them?
+
+CI/CD workflows triggered by events in your repo. You can automate tests, deployments, etc.
+
+How do you protect a branch in GitHub?
+
+Use Branch protection rules in GitHub settings to enforce status checks, reviews, etc.
+
+🔹 Advanced GitHub Collaboration Questions
+How do you handle Pull Request reviews in your workflow?
+
+Steps: Create a PR → Assign reviewers → Address comments → Merge after approvals/checks.
+
+What is a Fork in GitHub, and how is it different from a branch?
+
+A fork is a personal copy of someone else’s repo, used for contributing via pull requests.
+
+Describe your GitHub workflow (e.g., Git Flow, trunk-based, etc.)
+
+Could be:
+
+Git Flow (feature, dev, release, hotfix)
+
+GitHub Flow (main + feature branches + PRs)
+
+Trunk-based (short-lived branches, continuous deployment)
+
+How do you handle large binary files in GitHub?
+
+Use Git LFS (Large File Storage) to track binaries without bloating the repo.
+
+What tools or integrations have you used with GitHub?
+
+GitHub Actions, Jenkins, Netlify, Vercel, Codecov, Dependabot, Slack notifications, etc.
+
+Bonus: Questions for UI/UX or Frontend Roles
+How do you collaborate with designers or product managers using GitHub?
+
+Feature branches, tagging, PR descriptions with screenshots or design links.
+
+How do you manage frontend assets and versioning in GitHub?
+
+Semantic versioning via tags, changelogs, bundling tools, and GitHub releases.
+
+Have you ever used GitHub Projects or Issues for project management?
+
+Describe use cases like Kanban boards, issue tracking, milestones, etc.
+  </code>
+</pre>
+
 </div>
 
 </div>
