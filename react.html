@@ -454,6 +454,94 @@ export default Counter;
   </code>
 </pre>
 
+<pre>
+ 
+  <code>
+     
+<h4>Custom Hook (useTest.jsx file)</h4> 
+import React, { useState } from "react";
+
+function useTest() {
+  const [count, setCount] = useState(0);
+
+  const Increment = () => {
+    setCount(count + 1);
+  };
+  const Decrement = () => {
+    setCount(count - 1);
+  };
+
+  return { count, Increment, Decrement };
+}
+export default useTest;
+
+<h4>another file where we use custom hook i.e. useTest</h4>
+
+function Practice2() {
+const { count, Increment, Decrement } = useTest(0);
+  return (
+    <>
+      < h3>{count}< /h3>
+      < button onClick={Increment} > + < /button>
+      < button onClick={Decrement} > + < /button>
+    </>
+  );
+}
+export default Practice2;
+  </code>
+</pre>
+
+<pre>
+  <code>
+    <h4>Debounce search</h4>
+
+
+import React, { useState, useMemo, useCallback, useRef } from "react";
+
+const users = ["Ram", "Syam", "Kiran", "Abhi"];
+
+function Test() {
+  const [count, setCount] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const timerRef = useRef(null);
+
+  // Debounced input handler (runs only after 500ms)
+  const handleInputChange = useCallback((e) => {
+    const value = e.target.value;
+
+    clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      setSearchTerm(value);
+    }, 500);
+  }, []);
+
+  const filterData = useMemo(() => {
+    console.log("Filtering...");
+    return users.filter((user) =>
+      user.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm]);
+
+  return (
+    <>
+      < h4>{count}< /h4>
+      < button on Click={ () => setCount ( (prev) => prev + 1)}>+< /button>
+
+      < div>
+        < input type="text" placeholder="search" onChange={handleInputChange} />
+        {filterData.map((user, ind) => (
+          < p key={ind}>{user} < /p>
+        ))}
+      < /div>
+    </>
+  );
+}
+
+export default Test;
+
+  </code>
+</pre>
 
 
 

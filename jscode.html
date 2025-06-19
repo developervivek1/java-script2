@@ -56,6 +56,28 @@ console.log(sum(5, 3)); // Output: 8
  -->
 <pre>
   <code>
+// Rotate an array k times
+function rotate(arr, k) {
+  k = k % arr.length; // To handle cases where k > arr.length
+  return arr.slice(-k).concat(arr.slice(0, -k)); // Rotate to the right
+}
+
+console.log(rotate([1, 2, 3, 4, 5], 2)); 
+// Output: [4, 5, 1, 2, 3]
+  </code>
+</pre>
+<pre>
+  <code>
+// Factorial of a number
+
+function factorial(n) {
+  if (n === 0) return 1;
+  return n * factorial(n - 1);
+}
+  </code>
+</pre>
+<pre>
+  <code>
 function isPrime(num) {
   if (num <= 1) return false; // 0 and 1 are not prime
   for (let i = 2; i <= Math.sqrt(num); i++) {
