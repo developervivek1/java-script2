@@ -56,6 +56,21 @@ console.log(sum(5, 3)); // Output: 8
  -->
 <pre>
   <code>
+btn.addEventListener("click", () => {
+  function getRandomHexColor() {
+    const hex = Math.floor(Math.random() * 0xffffff).toString(16);
+    return "#" + hex.padStart(6, "0");
+  }
+  const color = getRandomHexColor();
+  console.log(color);
+  body.style.backgroundColor = color;
+  console.log("Background changed to:", color);
+  span.textContent = color;
+});
+  </code>
+</pre>
+<pre>
+  <code>
 // Rotate an array k times
 function rotate(arr, k) {
   k = k % arr.length; // To handle cases where k > arr.length
