@@ -493,45 +493,61 @@ export default Practice2;
 
 <pre>
   <code>
-    <h4>Debounce search</h4>
+    <h4>Debounce + Search + Value + useMemo</h4>
 
-
-import React, { useState, useMemo, useCallback, useRef } from "react";
-
+import React, { useState, useMemo, useEffect } from "react";
 const users = ["Ram", "Syam", "Kiran", "Abhi"];
 
 function Test() {
   const [count, setCount] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+  const [value, setValue] = useState([]);
 
-  const timerRef = useRef(null);
-
-  // Debounced input handler (runs only after 500ms)
-  const handleInputChange = useCallback((e) => {
-    const value = e.target.value;
-
-    clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      setSearchTerm(value);
+  // Debounce searchTerm using useEffect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
     }, 500);
-  }, []);
+
+    return () => clearTimeout(timer); // Cleanup timer on each change
+  }, [searchTerm]);
 
   const filterData = useMemo(() => {
     console.log("Filtering...");
     return users.filter((user) =>
-      user.toLowerCase().includes(searchTerm.toLowerCase())
+      user.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
     );
-  }, [searchTerm]);
+  }, [debouncedSearchTerm]);
+
+  const searchHandler = () => {
+    setValue(filterData); // Save current filtered data
+  };
 
   return (
     <>
       < h4>{count}< /h4>
-      < button on Click={ () => setCount ( (prev) => prev + 1)}>+< /button>
+      < button on Click={ () => setCount((prev) => prev + 1)}>+< /button>
 
       < div>
-        < input type="text" placeholder="search" onChange={handleInputChange} />
+        < input
+          type="text"
+          placeholder="search"
+          value={searchTerm}
+          on Change={(e) => setSearchTerm(e.target.value)}
+        />
+        < button on Click={searchHandler}>Search< /button>
+
+        < h5>Live Filtered Result:< /h5>
         {filterData.map((user, ind) => (
-          < p key={ind}>{user} < /p>
+          < p key={ind}>{user}< /p>
+        ))}
+      < /div>
+
+      < div>
+        < h5>Clicked Search Result (value):< /h5>
+        {value.map((val, ind) => (
+          < p key={ind}>{val}< /p>
         ))}
       < /div>
     </>
@@ -542,14 +558,6 @@ export default Test;
 
   </code>
 </pre>
-
-
-
-
-
-
-
-
 
 </div>
           
