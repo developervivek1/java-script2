@@ -54,6 +54,35 @@ const sum = (a, b) => a + b;
 console.log(sum(5, 3)); // Output: 8
                 </code></pre>
  -->
+
+<pre>
+  <code>
+function myFun(num){
+    let result = 1;
+    for(let i =1; i<= num; i++){
+        result = result * i;
+    }
+    return result;
+}
+
+for(let i =1; i<=20; i++){
+    if(i % 3 === 0){
+        console.log(`${myFun(i)}`)
+    }
+}
+  </code>
+</pre>
+<pre>
+  <code>
+  const arr = [1, 2, 3];
+  Array.prototype.last = function(arr) {
+      return this.length === 0 ? -1 : this[this.length-1];
+  };
+
+  // output will be 3 if empty return -1
+
+  </code>
+</pre>
 <pre>
   <code>
 btn.addEventListener("click", () => {
