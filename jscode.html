@@ -47,13 +47,239 @@
     <!-- Tab panes -->
     <div class="tab-content">
         <div id="menu" class="container-fluid px-0 tab-pane active">
+<pre>
+  <code>
+const a = [1, 2, 4, 5];
+const b = [{1:'a'}, {2:'b'}, {4:'c'}, {5:'d'}, {6:'e'}];
 
-            <!-- <h3 class="mt-5">JS Codes</h3>
-            <pre><code>
-const sum = (a, b) => a + b;
-console.log(sum(5, 3)); // Output: 8
-                </code></pre>
- -->
+// Flatten `b` into a single object
+const map = Object.assign({}, ...b);  //output => { '1': 'a', '2': 'b', '4': 'c', '5': 'd', '6': 'e' }
+
+a.forEach(num => {
+  if (map[num] !== undefined) {
+    console.log(`${num} => ${map[num]}`);
+  }
+});
+
+//output
+1 => a
+2 => b
+4 => c
+5 => d
+  </code>
+</pre>
+<pre>
+  <code>
+// Loop through all properties of an object.    
+const person = {
+  name: 'John',
+  age: 30,
+  city: 'New York'
+};
+for (let key in person) {
+  console.log(key, person[key]);
+}
+
+//output
+name John
+age 30
+city New York
+  </code>
+</pre>
+<pre>
+  <code>
+// Convert an object to an array of key-value pairs.     
+const person = {
+  name: 'John',
+  age: 30,
+  city: 'New York'
+};
+console.log(Object.entries(person));
+
+//output
+[ [ 'name', 'John' ], [ 'age', 30 ], [ 'city', 'New York' ] ]
+  </code>
+</pre>
+
+
+
+
+
+
+
+<pre>
+  <code>
+let arr = [
+  { name: "Mounika", age: 23 },
+  { name: "Sriyank", age: 2 }
+];
+
+let updatedArr = arr.map((item) => {
+  return {
+    fullname: item.name,
+    age: item.age
+  };
+});
+
+console.log(updatedArr);
+
+//output
+[
+  { fullname: "Mounika", age: 23 },
+  { fullname: "Sriyank", age: 2 }
+]
+  </code>
+</pre>
+ 
+<pre>
+  <code>
+    async function asyncFunc() {
+  console.log("Start asyncFunc");
+
+  await new Promise(resolve => {
+    setTimeout(() => {
+      console.log("Timeout inside Promise");
+      resolve();
+    }, 0);
+  });
+
+  console.log("End asyncFunc");
+}
+
+console.log("Before calling asyncFunc");
+
+asyncFunc();
+
+console.log("After calling asyncFunc");
+
+setTimeout(() => {
+  console.log("Timeout outside asyncFunc");
+}, 0);
+
+
+//output
+Before calling asyncFunc
+Start asyncFunc
+After calling asyncFunc
+Timeout inside Promise
+End asyncFunc
+Timeout outside asyncFunc
+  </code>
+</pre>
+
+<pre>
+  <code>
+const person = {
+  name: 'John',
+  age: 30,
+  city: 'New York'
+};
+
+const filterData = Object.fromEntries(
+    Object.entries(person).filter(([key, val])=> 
+    typeof val === 'string')
+);
+
+console.log(filterData);
+
+//output
+{ name: 'John', city: 'New York' }
+  </code>
+</pre>
+
+<pre>
+  <code>
+//Find the key of the highest value in an object.
+
+const scores = { a: 10, b: 20, c: 15 };
+const maxKey = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+console.log(maxKey)
+
+//output 
+// b
+  </code>
+</pre>
+
+<pre>
+  <code>
+// Group array of objects by a property (e.g., city).
+const people = [
+  { name: 'Alice', city: 'NY' },
+  { name: 'Bob', city: 'LA' },
+  { name: 'Charlie', city: 'NY' }
+];
+
+const grouped = people.reduce((acc, person) => {
+  (acc[person.city] = acc[person.city] || []).push(person);
+  return acc;
+}, {});
+console.log(grouped)
+
+//output
+{
+  NY: [ { name: 'Alice', city: 'NY' }, { name: 'Charlie', city: 'NY' } ],
+  LA: [ { name: 'Bob', city: 'LA' } ]
+}
+  </code>
+</pre>
+
+
+<pre>
+  <code>
+// Detect if two objects are shallow equal.
+function shallowEqual(obj1, obj2) {
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  // Check if number of keys is different
+  if (keys1.length !== keys2.length) return false;
+
+  // Check if values for each key are the same
+  for (let key of keys1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+const a = { name: "John", age: 30 };
+const b = { name: "John", age: 30 };
+const c = { name: "John", age: 31 };
+
+console.log(shallowEqual(a, b)); // true
+console.log(shallowEqual(a, c)); // false
+  </code>
+</pre>
+<pre>
+  <code>
+// Create an object from two arrays (keys and values)
+
+const keys = ['name', 'age'];
+const values = ['Alice', 30];
+const result = Object.fromEntries(keys.map((k, i) => [k, values[i]]));
+
+console.log(result)
+
+//output
+{ name: 'Alice', age: 30 }
+  </code>
+</pre>
+<pre>
+  <code>
+// sort the object by name    
+const users = [{name: 'Zoe'}, {name: 'Alice'}, {name: 'John'}];
+const srt=  users.sort((a, b) => a.name.localeCompare(b.name));
+
+console.log(srt);
+//output
+[ { name: 'Alice' }, { name: 'John' }, { name: 'Zoe' } ]
+
+  </code>
+</pre>
+
+
 
 <pre>
   <code>
