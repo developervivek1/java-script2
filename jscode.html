@@ -197,6 +197,16 @@ console.log(maxKey)
 
 //output 
 // b
+
+//OR
+
+const arr = Object.values(scores);
+const maxVal = Math.max(...arr);
+console.log(Object.fromEntries(Object.entries(scores).filter(([key, val])=> maxVal === val )))
+
+//output 
+// { b: 20 }
+
   </code>
 </pre>
 
@@ -289,6 +299,10 @@ const swapKeyValue = (obj) => {
   }
   return swapped;
 };
+
+//OR
+const swapped = Object.fromEntries(Object.entries(original).map(([key, val])=>[Number(val), key]
+))
 
 
 const original = { a: 1, b: 2, c: 3 };
