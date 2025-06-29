@@ -394,6 +394,12 @@ const intersect = (a, b) =>
 );
 
 console.log(intersect(obj1, obj2)); 
+
+//OR
+
+const filter1 = Object.fromEntries(Object.entries(obj1).filter(([key, val])=> obj2[key] === val  ))
+
+
 // Output: { a: 1 }
   </code>
 </pre>
