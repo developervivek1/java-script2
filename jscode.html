@@ -66,6 +66,18 @@ a.forEach(num => {
 2 => b
 4 => c
 5 => d
+
+//OR
+
+const result = b.filter(obj => {
+  const key = Object.keys(obj)[0];
+  return a.includes(Number(key));
+});
+
+console.log(result);
+//Output 
+// [ { '1': 'a' }, { '2': 'b' }, { '4': 'c' }, { '5': 'd' } ]
+
   </code>
 </pre>
 <pre>
