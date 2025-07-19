@@ -284,6 +284,24 @@ const result = Object.fromEntries(keys.map((k, i) => [k, values[i]]));
 
 console.log(result)
 
+//or
+
+✅ 2. Using a for loop:
+const obj = {};
+for (let i = 0; i < keys.length; i++) {
+  obj[keys[i]] = values[i];
+}
+console.log(obj);
+
+✅ 3. Using reduce():
+
+const obj = keys.reduce((acc, key, i) => {
+  acc[key] = values[i];
+  return acc;
+}, {});
+
+console.log(obj);
+
 //output
 { name: 'Alice', age: 30 }
   </code>
