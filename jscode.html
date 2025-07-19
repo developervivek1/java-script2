@@ -384,6 +384,16 @@ function findKeysWithValue(obj, targetValue) {
   return keys;
 }
 
+//OR
+
+function myFun(obj, targetValue){
+  return  Object.keys(data).filter(([key, val])=> obj[key] === targetValue )
+}
+
+console.log(myFun(data, 2));
+
+
+
 const data = {
   a: 1,
   b: 2,
