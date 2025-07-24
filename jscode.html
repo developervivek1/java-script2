@@ -49,6 +49,39 @@
         <div id="menu" class="container-fluid px-0 tab-pane active">
 <pre>
   <code>
+const arr = [3, 30, 34, 5, 9];
+function arrChunk(arr, n){
+  let result = [];
+  for(let i=0; i< arr.length; i= i+n){
+      result.push(arr.slice(i, i+n));
+  }
+  return result;
+}
+console.log(arrChunk(arr, 2));
+
+//output [ [ 3, 30 ], [ 34, 5 ], [ 9 ] ]
+  </code>
+</pre>          
+
+<pre>
+  <code>
+const nums = [3, 30, 34, 5, 9];
+
+function myFunction(nums){
+    
+  const arr = nums.map((num)=> num.toString());
+  const arr2 = arr.sort((a,b)=> (b+a)- (a+b));
+  console.log(arr2)
+  return arr2.join('');
+    
+}
+console.log(myFunction(nums))
+
+//output => 9534330
+  </code>
+</pre>          
+<pre>
+  <code>
 const arr = ["g", "s", 5, 2, "c", "e", 6, 1, "a"];
 
 function customSortFun(arr){
