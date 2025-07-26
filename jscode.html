@@ -45,8 +45,25 @@
     </ul>
   
     <!-- Tab panes -->
-    <div class="tab-content">
-        <div id="menu" class="container-fluid px-0 tab-pane active">
+<div class="tab-content">
+<div id="menu" class="container-fluid px-0 tab-pane active">
+<pre>
+  <code>
+🔹 4️⃣ First Non-Repeating Character in a String  
+🗣️ Solution:
+javascript
+function firstUniqueChar(str) {
+  const count = {};
+  for (let char of str) {
+    count[char] = (count[char] || 0) + 1;
+  }
+  for (let char of str) {
+    if (count[char] === 1) return char;
+  }
+  return null;
+}
+  </code>
+</pre>  
 <pre>
   <code>
 const arr = [3, 30, 34, 5, 9];
@@ -3126,7 +3143,24 @@ console.log(person);
   </code>
 </pre>
 
-
+<h5 class="mt-3">Accessibility</h5>
+<pre>
+  <code>
+1.why do we use axe tools
+2.what is angular material
+3.i have a button in disabled state, how will i inform it to the screen reader,will the focus goes to disable button? if not how will i inform it to screenreader
+4.how do we add info, what aria tagwe will use?
+5.what is aria-label where to use it?
+6.i have a input field ,i enter wrong input value so i get an arror what tag should i use to display error? 
+7.followup ques => i move to next input and comes back to previous input field where error is thrown already. will the screen reader reads alert again? or how can i make it to read the alert?
+8.what is aria-live and why do we need that?
+9.what is focus management explain
+10.i have a table to 10 columns. i have edit/delete button in each row.i click on edit button and a modal dialog opens,how focus is managed inside the dialogue.
+11.followup ques=> once i close the dialog box where does the focus goes? according to focus management rule whare the focus should move next?
+12.mate datepicker => i open a datepicker and press home button in keyboard. where does the focus goes? is it a bug ?how can i control the focus to the element i want to focus?
+13. i have 2 screen . on the frst screen i click next page and goes to the second page. how the focus is managed, when i click the back button.
+  </code>
+</pre>
 </div>
 
 </div>
