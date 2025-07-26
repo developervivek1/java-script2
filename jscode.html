@@ -1509,6 +1509,113 @@ console.log(window.baz); // ❌ undefined
 <!-- js questions -->
 <div id="menu1" class="container-flui py-0 tab-pane">
 <div>
+<pre>
+  <code>
+JavaScript String Methods you should know:
+
+const numbers = [1, 2, 3, 4];
+
+const hasEven = numbers.some(num => num % 2 === 0);
+console.log(hasEven); // true (because 2 and 4 are even);
+
+const numbers = [2, 4, 6];
+
+const allEven = numbers.every(num => num % 2 === 0);
+console.log(allEven); // true (all numbers are even)
+
+//
+
+1. length
+Returns the length of the string.
+
+let str = "hello";
+str.length; // 5
+
+2. charAt(index)
+Returns the character at the specified index.
+
+let str = "hello";
+str.charAt(1); // "e"
+
+3. includes(substring)
+Checks if the string contains the specified substring. Returns true or false.
+
+let str = "hello world";
+str.includes("world"); // true
+
+4. indexOf(substring)
+Returns the index of the first occurrence of the substring, or -1 if not found.
+
+let str = "hello world";
+str.indexOf("o"); // 4
+
+5. lastIndexOf(substring)
+Returns the index of the last occurrence of the substring, or -1 if not found.
+
+let str = "hello world";
+str.lastIndexOf("o"); // 7
+
+6. slice(start, end)
+Extracts a section of the string and returns it as a new string.
+
+let str = "hello world";
+str.slice(0, 5); // "hello"
+
+7. substring(start, end)
+Similar to slice, but doesn’t accept negative indices.
+
+let str = "hello world";
+str.substring(0, 5); // "hello"
+
+8. toUpperCase()
+Converts the string to uppercase.
+
+let str = "hello";
+str.toUpperCase(); // "HELLO"
+
+9. toLowerCase()
+Converts the string to lowercase.
+
+let str = "HELLO";
+str.toLowerCase(); // "hello"
+
+10. trim()
+Removes whitespace from both ends of a string.
+
+let str = "  hello  ";
+str.trim(); // "hello"
+
+11. split(separator)
+Splits the string into an array of substrings using the separator.
+
+let str = "a,b,c";
+str.split(","); // ["a", "b", "c"]
+
+12. replace(searchValue, newValue)
+Replaces the first match of searchValue with newValue.
+
+let str = "hello world";
+str.replace("world", "there"); // "hello there"
+
+13. startsWith(substring)
+Checks if the string starts with the specified substring.
+
+let str = "hello world";
+str.startsWith("hello"); // true
+
+14. endsWith(substring)
+Checks if the string ends with the specified substring.
+
+let str = "hello world";
+str.endsWith("world"); // true
+
+15. repeat(count)
+Repeats the string count times.
+
+let str = "ha";
+str.repeat(3); // "hahaha"
+  </code>
+</pre>  
 
   <pre>
     <code>
