@@ -48,6 +48,65 @@
 <div class="tab-content">
 <div id="menu" class="container-fluid px-0 tab-pane active">
 <pre>
+    <code>
+let obj = [
+    {name:"abc", age:27},
+    {name:"pqr", age:28},
+    {name:"abc", age:29},
+    {name:"abc", age:27}, 
+    {name:"Ankit", age:37}
+]
+
+function myFun(arr) {
+    let uniq = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (!uniq.some(obj => obj.name === arr[i].name)) {
+            uniq.push(arr[i]);
+        }
+    }
+    return uniq;
+}
+console.log(myFun(obj));
+    </code>
+</pre>
+<pre>
+  <code>
+var input = [
+{brand:"apple", model:"iphone12", price:70000},
+{brand:"apple", model:"iphone11", price:50000},
+{brand:"motorola", model:"g4", price:15000},
+{brand:"samsung", model:"gx", price:18000},
+{brand:"samsung", model:"gx2", price:25000}
+       ]
+
+const result = input.reduce((acc, curr) => {
+    if (!acc[curr.brand] || curr.price < acc[curr.brand]) {
+        acc[curr.brand] = curr.price;
+    }
+    return acc;
+}, {});
+
+console.log(result);
+// Output: { apple: 50000, motorola: 15000, samsung: 18000 }
+
+//OR
+
+const grouped = input.reduce((acc, curr) => {
+    acc[curr.brand] = acc[curr.brand] || [];
+    acc[curr.brand].push(curr.price);
+    return acc;
+}, {});
+
+const result = {};
+for (let brand in grouped) {
+    result[brand] = Math.min(...grouped[brand]);
+}
+
+console.log(result);
+// Output: { apple: 50000, motorola: 15000, samsung: 18000 }
+  </code>
+</pre>  
+<pre>
   <code>
 🔹 4️⃣ First Non-Repeating Character in a String  
 🗣️ Solution:
