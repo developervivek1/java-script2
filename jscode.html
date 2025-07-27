@@ -47,6 +47,43 @@
     <!-- Tab panes -->
 <div class="tab-content">
 <div id="menu" class="container-fluid px-0 tab-pane active">
+  <pre>
+    <code>
+// => Basic Custom Memoize Implementation:
+function memoize(fn) {
+    const cache = {};
+
+    return function(...args) {
+        const key = JSON.stringify(args); // serialize arguments as key
+
+        if (cache[key] !== undefined) {
+            console.log("Returning from cache for", key);
+            return cache[key];
+        }
+
+        const result = fn.apply(this, args);
+        cache[key] = result;
+        return result;
+    };
+}
+
+
+// A slow function (e.g., factorial)
+function slowFactorial(n) {
+    console.log("Calculating factorial for", n);
+    if (n === 0 || n === 1) return 1;
+    return n * slowFactorial(n - 1);
+}
+
+// Memoized version
+const memoizedFactorial = memoize(slowFactorial);
+
+console.log(memoizedFactorial(5)); // Calculates
+console.log(memoizedFactorial(5)); // From cache
+console.log(memoizedFactorial(6)); // Calculates partially
+
+    </code>
+  </pre>
 <pre>
     <code>
 let obj = [
