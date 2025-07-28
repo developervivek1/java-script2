@@ -49,6 +49,61 @@
 <div id="menu" class="container-fluid px-0 tab-pane active">
   <pre>
     <code>
+      const memoize = (fn) =>{
+        cache = {};
+
+        return (...args) =>{
+          const argsToString = JSON.stringify(args); // '[3]'
+          if (argsToString in cache){
+            return cache[argsToString];
+          }else{
+            const result = fn(...args);
+            cache[argsToString] = result;
+            return result;
+          }
+
+        };
+      };
+
+      const expensiveFunc = (n) =>{
+        let sum;
+        for(let i =0; i< 100000000 ; i++){
+          sum = n+1;
+        }
+        return sum;
+      };
+
+      //console.log(expensiveFunc(3));
+      const memoizedExpensiveFunc = memoize(expensiveFunc);
+
+      console.time("first call");
+      console.log(memoizedExpensiveFunc(3));
+      console.timeEnd('first call');
+
+      //output
+      10000002
+      first call;
+      140.535153453 ms;
+
+
+      console.time("fsecond call");
+      console.log(memoizedExpensiveFunc(3));
+      console.timeEnd('second call');
+
+      //output
+      10000002
+      second call
+      0.0432128965487 ms
+
+
+
+
+
+
+    </code>
+  </pre>
+  <pre>
+    <code>
 // => Basic Custom Memoize Implementation:
 function memoize(fn) {
     const cache = {};
